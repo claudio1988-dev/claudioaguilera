@@ -15,7 +15,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="flex items-center">
                             <Link href="/" className="flex items-center">
                                 <img
-                                    src="/storage/logoclaudioaguilera.png"
+                                    src="/logoclaudioaguilera.png"
                                     alt="Claudio Aguilera Logo"
                                     className="h-8 w-auto bg-gray-800 dark:bg-gray-900 rounded p-1"
                                 />
