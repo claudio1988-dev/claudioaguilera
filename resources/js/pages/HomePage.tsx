@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
-// Add custom CSS for Saturn-like orbiting animation
+// Add custom CSS for Saturn-like orbiting animation and space effects
 const orbitStyles = `
 @keyframes orbit-a {
   from { transform: translate(-50%, -50%) rotate(0deg) translateX(120px) rotate(0deg); }
@@ -56,6 +56,58 @@ const orbitStyles = `
 
 .orbiting {
   pointer-events: auto;
+}
+
+/* Space background effects */
+.stars-small {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #eee, transparent),
+    radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.stars-medium {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(3px 3px at 60px 20px, #fff, transparent),
+    radial-gradient(2px 2px at 100px 60px, #eee, transparent),
+    radial-gradient(3px 3px at 180px 90px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 300px 150px;
+  animation: twinkle 6s ease-in-out infinite alternate-reverse;
+}
+
+.stars-large {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(4px 4px at 80px 50px, #fff, transparent),
+    radial-gradient(3px 3px at 150px 25px, #eee, transparent);
+  background-repeat: repeat;
+  background-size: 400px 200px;
+  animation: twinkle 8s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
 }
 `;
 
@@ -157,8 +209,23 @@ export default function HomePage() {
             </a>
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>
+            <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white">
+                {/* Space background effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/30 via-purple-900/20 to-slate-900/40"></div>
+
+                {/* Stars effect */}
+                <div className="absolute inset-0">
+                    <div className="stars-small"></div>
+                    <div className="stars-medium"></div>
+                    <div className="stars-large"></div>
+                </div>
+
+                {/* Nebula effect */}
+                <div className="absolute inset-0 opacity-30">
+                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl animate-pulse delay-500"></div>
+                </div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-8">
