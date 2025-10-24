@@ -195,7 +195,7 @@ export default function HomePage() {
                         <div className="relative" ref={containerRef} onDragOver={handleDragOver} onDrop={handleDrop}>
                             <div className="w-96 h-96 mx-auto bg-gradient-to-br from-white/20 to-white/5 rounded-full flex items-center justify-center backdrop-blur-sm">
                                 <img
-                                    src="/storage/claudioaguilera.jpg"
+                                    src="/claudioaguilera.jpg"
                                     alt="Claudio Aguilera - Desarrollador Full Stack"
                                     className="w-72 h-72 object-cover rounded-full border-4 border-white/20 shadow-2xl"
                                 />
@@ -233,7 +233,7 @@ export default function HomePage() {
                                             <div className={`w-full h-full bg-gradient-to-br from-${sphere.color}-400 to-${sphere.color}-600 rounded-full flex items-center justify-center shadow-inner overflow-hidden`}>
                                                 {sphere.logo.includes('.webp') || sphere.logo.includes('.png') || sphere.logo.includes('.jpg') ? (
                                                     <img
-                                                        src={sphere.logo}
+                                                        src={sphere.logo.replace('/storage/', '/')}
                                                         alt={`${sphere.id} logo`}
                                                         className="w-12 h-12 object-contain select-none"
                                                         draggable={false}

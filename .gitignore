@@ -4,6 +4,10 @@
 /public/build
 /public/hot
 /public/storage
+!/public/claudioaguilera.jpg
+!/public/logoclaudioaguilera.png
+!/public/logoclaudioaguileravertical.png
+!/public/tecnologias
 /resources/js/actions
 /resources/js/routes
 /resources/js/wayfinder
