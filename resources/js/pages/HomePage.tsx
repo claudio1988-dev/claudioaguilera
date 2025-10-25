@@ -3,8 +3,15 @@ import { Link } from '@inertiajs/react';
 import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-// Add custom CSS for Saturn-like orbiting animation and space effects
+// Add custom CSS for Saturn-like orbiting animation and space effects with new color palette
 const orbitStyles = `
+:root {
+  --celtic-blue: #0065E1;
+  --bleu-de-france: #0085EE;
+  --vivid-sky-blue: #01D0FF;
+  --white: #FEFEFF;
+  --black: #000100;
+}
 @keyframes orbit-a {
   from { transform: translate(-50%, -50%) rotate(0deg) translateX(160px) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg) translateX(160px) rotate(-360deg); }
@@ -51,19 +58,18 @@ const orbitStyles = `
 }
 
 .draggable {
-  cursor: grab;
   user-select: none;
 }
 
 .draggable:active {
-  cursor: grabbing;
+  /* cursor removed */
 }
 
 .orbiting {
   pointer-events: auto;
 }
 
-/* Space background effects */
+/* Space background effects with new colors */
 .stars-small {
   position: absolute;
   top: 0;
@@ -71,11 +77,11 @@ const orbitStyles = `
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-    radial-gradient(1px 1px at 90px 40px, #eee, transparent),
-    radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    radial-gradient(2px 2px at 20px 30px, var(--vivid-sky-blue), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--white), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--bleu-de-france), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--white), transparent),
+    radial-gradient(2px 2px at 160px 30px, var(--celtic-blue), transparent);
   background-repeat: repeat;
   background-size: 200px 100px;
   animation: twinkle 4s ease-in-out infinite alternate;
@@ -88,9 +94,9 @@ const orbitStyles = `
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(3px 3px at 60px 20px, #fff, transparent),
-    radial-gradient(2px 2px at 100px 60px, #eee, transparent),
-    radial-gradient(3px 3px at 180px 90px, #ddd, transparent);
+    radial-gradient(3px 3px at 60px 20px, var(--white), transparent),
+    radial-gradient(2px 2px at 100px 60px, var(--vivid-sky-blue), transparent),
+    radial-gradient(3px 3px at 180px 90px, var(--bleu-de-france), transparent);
   background-repeat: repeat;
   background-size: 300px 150px;
   animation: twinkle 6s ease-in-out infinite alternate-reverse;
@@ -103,16 +109,16 @@ const orbitStyles = `
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(4px 4px at 80px 50px, #fff, transparent),
-    radial-gradient(3px 3px at 150px 25px, #eee, transparent);
+    radial-gradient(4px 4px at 80px 50px, var(--white), transparent),
+    radial-gradient(3px 3px at 150px 25px, var(--vivid-sky-blue), transparent);
   background-repeat: repeat;
   background-size: 400px 200px;
   animation: twinkle 8s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
-  0% { opacity: 0.3; }
-  100% { opacity: 0.8; }
+  0% { opacity: 0.9; }
+  100% { opacity: 1; }
 }
 
 @keyframes fade-in {
@@ -165,15 +171,15 @@ const orbitStyles = `
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--vivid-sky-blue);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .tooltip {
   position: absolute;
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
+  background: var(--black);
+  color: var(--white);
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 12px;
@@ -191,7 +197,7 @@ const orbitStyles = `
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.9);
+  border-top-color: var(--black);
 }
 
 .ripple-effect {
@@ -207,7 +213,7 @@ const orbitStyles = `
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--vivid-sky-blue);
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
 }
@@ -471,186 +477,6 @@ export default function HomePage() {
 
     return (
         <MainLayout>
-            {/* Hero Section - Main Section */}
-            <section id="hero" ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white min-h-screen flex items-center">
-                {/* Aurora effect on edges */}
-                <div className="aurora-effect"></div>
-
-                {/* Space background effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/30 via-purple-900/20 to-slate-900/40"></div>
-
-                {/* Stars effect */}
-                <div className="absolute inset-0">
-                    <div className="stars-small"></div>
-                    <div className="stars-medium"></div>
-                    <div className="stars-large"></div>
-                </div>
-
-                {/* Nebula effect */}
-                <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/8 rounded-full blur-2xl"></div>
-                </div>
-
-                {/* Particle system */}
-                <div className="absolute inset-0 pointer-events-none">
-                    {particles.map(particle => (
-                        <div
-                            key={particle.id}
-                            className="particle"
-                            style={{
-                                left: particle.x,
-                                top: particle.y,
-                            }}
-                        />
-                    ))}
-                </div>
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-8">
-                            <div>
-                                <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight text-white">
-                                    {typewriterText}<span className="animate-pulse">|</span>
-                                </h1>
-                                <h2 className="text-xl md:text-2xl font-light mb-6 text-slate-300 opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
-                                    Desarrollo Full-Stack para PyMEs
-                                </h2>
-                                <p className={`text-lg md:text-xl text-slate-400 leading-relaxed transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ minHeight: '1.5em', display: 'block' }}>
-                                    {taglines[taglineIndex]}
-                                </p>
-                            </div>
-
-                            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                                <Link
-                                    href="#servicios"
-                                    className="ripple-effect inline-flex items-center justify-center px-8 py-4 bg-indigo-600 text-white font-semibold rounded-2xl hover:bg-indigo-700 transition-all duration-300 group shadow-xl/20 hover:shadow-2xl hover:scale-105"
-                                >
-                                    Ver Servicios
-                                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                                <Link
-                                    href="#contacto"
-                                    className="ripple-effect inline-flex items-center justify-center px-8 py-4 border-2 border-slate-600 text-slate-300 font-semibold rounded-2xl hover:bg-slate-700 hover:text-white transition-all duration-300 shadow-xl/20 hover:shadow-2xl hover:scale-105"
-                                >
-                                    Solicitar presupuesto
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div className="relative" ref={containerRef} onDragOver={handleDragOver} onDrop={handleDrop}>
-                            <div className={`w-96 h-96 mx-auto bg-gradient-to-br from-white/20 to-white/5 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
-                                <img
-                                    src="/claudioaguilera.jpg"
-                                    alt="Claudio Aguilera - Desarrollador Full Stack"
-                                    className="w-72 h-72 object-cover rounded-full border-4 border-white/20 shadow-2xl logo-entrance"
-                                    style={{ animation: 'logo-entrance 1.5s ease-out 1s forwards' }}
-                                />
-                            </div>
-
-                            {/* Interactive orbiting technology spheres */}
-                            <div className={`absolute inset-0 transition-opacity duration-1000 ${spheresVisible ? 'opacity-100' : 'opacity-0'}`}>
-                                {[
-                                    { id: 'react', logo: '/tecnologias/react.webp', color: 'slate', animation: 'orbit-a 25s linear infinite', delay: 0 },
-                                    { id: 'laravel', logo: '/tecnologias/Laravel_logo-700x508.webp', color: 'slate', animation: 'orbit-b 28s linear infinite', delay: 0.2 },
-                                    { id: 'typescript', logo: '/tecnologias/typescript.webp', color: 'slate', animation: 'orbit-c 32s linear infinite', delay: 0.4 },
-                                    { id: 'nodejs', logo: '/tecnologias/node.webp', color: 'white', animation: 'orbit-d 26s linear infinite', delay: 0.6 },
-                                    { id: 'postgres', logo: '/tecnologias/postgresql.webp', color: 'slate', animation: 'orbit-e 30s linear infinite', delay: 0.8 },
-                                    { id: 'php', logo: '/tecnologias/php.webp', color: 'slate', animation: 'orbit-f 35s linear infinite', delay: 1.0 },
-                                    { id: 'python', logo: '/tecnologias/python.webp', color: 'slate', animation: 'orbit-g 38s linear infinite', delay: 1.2 },
-                                    { id: 'digitalocean', logo: '/tecnologias/digitalocean.webp', color: 'slate', animation: 'orbit-h 22s linear infinite', delay: 1.4 }
-                                ].map((sphere) => {
-                                    const position = spherePositions[sphere.id];
-                                    const isDragged = draggedSphere === sphere.id;
-
-                                    return (
-                                        <div key={sphere.id}>
-                                            <div>
-                                                {/* Trail effect */}
-                                                <div
-                                                    className={`absolute w-16 h-16 bg-${sphere.color}-500 rounded-full opacity-30 shadow-lg`}
-                                                    style={{
-                                                        top: '50%',
-                                                        left: '50%',
-                                                        marginTop: '-32px',
-                                                        marginLeft: '-32px',
-                                                        ...(position && { transform: `translate(${position.x}px, ${position.y}px)` }),
-                                                        animation: position ? 'none' : `${sphere.animation}, trail 2s ease-out infinite`,
-                                                        transformOrigin: '50% 50%',
-                                                        animationDelay: spheresVisible ? `${sphere.delay}s, ${sphere.delay + 0.5}s` : '0s, 0s'
-                                                    }}
-                                                />
-
-                                                <div
-                                                    draggable
-                                                    onDragStart={(e) => handleDragStart(e, sphere.id)}
-                                                    onDragEnd={handleDragEnd}
-                                                    onMouseEnter={() => setShowTooltip(sphere.id)}
-                                                    onMouseLeave={() => setShowTooltip(null)}
-                                                    className={`absolute w-16 h-16 bg-${sphere.color}-500 rounded-full opacity-80 shadow-lg draggable orbiting hover:scale-110 transition-transform duration-300 ${isDragged ? 'scale-110 z-10' : ''}`}
-                                                    style={{
-                                                        top: '50%',
-                                                        left: '50%',
-                                                        marginTop: '-32px',
-                                                        marginLeft: '-32px',
-                                                        ...(position && { transform: `translate(${position.x}px, ${position.y}px)` }),
-                                                        animation: position ? 'none' : sphere.animation,
-                                                        transformOrigin: '50% 50%',
-                                                        animationDelay: spheresVisible ? `${sphere.delay}s` : '0s'
-                                                    }}
-                                                >
-                                                    <div className={`w-full h-full bg-gradient-to-br from-${sphere.color}-400 to-${sphere.color}-600 rounded-full flex items-center justify-center shadow-inner overflow-hidden hover:shadow-2xl transition-shadow duration-300`}>
-                                                        {sphere.logo.includes('.webp') || sphere.logo.includes('.png') || sphere.logo.includes('.jpg') ? (
-                                                            <img
-                                                                src={sphere.logo}
-                                                                alt={`${sphere.id} logo`}
-                                                                className="w-12 h-12 object-contain select-none"
-                                                                draggable={false}
-                                                            />
-                                                        ) : (
-                                                            <span className="text-white text-2xl select-none">{sphere.logo}</span>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            {/* Tooltip */}
-                                            {showTooltip === sphere.id && (
-                                                <div
-                                                    className="tooltip"
-                                                    style={{
-                                                        left: position ? `${position.x + 32}px` : '50%',
-                                                        top: position ? `${position.y + 32}px` : '50%',
-                                                        transform: position ? 'translate(-50%, -100%)' : 'translate(-50%, -100%)'
-                                                    }}
-                                                >
-                                                    {sphere.id.charAt(0).toUpperCase() + sphere.id.slice(1)}
-                                                </div>
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Decorative elements */}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Parallax wave decoration */}
-                <div className="absolute bottom-0 left-0 right-0 transform translate-y-1">
-                    <svg viewBox="0 0 1440 120" className="w-full h-16 fill-slate-50 dark:fill-slate-900">
-                        <path d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,69.3L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
-                    </svg>
-                </div>
-
-                {/* Scroll indicator */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                    <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                        <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-                    </div>
-                </div>
-            </section>
 
             {/* WhatsApp Floating Button */}
             <a
@@ -904,19 +730,19 @@ export default function HomePage() {
 
 
             {/* CTA Final Section */}
-            <section className="py-20 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 text-white">
+            <section className="py-20 bg-gradient-to-r from-[#0065E1] via-[#0085EE] to-[#01D0FF] text-[#000100]">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6">
                         ¿Listo para digitalizar tu empresa?
                     </h2>
-                    <p className="text-xl text-indigo-100 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    <p className="text-lg text-[#FEFEFF] leading-relaxed mb-8 max-w-2xl mx-auto">
                         Transforma tu negocio con soluciones tecnológicas a medida.
                         Desde LunaSuite hasta sistemas personalizados, te ayudo a crecer.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="#contacto"
-                            className="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-2xl hover:bg-slate-50 transition-colors group shadow-xl/20"
+                            className="inline-flex items-center justify-center px-8 py-4 bg-[#000100] text-[#01D0FF] font-semibold rounded-2xl hover:bg-[#FEFEFF] hover:text-[#000100] transition-colors group shadow-xl/20"
                         >
                             Solicitar presupuesto
                             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -925,7 +751,7 @@ export default function HomePage() {
                             href="https://wa.me/56912345678?text=Hola%20Claudio,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-2xl hover:bg-white hover:text-indigo-600 transition-colors shadow-xl/20"
+                            className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#000100] text-[#000100] font-semibold rounded-2xl hover:bg-[#000100] hover:text-[#01D0FF] transition-colors shadow-xl/20"
                         >
                             WhatsApp
                         </a>
