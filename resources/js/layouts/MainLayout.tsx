@@ -7,7 +7,6 @@ interface MainLayoutProps {
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
-    const [darkMode, setDarkMode] = useState(false);
     const [quizStep, setQuizStep] = useState(0);
     const [quizAnswers, setQuizAnswers] = useState({ industry: '', goal: '', urgency: '' });
     const [showRecommendation, setShowRecommendation] = useState(false);
@@ -26,6 +25,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
     const [showLiveStats, setShowLiveStats] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [countUpValues, setCountUpValues] = useState({ sales: 0, time: 0, satisfaction: 0 });
+    const [darkMode, setDarkMode] = useState(false);
+    const [showImageModal, setShowImageModal] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLElement>(null);
 
@@ -323,7 +324,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 </div>
                 {/* Mobile menu - collapsible */}
                 <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="px-4 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md border-t border-[#01D0FF]/10">
+                    <div className="px-4 pt-2 pb-3 space-y-1 bg-gray-900/95 backdrop-blur-md border-t border-[#01D0FF]/10">
                         <a
                             href="#hero"
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -366,7 +367,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             {/* Main Content */}
             <main className="flex-1 pt-16">
                 {/* Hero Section - Space Module */}
-                <section id="hero" ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-[#000100] via-[#0065E1] to-[#0085EE] text-white min-h-[70vh] flex items-center justify-center">
+                <section id="hero" ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-[#000100] via-[#0065E1] to-[#0085EE] text-white min-h-[80vh] flex items-center justify-center">
                     {/* Aurora effect on edges */}
                     <div className="aurora-effect"></div>
     
@@ -404,16 +405,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
                         {/* Top Stats Row */}
                         <div className="flex justify-center items-start mb-8">
-                            {/* Welcome Message */}
-                            <div className={`transition-all duration-500 transform ${showProgressBars ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
-                                <div className="bg-gradient-to-r from-[#fca311] to-[#e76f51] text-white px-4 py-2 rounded-full shadow-lg">
-                                    <div className="flex items-center space-x-2">
-                                        <div className="text-sm">✨</div>
-                                        <span className="text-sm font-medium">¡Bienvenido! Transformemos tu negocio juntos</span>
-                                        <div className="text-sm">🚀</div>
-                                    </div>
-                                </div>
-                            </div>
+                            {/* Welcome Message - REMOVED */}
                         </div>
 
                         {/* Main Content Grid */}
@@ -605,6 +597,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                 {/* Sobre mí Section - After Hero Section */}
                 <section id="sobre-mi" className="py-20 bg-gradient-to-br from-[#000100] via-[#001122] to-[#000100] relative overflow-hidden">
+                    {/* Background pattern for cards */}
+                    <div className="absolute inset-0 opacity-5">
+                        <div className="absolute inset-0" style={{
+                            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(1, 208, 255, 0.3) 1px, transparent 0)`,
+                            backgroundSize: '50px 50px'
+                        }}></div>
+                    </div>
                     {/* Dynamic background effects */}
                     <div className="absolute inset-0">
                         {/* Animated grid pattern */}
@@ -626,17 +625,70 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     </div>
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                        <div className="text-center mb-16">
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-full mb-6 shadow-lg animate-pulse">
-                                <span className="text-2xl">👨‍💻</span>
+                        <div className="mb-16">
+                            <div className="grid lg:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                        Sobre mí
+                                    </h2>
+                                    <p className="text-lg text-[#E0F2FE] leading-relaxed">
+                                        Desarrollador especializado en soluciones tecnológicas para PyMEs.
+                                        Entiendo los desafíos únicos de las pequeñas y medianas empresas.
+                                    </p>
+                                </div>
+                                <div className="flex justify-center lg:justify-end">
+                                    <div
+                                        className="w-64 h-48 bg-cover bg-center bg-no-repeat opacity-60 hover:opacity-80 transition-opacity duration-500 rounded-lg shadow-lg cursor-pointer"
+                                        style={{
+                                            backgroundImage: 'url(/tecnologias/personas/claudio.jpg)',
+                                            filter: 'grayscale(20%) contrast(1.1)'
+                                        }}
+                                        onClick={() => setShowImageModal(true)}
+                                    ></div>
+                                </div>
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                                Sobre mí
-                            </h2>
-                            <p className="text-lg text-[#E0F2FE] max-w-3xl mx-auto leading-relaxed">
-                                Desarrollador especializado en soluciones tecnológicas para PyMEs.
-                                Entiendo los desafíos únicos de las pequeñas y medianas empresas.
-                            </p>
+
+                            {/* Image Modal */}
+                            {showImageModal && (
+                                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setShowImageModal(false)}>
+                                    <div className="relative max-w-lg w-full max-h-[95vh] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col" onClick={(e) => e.stopPropagation()}>
+                                        {/* Close button */}
+                                        <button
+                                            onClick={() => setShowImageModal(false)}
+                                            className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors bg-black/50 rounded-full p-2"
+                                        >
+                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+
+                                        {/* Image */}
+                                        <div className="relative h-80 md:h-96 bg-cover bg-center bg-no-repeat flex-shrink-0 overflow-hidden">
+                                            <img
+                                                src="/tecnologias/personas/claudio.jpg"
+                                                alt="Claudio Aguilera - Viaje a Machu Picchu"
+                                                className="w-full h-full object-cover object-center"
+                                                style={{
+                                                    filter: 'grayscale(10%) contrast(1.05)'
+                                                }}
+                                            />
+                                        </div>
+
+                                        {/* Text content - Scrollable */}
+                                        <div className="p-8 overflow-y-auto flex-1">
+                                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                                Mi viaje inspirador a Machu Picchu
+                                            </h3>
+                                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-justify">
+                                                En 2018, emprendí un viaje transformador a Machu Picchu que cambió mi perspectiva sobre la vida y el trabajo.
+                                                Caminando por las antiguas ruinas incas, rodeado de la majestuosidad de los Andes, comprendí que esa maravilla
+                                                influyó en mi ganas de construir algo que genere valor.
+                                            </p>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         <div className="grid lg:grid-cols-3 gap-8 items-start">
@@ -647,17 +699,18 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <div className="w-10 h-10 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-lg flex items-center justify-center mr-3 shadow-lg group-hover:scale-110 transition-transform">
                                             <span className="text-white text-lg">🚀</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white">
+                                        <h3 className="text-xl font-bold text-gray-900">
                                             Mi experiencia
                                         </h3>
                                     </div>
-                                    <p className="text-[#E0F2FE] text-sm leading-relaxed mb-4">
+                                    <p className="text-gray-700 text-sm leading-relaxed mb-4">
                                         Con más de 10 años desarrollando soluciones tecnológicas, me especializo en entender
-                                        las necesidades reales de las PyMEs.
+                                        las necesidades reales de las PyMEs. Mi trayectoria profesional incluye haber trabajado en Mzzo.com,
+                                        la Vicerrectoría de Ciencias de la Información de la Universidad de Chile, KameERP y Safira Energia (Brasil).
                                     </p>
                                     <div className="bg-gradient-to-br from-[#01D0FF]/10 to-[#0085EE]/10 rounded-lg p-3 border border-[#01D0FF]/20">
-                                        <div className="text-2xl font-bold text-[#01D0FF] mb-1">50+</div>
-                                        <div className="text-xs text-[#E0F2FE] font-medium">Proyectos completados</div>
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
+                                        <div className="text-xs text-gray-900 font-medium">Años de experiencia</div>
                                     </div>
                                 </div>
 
@@ -666,11 +719,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <div className="w-10 h-10 bg-gradient-to-r from-[#0065E1] to-[#01D0FF] rounded-lg flex items-center justify-center mr-3 shadow-lg group-hover:scale-110 transition-transform">
                                             <span className="text-white text-lg">🎯</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white">
+                                        <h3 className="text-xl font-bold text-gray-900">
                                             Mi enfoque
                                         </h3>
                                     </div>
-                                    <p className="text-[#E0F2FE] text-sm leading-relaxed mb-4">
+                                    <p className="text-gray-700 text-sm leading-relaxed mb-4">
                                         Desarrollo soluciones que se adaptan a tu presupuesto,
                                         escalan con tu crecimiento y resuelven problemas concretos.
                                     </p>
@@ -690,22 +743,18 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             Mi filosofía
                                         </h3>
                                     </div>
-                                    <p className="text-[#E0F2FE] text-sm leading-relaxed mb-4">
+                                    <p className="text-white text-sm leading-relaxed mb-4">
                                         Creo en el poder de la tecnología para transformar negocios. Cada proyecto es una oportunidad
                                         para crear soluciones que no solo funcionen, sino que impulsen el crecimiento sostenible.
                                     </p>
-                                    <div className="flex items-center text-xs text-[#E0F2FE]/80">
+                                    <div className="flex items-center text-xs text-white/80">
                                         <div className="w-1.5 h-1.5 bg-[#01D0FF] rounded-full mr-2"></div>
-                                        Resultados medibles y ROI claro
-                                    </div>
-                                    <div className="flex items-center text-xs text-[#E0F2FE]/80">
-                                        <div className="w-1.5 h-1.5 bg-white rounded-full mr-2"></div>
                                         Resultados medibles y ROI claro
                                     </div>
                                 </div>
 
                                 <div className="bg-white rounded-2xl p-6 shadow-xl border border-[#01D0FF]/10">
-                                    <h4 className="text-lg font-bold text-white mb-4 flex items-center">
+                                    <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
                                         <span className="text-xl mr-2">🎯</span>
                                         Valores que me guían
                                     </h4>
@@ -718,7 +767,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         ].map((value, index) => (
                                             <div key={index} className="flex items-center text-sm">
                                                 <span className="mr-3 text-lg">{value.icon}</span>
-                                                <span className="text-[#E0F2FE]">{value.text}</span>
+                                                <span className="text-gray-700">{value.text}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -790,9 +839,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         {/* Testimonios */}
                         <div className="mt-16">
                             <div className="text-center mb-12">
-                                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-full mb-4 shadow-lg">
-                                    <span className="text-2xl">💬</span>
-                                </div>
                                 <h3 className="text-2xl font-bold text-white mb-4">
                                     Lo que dicen mis clientes
                                 </h3>
@@ -835,16 +881,16 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                                     <div className="relative">
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -top-2 -left-2 opacity-20">"</div>
-                                        <p className="text-[#374151] italic leading-relaxed pl-4">
+                                        <p className="text-[#E0F2FE] italic leading-relaxed pl-4">
                                             "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional y eficiente."
                                         </p>
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -bottom-4 right-0 opacity-20">"</div>
                                     </div>
 
                                     <div className="mt-4 flex items-center justify-between">
-                                        <div className="flex items-center text-xs text-[#6B7280]">
+                                        <div className="flex items-center text-xs text-[#E0F2FE]">
                                             <span className="mr-2">🏆</span>
-                                            <span>Proyecto destacado: LunaSuite ERP</span>
+                                            <span>Proyecto destacado: LunaSuite</span>
                                         </div>
                                         <div className="text-xs text-[#01D0FF] font-semibold">Ver caso completo →</div>
                                     </div>
@@ -867,14 +913,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         </div>
                                         <div className="ml-4 flex-1">
                                             <div className="flex items-center mb-1">
-                                                <h4 className="font-bold text-[#000100] text-lg">Esteban Ortega</h4>
+                                                <h4 className="font-bold text-white text-lg">Esteban Ortega</h4>
                                                 <div className="ml-2 flex text-yellow-400">
                                                     {'★★★★★'.split('').map((star, i) => (
                                                         <span key={i} className="text-sm">{star}</span>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <p className="text-sm text-[#6B7280] font-medium">Omnature - Agua Purificada</p>
+                                            <p className="text-sm text-[#E0F2FE] font-medium">Omnature - Agua Purificada</p>
                                             <div className="flex items-center mt-1">
                                                 <span className="text-xs text-[#0065E1] font-semibold">Cliente desde 2022</span>
                                             </div>
@@ -883,7 +929,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                                     <div className="relative">
                                         <div className="text-[#0065E1] text-4xl font-serif absolute -top-2 -left-2 opacity-20">"</div>
-                                        <p className="text-[#374151] italic leading-relaxed pl-4">
+                                        <p className="text-[#E0F2FE] italic leading-relaxed pl-4">
                                             "La tienda online que desarrolló Claudio duplicó nuestras ventas. Ahora vendemos 24/7 y
                                             tenemos clientes de toda la región. Su conocimiento del negocio minorista es invaluable."
                                         </p>
@@ -891,7 +937,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     </div>
 
                                     <div className="mt-4 flex items-center justify-between">
-                                        <div className="flex items-center text-xs text-[#6B7280]">
+                                        <div className="flex items-center text-xs text-[#E0F2FE]">
                                             <span className="mr-2">🚀</span>
                                             <span>Resultado: +200% ventas online</span>
                                         </div>
@@ -903,8 +949,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             {/* Call to Action */}
                             <div className="text-center mt-12">
                                 <div className="bg-gradient-to-r from-[#01D0FF]/10 to-[#0085EE]/10 rounded-2xl p-6 border border-[#01D0FF]/20">
-                                    <h4 className="text-lg font-bold text-[#000100] mb-2">¿Quieres ser el próximo caso de éxito?</h4>
-                                    <p className="text-[#6B7280] mb-4">Únete a más de 30 empresas que han transformado su negocio con mis soluciones</p>
+                                    <h4 className="text-lg font-bold text-white mb-2">¿Quieres ser el próximo caso de éxito?</h4>
+                                    <p className="text-[#E0F2FE] mb-4">Únete a más de 30 empresas que han transformado su negocio con mis soluciones</p>
                                     <Link
                                         href="#contacto"
                                         className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 group"
@@ -928,9 +974,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                         <div className="text-center mb-16">
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-full mb-6 shadow-lg">
-                                <span className="text-2xl">🚀</span>
-                            </div>
                             <h2 className="text-3xl md:text-4xl font-bold text-[#000100] mb-4">
                                 Servicios para tu Empresa
                             </h2>
@@ -947,8 +990,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <span className="text-2xl">📊</span>
                                     </div>
                                     <div className="text-right">
-                                        <div className="text-xs text-[#6B7280] font-medium">Desde</div>
-                                        <div className="text-lg font-bold text-[#01D0FF]">$2.500.000</div>
+                                        <div className="text-xs text-[#6B7280] font-medium">Consultar precio</div>
+                                        <div className="text-sm font-semibold text-[#01D0FF]">Personalizado</div>
                                     </div>
                                 </div>
 
@@ -994,8 +1037,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <span className="text-2xl">🛍️</span>
                                     </div>
                                     <div className="text-right">
-                                        <div className="text-xs text-[#6B7280] font-medium">Desde</div>
-                                        <div className="text-lg font-bold text-[#0065E1]">$1.800.000</div>
+                                        <div className="text-xs text-[#6B7280] font-medium">Consultar precio</div>
+                                        <div className="text-sm font-semibold text-[#0065E1]">Personalizado</div>
                                     </div>
                                 </div>
 
@@ -1041,8 +1084,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <span className="text-2xl">🌐</span>
                                     </div>
                                     <div className="text-right">
-                                        <div className="text-xs text-[#6B7280] font-medium">Desde</div>
-                                        <div className="text-lg font-bold text-[#0085EE]">$800.000</div>
+                                        <div className="text-xs text-[#6B7280] font-medium">Consultar precio</div>
+                                        <div className="text-sm font-semibold text-[#0085EE]">Personalizado</div>
                                     </div>
                                 </div>
 
@@ -1082,112 +1125,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             </div>
                         </div>
 
-                        {/* Interactive Benefits Section */}
-                        <div className="mt-16 bg-gradient-to-r from-[#01D0FF]/5 to-[#0085EE]/5 rounded-2xl p-8 border border-[#01D0FF]/10">
-                            <div className="text-center mb-8">
-                                <h3 className="text-2xl font-bold text-[#000100] mb-2">
-                                    ¿Qué puedo desarrollar para tu empresa?
-                                </h3>
-                                <p className="text-[#6B7280]">Descubre cómo puedo transformar tu negocio</p>
-                            </div>
-
-                            <div className="grid md:grid-cols-2 gap-8">
-                                <div className="space-y-6">
-                                    <div className="group bg-white rounded-xl p-6 shadow-lg border border-[#01D0FF]/20 hover:shadow-xl hover:border-[#01D0FF]/40 transition-all duration-300 cursor-pointer">
-                                        <div className="flex items-start">
-                                            <div className="w-12 h-12 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-lg">
-                                                <span className="text-xl">⚙️</span>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-[#000100] mb-2 group-hover:text-[#01D0FF] transition-colors">
-                                                    Gestión Interna Optimizada
-                                                </h4>
-                                                <p className="text-[#6B7280] text-sm leading-relaxed">
-                                                    Desarrollo sistemas que automatizan procesos administrativos y reducen tiempos operativos hasta en un 60%.
-                                                </p>
-                                                <div className="mt-3 flex items-center text-xs text-[#01D0FF] font-semibold">
-                                                    <span>Ver ejemplos de proyectos</span>
-                                                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="group bg-white rounded-xl p-6 shadow-lg border border-[#0065E1]/20 hover:shadow-xl hover:border-[#0065E1]/40 transition-all duration-300 cursor-pointer">
-                                        <div className="flex items-start">
-                                            <div className="w-12 h-12 bg-gradient-to-r from-[#0065E1] to-[#01D0FF] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-lg">
-                                                <span className="text-xl">🛒</span>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-[#000100] mb-2 group-hover:text-[#0065E1] transition-colors">
-                                                    Comercio Electrónico Completo
-                                                </h4>
-                                                <p className="text-[#6B7280] text-sm leading-relaxed">
-                                                    Creo tiendas e-commerce completas con gestión de productos, pagos seguros y envíos integrados.
-                                                </p>
-                                                <div className="mt-3 flex items-center text-xs text-[#0065E1] font-semibold">
-                                                    <span>Ver tiendas desarrolladas</span>
-                                                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-6">
-                                    <div className="group bg-white rounded-xl p-6 shadow-lg border border-[#0085EE]/20 hover:shadow-xl hover:border-[#0085EE]/40 transition-all duration-300 cursor-pointer">
-                                        <div className="flex items-start">
-                                            <div className="w-12 h-12 bg-gradient-to-r from-[#0085EE] to-[#0065E1] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-lg">
-                                                <span className="text-xl">🌐</span>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-[#000100] mb-2 group-hover:text-[#0085EE] transition-colors">
-                                                    Presencia Digital Profesional
-                                                </h4>
-                                                <p className="text-[#6B7280] text-sm leading-relaxed">
-                                                    Diseño sitios web corporativos que generan confianza y atraen nuevos clientes para tu negocio.
-                                                </p>
-                                                <div className="mt-3 flex items-center text-xs text-[#0085EE] font-semibold">
-                                                    <span>Ver portafolio web</span>
-                                                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="group bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-xl p-6 shadow-lg text-white hover:shadow-xl transition-all duration-300 cursor-pointer">
-                                        <div className="flex items-start">
-                                            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform backdrop-blur-sm">
-                                                <span className="text-xl">💡</span>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold mb-2">
-                                                    Soluciones a Medida
-                                                </h4>
-                                                <p className="text-[#E0F2FE] text-sm leading-relaxed">
-                                                    ¿Tienes una idea específica? Desarrollo soluciones personalizadas adaptadas a tu presupuesto y necesidades únicas.
-                                                </p>
-                                                <div className="mt-3 flex items-center text-xs font-semibold">
-                                                    <span>Contactar para cotización</span>
-                                                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* CTA Button */}
-                            <div className="text-center mt-8">
-                                <Link
-                                    href="#contacto"
-                                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-white font-bold rounded-xl hover:shadow-xl transition-all duration-300 group hover:scale-105"
-                                >
-                                    <span>Comenzar mi proyecto</span>
-                                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
@@ -1207,28 +1144,75 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="mb-16">
                             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
                                 <div className="md:flex">
-                                    <div className="md:w-1/2 bg-gradient-to-br from-blue-600 to-purple-700 p-8 text-white">
-                                        <div className="text-6xl mb-4">🚀</div>
-                                        <h3 className="text-3xl font-bold mb-4">LunaSuite</h3>
-                                        <p className="text-blue-100 mb-6">
-                                            Sistema de Gestión Empresarial completo
-                                        </p>
-                                        <div className="space-y-3">
-                                            <div className="flex items-center">
-                                                <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                                                <span>Gestión de clientes y pedidos</span>
+                                    <div className="md:w-1/2 bg-gradient-to-br from-[#000100] via-[#0065E1] to-[#0085EE] p-8 text-white relative overflow-hidden min-h-[500px] flex flex-col justify-center">
+                                        {/* Aurora effect on edges */}
+                                        <div className="aurora-effect"></div>
+
+                                        {/* Space background effect */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[#000100]/80 via-[#0065E1]/40 to-[#0085EE]/60"></div>
+
+                                        {/* Stars effect */}
+                                        <div className="absolute inset-0">
+                                            <div className="stars-small"></div>
+                                            <div className="stars-medium"></div>
+                                            <div className="stars-large"></div>
+                                        </div>
+
+                                        {/* Nebula effect */}
+                                        <div className="absolute inset-0 opacity-15">
+                                            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#fca311]/8 rounded-full blur-3xl"></div>
+                                            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#14213d]/8 rounded-full blur-3xl"></div>
+                                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#fca311]/5 rounded-full blur-2xl"></div>
+                                        </div>
+
+                                        {/* Floating geometric shapes */}
+                                        <div className="absolute top-20 left-20 w-16 h-16 border border-[#01D0FF]/30 rounded-full animate-spin" style={{ animationDuration: '15s' }}></div>
+                                        <div className="absolute bottom-20 right-16 w-12 h-12 border border-[#0085EE]/30 rotate-45 animate-pulse"></div>
+                                        <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-[#01D0FF]/20 rounded-lg animate-bounce" style={{ animationDuration: '2s' }}></div>
+
+                                        {/* Particle system */}
+                                        <div className="absolute inset-0 pointer-events-none">
+                                            {particles.slice(0, 30).map(particle => (
+                                                <div
+                                                    key={`lunasuite-${particle.id}`}
+                                                    className="particle"
+                                                    style={{
+                                                        left: particle.x % 300,
+                                                        top: particle.y % 500,
+                                                    }}
+                                                />
+                                            ))}
+                                        </div>
+
+                                        <div className="relative z-10">
+                                            <div className="mb-6">
+                                                <img
+                                                    src="/tecnologias/lunasuite.png"
+                                                    alt="LunaSuite Logo"
+                                                    className="w-40 h-40 object-contain mx-auto drop-shadow-2xl"
+                                                />
                                             </div>
-                                            <div className="flex items-center">
-                                                <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                                                <span>Control de inventario en tiempo real</span>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                                                <span>Reportes y análisis automáticos</span>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                                                <span>Interfaz intuitiva y moderna</span>
+                                            <h3 className="text-4xl font-bold mb-4 text-center">LunaSuite</h3>
+                                            <p className="text-slate-200 mb-8 text-center text-lg">
+                                                Sistema de Gestión Empresarial completo
+                                            </p>
+                                            <div className="space-y-4">
+                                                <div className="flex items-center">
+                                                    <div className="w-3 h-3 bg-[#01D0FF] rounded-full mr-4 shadow-lg shadow-[#01D0FF]/50"></div>
+                                                    <span className="text-white font-medium">Gestión de clientes y pedidos</span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <div className="w-3 h-3 bg-[#01D0FF] rounded-full mr-4 shadow-lg shadow-[#01D0FF]/50"></div>
+                                                    <span className="text-white font-medium">Control de inventario en tiempo real</span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <div className="w-3 h-3 bg-[#01D0FF] rounded-full mr-4 shadow-lg shadow-[#01D0FF]/50"></div>
+                                                    <span className="text-white font-medium">Reportes y análisis automáticos</span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <div className="w-3 h-3 bg-[#01D0FF] rounded-full mr-4 shadow-lg shadow-[#01D0FF]/50"></div>
+                                                    <span className="text-white font-medium">Interfaz intuitiva y moderna</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1237,135 +1221,79 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             Caso de Éxito
                                         </h4>
                                         <p className="text-gray-600 dark:text-gray-300 mb-6">
-                                            Desarrollé LunaSuite para una empresa de distribución que necesitaba digitalizar sus procesos.
-                                            Anteriormente manejaban todo en hojas de cálculo, lo que generaba errores y pérdida de tiempo.
+                                            LunaSuite nació como solución a una necesidad real de Ascolor, empresa de diseño publicitario que necesitaba digitalizar sus procesos de gestión.
+                                            A través de este desafío, desarrollé este SaaS multi-tenant con alta tecnología web, desplegado en Digital Ocean,
+                                            que transforma la gestión empresarial para PyMEs.
                                         </p>
                                         <div className="grid grid-cols-2 gap-4 mb-6">
-                                            <div className="text-center">
-                                                <div className="text-3xl font-bold text-blue-600">50%</div>
-                                                <div className="text-sm text-gray-600 dark:text-gray-300">Reducción en tiempos de reporte</div>
+                                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg p-3 text-center border border-blue-200 dark:border-blue-700 hover:shadow-md transition-all duration-300 group">
+                                                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1 group-hover:scale-105 transition-transform">50%</div>
+                                                <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Reducción en tiempos de reporte</div>
+                                                <div className="w-full bg-blue-200 dark:bg-blue-700 rounded-full h-1 mt-2">
+                                                    <div className="bg-blue-600 dark:bg-blue-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '50%' }}></div>
+                                                </div>
                                             </div>
-                                            <div className="text-center">
-                                                <div className="text-3xl font-bold text-green-600">30%</div>
-                                                <div className="text-sm text-gray-600 dark:text-gray-300">Aumento en eficiencia administrativa</div>
+                                            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-lg p-3 text-center border border-green-200 dark:border-green-700 hover:shadow-md transition-all duration-300 group">
+                                                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1 group-hover:scale-105 transition-transform">30%</div>
+                                                <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Aumento en eficiencia administrativa</div>
+                                                <div className="w-full bg-green-200 dark:bg-green-700 rounded-full h-1 mt-2">
+                                                    <div className="bg-green-600 dark:bg-green-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '30%' }}></div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
-                                            <p className="text-sm italic text-gray-700 dark:text-gray-300">
-                                                "LunaSuite transformó completamente nuestra gestión. Ahora tenemos control total de nuestros procesos
-                                                y hemos reducido significativamente los errores administrativos."
+                                        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 relative overflow-hidden hover:shadow-xl transition-all duration-300">
+                                            {/* Header with profile and company */}
+                                            <div className="flex items-center justify-between mb-4">
+                                                <div className="flex items-center">
+                                                    <img
+                                                        src="/tecnologias/personas/javiera.png"
+                                                        alt="Javiera Fuentes - Ascolor"
+                                                        className="w-12 h-12 rounded-full object-cover mr-3 border-2 border-blue-300 shadow-sm"
+                                                    />
+                                                    <div>
+                                                        <p className="font-semibold text-gray-900 dark:text-white text-sm">Javiera Fuentes</p>
+                                                        <p className="text-xs text-gray-600 dark:text-gray-400">Ascolor - Diseño Publicitario</p>
+                                                        <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">Cliente desde 2023</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center space-x-2">
+                                                    <span className="text-xs bg-gradient-to-r from-blue-500 to-purple-600 text-white px-2 py-1 rounded-full font-medium">LunaSuite</span>
+                                                    <img
+                                                        src="/tecnologias/ascolor.png"
+                                                        alt="Ascolor Logo"
+                                                        className="w-10 h-10 object-contain"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Testimonial content */}
+                                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3 text-sm">
+                                                "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional y eficiente."
                                             </p>
-                                            <p className="text-sm font-semibold text-gray-900 dark:text-white mt-2">
-                                                - María González, Gerente General
-                                            </p>
+
+                                            {/* Star rating */}
+                                            <div className="flex items-center justify-center pt-2 border-t border-gray-100 dark:border-gray-700">
+                                                <div className="flex text-yellow-400">
+                                                    {'★★★★★'.split('').map((star, i) => (
+                                                        <span key={i} className="text-lg">{star}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            {/* Ascolor logo watermark */}
+                                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-8 pointer-events-none">
+                                                <img
+                                                    src="/tecnologias/ascolor.png"
+                                                    alt="Ascolor Logo Watermark"
+                                                    className="w-20 h-20 object-contain transform rotate-12"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Otros proyectos */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                                <div className="h-48 bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
-                                    <span className="text-white text-4xl">🛒</span>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                                        Tienda Online - Ferretería Express
-                                    </h3>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                                        E-commerce completo con catálogo de productos, carrito de compras y sistema de pagos integrado.
-                                        La tienda aumentó las ventas online en un 200% en los primeros 6 meses.
-                                    </p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm dark:bg-blue-900 dark:text-blue-200">
-                                            React
-                                        </span>
-                                        <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm dark:bg-orange-900 dark:text-orange-200">
-                                            Laravel
-                                        </span>
-                                        <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm dark:bg-green-900 dark:text-green-200">
-                                            Stripe
-                                        </span>
-                                    </div>
-                                    <div className="flex space-x-4">
-                                        <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
-                                            Ver proyecto
-                                        </button>
-                                        <button className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
-                                            Código fuente
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                                <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
-                                    <span className="text-white text-4xl">🏢</span>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                                        Sistema de Gestión - Consultora ABC
-                                    </h3>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                                        Software a medida para gestión de proyectos, clientes y facturación.
-                                        Automatizó procesos que antes tomaban 4 horas diarias, liberando tiempo para actividades estratégicas.
-                                    </p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm dark:bg-blue-900 dark:text-blue-200">
-                                            Vue.js
-                                        </span>
-                                        <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm dark:bg-orange-900 dark:text-orange-200">
-                                            Laravel
-                                        </span>
-                                        <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm dark:bg-yellow-900 dark:text-yellow-200">
-                                            MySQL
-                                        </span>
-                                    </div>
-                                    <div className="flex space-x-4">
-                                        <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
-                                            Ver proyecto
-                                        </button>
-                                        <button className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
-                                            Código fuente
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                                <div className="h-48 bg-gradient-to-r from-indigo-400 to-cyan-500 flex items-center justify-center">
-                                    <span className="text-white text-4xl">📱</span>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                                        Sitio Web Corporativo - TechSolutions
-                                    </h3>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                                        Sitio web responsive con diseño moderno, optimización SEO y formulario de contacto.
-                                        Aumentó las consultas comerciales en un 150% gracias a mejor presencia digital.
-                                    </p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm dark:bg-blue-900 dark:text-blue-200">
-                                            React
-                                        </span>
-                                        <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm dark:bg-cyan-900 dark:text-cyan-200">
-                                            Tailwind
-                                        </span>
-                                        <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm dark:bg-purple-900 dark:text-purple-200">
-                                            Next.js
-                                        </span>
-                                    </div>
-                                    <div className="flex space-x-4">
-                                        <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
-                                            Ver proyecto
-                                        </button>
-                                        <button className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
-                                            Código fuente
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
@@ -1392,78 +1320,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     </div>
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                        {/* Hero CTA Section */}
-                        <div className="text-center mb-20">
-                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-full mb-8 shadow-2xl animate-pulse">
-                                <span className="text-3xl">🚀</span>
-                            </div>
-
-                            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
-                                ¿Listo para <span className="bg-gradient-to-r from-[#01D0FF] to-[#0085EE] bg-clip-text text-transparent">impulsar</span> tu empresa?
-                            </h2>
-
-                            <p className="text-xl text-[#E0F2FE] max-w-4xl mx-auto mb-8 leading-relaxed">
-                                Conversemos sobre tu proyecto. Te ayudo a identificar las mejores soluciones tecnológicas
-                                para transformar tu negocio y llevarlo al siguiente nivel.
-                            </p>
-
-                            {/* Animated stats */}
-                            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-12">
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-[#01D0FF] mb-2">50+</div>
-                                    <div className="text-sm text-[#E0F2FE]/80">Proyectos exitosos</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-[#0085EE] mb-2">30+</div>
-                                    <div className="text-sm text-[#E0F2FE]/80">Empresas felices</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-[#0065E1] mb-2">5+</div>
-                                    <div className="text-sm text-[#E0F2FE]/80">Años de experiencia</div>
-                                </div>
-                            </div>
-
-                            {/* Primary CTA */}
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                                <Link
-                                    href="#contact-form"
-                                    className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-[#000100] font-bold rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-[#0085EE] to-[#01D0FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    <span className="relative z-10 flex items-center">
-                                        <span className="text-lg mr-2">💬</span>
-                                        Iniciar conversación
-                                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                                    </span>
-                                </Link>
-
-                                <Link
-                                    href="https://wa.me/56912345678?text=Hola%20Claudio,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group inline-flex items-center px-8 py-4 border-2 border-[#01D0FF] text-[#01D0FF] font-bold rounded-2xl hover:bg-[#01D0FF] hover:text-[#000100] transition-all duration-300 hover:scale-105"
-                                >
-                                    <span className="text-lg mr-2">📱</span>
-                                    WhatsApp directo
-                                </Link>
-                            </div>
-
-                            {/* Trust indicators */}
-                            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-[#E0F2FE]/60">
-                                <div className="flex items-center">
-                                    <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                                    Respuesta en menos de 24 horas
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
-                                    Consultoría inicial gratuita
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></div>
-                                    Sin compromiso
-                                </div>
-                            </div>
-                        </div>
                         
                         {/* Interactive Contact Experience */}
                         <div className="grid lg:grid-cols-2 gap-16 items-start">
