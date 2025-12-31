@@ -248,7 +248,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         return 'Plataformas SaaS (LunaSuite)';
     };
 
-    const scrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const scrollToContact = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
         e.preventDefault();
         e.stopPropagation();
         const contactoElement = document.getElementById('contacto');
@@ -264,13 +264,73 @@ export default function MainLayout({ children }: MainLayoutProps) {
         }
     };
 
-    const scrollToServicios = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const scrollToServicios = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
         e.preventDefault();
         e.stopPropagation();
         const serviciosElement = document.getElementById('servicios');
         if (serviciosElement) {
             const offset = 80; // Offset para el header fijo
             const elementPosition = serviciosElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollToHero = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const heroElement = document.getElementById('hero');
+        if (heroElement) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollToSobreMi = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const sobreMiElement = document.getElementById('sobre-mi');
+        if (sobreMiElement) {
+            const offset = 80; // Offset para el header fijo
+            const elementPosition = sobreMiElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollToPortafolio = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const portafolioElement = document.getElementById('portafolio');
+        if (portafolioElement) {
+            const offset = 80; // Offset para el header fijo
+            const elementPosition = portafolioElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollToContactFromLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const contactoElement = document.getElementById('contacto');
+        if (contactoElement) {
+            const offset = 80; // Offset para el header fijo
+            const elementPosition = contactoElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
             
             window.scrollTo({
@@ -1629,7 +1689,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 y experiencias de usuario excepcionales.
                             </p>
                             <div className="flex space-x-4">
-                                <a href="https://github.com/claudioaguilera" className="text-gray-400 hover:text-white transition-colors">
+                                <a href="https://github.com/claudio1988-dev" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
@@ -1644,11 +1704,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div>
                             <h4 className="text-lg font-semibold mb-4">Enlaces rápidos</h4>
                             <ul className="space-y-2">
-                                <li><Link href="#hero" className="text-gray-400 hover:text-white transition-colors">Inicio</Link></li>
-                                <li><Link href="#sobre-mi" className="text-gray-400 hover:text-white transition-colors">Sobre mí</Link></li>
-                                <li><Link href="#servicios" className="text-gray-400 hover:text-white transition-colors">Servicios</Link></li>
-                                <li><Link href="#portafolio" className="text-gray-400 hover:text-white transition-colors">Portafolio</Link></li>
-                                <li><Link href="#contacto" className="text-gray-400 hover:text-white transition-colors">Contacto</Link></li>
+                                <li><a href="#hero" onClick={scrollToHero} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Inicio</a></li>
+                                <li><a href="#sobre-mi" onClick={scrollToSobreMi} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Sobre mí</a></li>
+                                <li><a href="#servicios" onClick={scrollToServicios} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Servicios</a></li>
+                                <li><a href="#portafolio" onClick={scrollToPortafolio} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Portafolio</a></li>
+                                <li><a href="#contacto" onClick={scrollToContactFromLink} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Contacto</a></li>
                             </ul>
                         </div>
                         <div>
