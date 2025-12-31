@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, router, usePage } from '@inertiajs/react';
 import { type ReactNode, useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star } from 'lucide-react';
 
@@ -7,6 +7,7 @@ interface MainLayoutProps {
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
+    const { flash } = usePage().props as any;
     const [quizStep, setQuizStep] = useState(0);
     const [quizAnswers, setQuizAnswers] = useState({ industry: '', goal: '', urgency: '' });
     const [showRecommendation, setShowRecommendation] = useState(false);
@@ -27,6 +28,15 @@ export default function MainLayout({ children }: MainLayoutProps) {
     const [countUpValues, setCountUpValues] = useState({ sales: 0, time: 0, satisfaction: 0 });
     const [darkMode, setDarkMode] = useState(false);
     const [showImageModal, setShowImageModal] = useState(false);
+    const [contactForm, setContactForm] = useState({
+        nombre: '',
+        email: '',
+        empresa: '',
+        servicio: '',
+        mensaje: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLElement>(null);
 
@@ -203,6 +213,16 @@ export default function MainLayout({ children }: MainLayoutProps) {
         // Mouse tracking removed - particles move autonomously
     }, []);
 
+    // Handle flash messages from backend
+    useEffect(() => {
+        if (flash?.success) {
+            setSubmitMessage({ type: 'success', text: flash.success });
+        }
+        if (flash?.error) {
+            setSubmitMessage({ type: 'error', text: flash.error });
+        }
+    }, [flash]);
+
     const toggleDarkMode = () => {
         const newDarkMode = !darkMode;
         setDarkMode(newDarkMode);
@@ -253,6 +273,49 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 [draggedSphere]: { x, y }
             }));
         }
+    };
+
+    const handleContactFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setContactForm(prev => ({
+            ...prev,
+            [name]: value
+        }));
+        // Limpiar mensaje de error/éxito cuando el usuario empiece a escribir
+        if (submitMessage) {
+            setSubmitMessage(null);
+        }
+    };
+
+    const handleContactFormSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitMessage(null);
+
+        router.post('/contact', contactForm, {
+            preserveScroll: true,
+            onSuccess: () => {
+                setSubmitMessage({ type: 'success', text: '¡Mensaje enviado exitosamente! Te responderé pronto.' });
+                setContactForm({
+                    nombre: '',
+                    email: '',
+                    empresa: '',
+                    servicio: '',
+                    mensaje: ''
+                });
+                setIsSubmitting(false);
+            },
+            onError: (errors) => {
+                setSubmitMessage({ 
+                    type: 'error', 
+                    text: errors.message || 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.' 
+                });
+                setIsSubmitting(false);
+            },
+            onFinish: () => {
+                setIsSubmitting(false);
+            }
+        });
     };
 
     return (
@@ -1413,7 +1476,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     </p>
                                 </div>
 
-                                <form className="space-y-6">
+                                <form className="space-y-6" onSubmit={handleContactFormSubmit}>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label htmlFor="nombre" className="block text-sm font-semibold text-white mb-2">
@@ -1423,6 +1486,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                                 type="text"
                                                 id="nombre"
                                                 name="nombre"
+                                                value={contactForm.nombre}
+                                                onChange={handleContactFormChange}
                                                 required
                                                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent backdrop-blur-sm transition-all duration-300"
                                                 placeholder="Tu nombre completo"
@@ -1436,6 +1501,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                                 type="text"
                                                 id="empresa"
                                                 name="empresa"
+                                                value={contactForm.empresa}
+                                                onChange={handleContactFormChange}
                                                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent backdrop-blur-sm transition-all duration-300"
                                                 placeholder="Nombre de tu empresa"
                                             />
@@ -1450,6 +1517,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             type="email"
                                             id="email"
                                             name="email"
+                                            value={contactForm.email}
+                                            onChange={handleContactFormChange}
                                             required
                                             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent backdrop-blur-sm transition-all duration-300"
                                             placeholder="tu@empresa.com"
@@ -1463,6 +1532,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <select
                                             id="servicio"
                                             name="servicio"
+                                            value={contactForm.servicio}
+                                            onChange={handleContactFormChange}
                                             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent backdrop-blur-sm transition-all duration-300"
                                         >
                                             <option value="" className="text-gray-900">Selecciona un servicio</option>
@@ -1480,6 +1551,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <textarea
                                             id="mensaje"
                                             name="mensaje"
+                                            value={contactForm.mensaje}
+                                            onChange={handleContactFormChange}
                                             rows={4}
                                             required
                                             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent backdrop-blur-sm transition-all duration-300 resize-none"
@@ -1487,14 +1560,25 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         ></textarea>
                                     </div>
 
+                                    {submitMessage && (
+                                        <div className={`p-4 rounded-xl ${
+                                            submitMessage.type === 'success' 
+                                                ? 'bg-green-500/20 border border-green-500/50 text-green-300' 
+                                                : 'bg-red-500/20 border border-red-500/50 text-red-300'
+                                        }`}>
+                                            {submitMessage.text}
+                                        </div>
+                                    )}
+
                                     <button
                                         type="submit"
-                                        className="w-full bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-[#000100] py-4 px-6 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+                                        disabled={isSubmitting}
+                                        className="w-full bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-[#000100] py-4 px-6 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 hover:scale-105 group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                                     >
                                         <span className="flex items-center justify-center">
                                             <span className="text-lg mr-2">🚀</span>
-                                            Enviar Mensaje
-                                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                            {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                                            {!isSubmitting && <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />}
                                         </span>
                                     </button>
 
