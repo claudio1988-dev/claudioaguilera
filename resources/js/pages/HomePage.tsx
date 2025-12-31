@@ -463,12 +463,26 @@ export default function HomePage() {
         }
     };
 
-    const handleBudgetFormSubmit = (e: React.FormEvent) => {
+    const handleBudgetFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        e.stopPropagation();
+        
+        // Validación básica del lado del cliente
+        if (!budgetForm.name || !budgetForm.email || !budgetForm.projectType || !budgetForm.description) {
+            setBudgetMessage({ type: 'error', text: 'Por favor, completa todos los campos obligatorios.' });
+            return;
+        }
+
+        if (isSubmittingBudget) {
+            return; // Evitar múltiples envíos
+        }
+
         setIsSubmittingBudget(true);
         setBudgetMessage(null);
 
         router.post('/budget', budgetForm, {
+            preserveScroll: true,
+            preserveState: true,
             preserveScroll: true,
             onSuccess: () => {
                 setBudgetMessage({ type: 'success', text: '¡Solicitud de presupuesto enviada exitosamente! Te responderé pronto.' });
@@ -489,10 +503,20 @@ export default function HomePage() {
                 setIsSubmittingBudget(false);
             },
             onError: (errors) => {
-                const errorMessage = errors.message || 
-                    (typeof errors === 'object' && Object.keys(errors).length > 0 
-                        ? Object.values(errors)[0] as string 
-                        : 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.');
+                console.error('Error en formulario de presupuesto:', errors);
+                let errorMessage = 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.';
+                
+                if (errors.message) {
+                    errorMessage = errors.message;
+                } else if (typeof errors === 'object' && Object.keys(errors).length > 0) {
+                    const firstError = Object.values(errors)[0];
+                    if (Array.isArray(firstError)) {
+                        errorMessage = firstError[0] as string;
+                    } else if (typeof firstError === 'string') {
+                        errorMessage = firstError;
+                    }
+                }
+                
                 setBudgetMessage({ type: 'error', text: errorMessage });
                 setIsSubmittingBudget(false);
             },
