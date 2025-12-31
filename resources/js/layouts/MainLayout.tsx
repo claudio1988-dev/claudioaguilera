@@ -472,7 +472,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         </div>
 
                         {/* Main Content Grid */}
-                        <div className="grid lg:grid-cols-2 gap-8 items-center">
+                        <div className="grid lg:grid-cols-3 gap-8 items-center">
                             {/* Left Column - Text Content */}
                             <div className="lg:col-span-1 space-y-6">
                                 <div>
@@ -504,7 +504,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </div>
                             </div>
 
-                            {/* Right Column - Profile Image */}
+                            {/* Center Column - Profile Image */}
                             <div className="lg:col-span-1 flex justify-center" ref={containerRef} onDragOver={handleDragOver} onDrop={handleDrop}>
                                 <div className="relative">
                                 <div className={`w-80 h-80 mx-auto bg-gradient-to-br from-white/20 to-white/5 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
