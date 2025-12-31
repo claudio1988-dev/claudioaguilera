@@ -569,7 +569,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 rounded-full bg-green-300 animate-ping opacity-10 animation-delay-1000"></div>
 
                 {/* Avatar badge */}
-                <div className="absolute -top-1 -right-1 rounded-full w-8 h-8 flex items-center justify-center animate-bounce border-2 border-white shadow-lg overflow-hidden">
+                <div className="absolute -top-1 -right-1 rounded-full w-5 h-5 flex items-center justify-center animate-bounce border-2 border-white shadow-lg overflow-hidden">
                     <img
                         src="/claudioaguilera.jpg"
                         alt="Claudio"
