@@ -1,5 +1,5 @@
 import MainLayout from '@/layouts/MainLayout';
-import { Link, router } from '@inertiajs/react';
+import { Link, router, usePage } from '@inertiajs/react';
 import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
@@ -232,6 +232,7 @@ if (typeof document !== 'undefined') {
 }
 
 export default function HomePage() {
+    const { flash } = usePage().props as any;
     const [darkMode, setDarkMode] = useState(false);
     const [quizStep, setQuizStep] = useState(0);
     const [quizAnswers, setQuizAnswers] = useState({ industry: '', goal: '', urgency: '' });
@@ -247,6 +248,7 @@ export default function HomePage() {
     const [showBudgetModal, setShowBudgetModal] = useState(false);
     const [spheresVisible, setSpheresVisible] = useState(false);
     const [isSubmittingBudget, setIsSubmittingBudget] = useState(false);
+    const [budgetMessage, setBudgetMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
     const [budgetForm, setBudgetForm] = useState({
         name: '',
         email: '',
@@ -399,6 +401,16 @@ export default function HomePage() {
         // return () => document.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
+    // Handle flash messages from backend
+    useEffect(() => {
+        if (flash?.success) {
+            setBudgetMessage({ type: 'success', text: flash.success });
+        }
+        if (flash?.error || flash?.message) {
+            setBudgetMessage({ type: 'error', text: flash.error || flash.message });
+        }
+    }, [flash]);
+
     const toggleDarkMode = () => {
         const newDarkMode = !darkMode;
         setDarkMode(newDarkMode);
@@ -454,26 +466,34 @@ export default function HomePage() {
     const handleBudgetFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmittingBudget(true);
+        setBudgetMessage(null);
 
         router.post('/budget', budgetForm, {
             preserveScroll: true,
             onSuccess: () => {
-                alert('¡Gracias! Tu solicitud de presupuesto ha sido enviada. Me pondré en contacto contigo pronto.');
-                setShowBudgetModal(false);
-                setBudgetForm({
-                    name: '',
-                    email: '',
-                    company: '',
-                    phone: '',
-                    projectType: '',
-                    budget: '',
-                    timeline: '',
-                    description: ''
-                });
+                setBudgetMessage({ type: 'success', text: '¡Solicitud de presupuesto enviada exitosamente! Te responderé pronto.' });
+                setTimeout(() => {
+                    setShowBudgetModal(false);
+                    setBudgetForm({
+                        name: '',
+                        email: '',
+                        company: '',
+                        phone: '',
+                        projectType: '',
+                        budget: '',
+                        timeline: '',
+                        description: ''
+                    });
+                    setBudgetMessage(null);
+                }, 2000);
                 setIsSubmittingBudget(false);
             },
             onError: (errors) => {
-                alert(errors.message || 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.');
+                const errorMessage = errors.message || 
+                    (typeof errors === 'object' && Object.keys(errors).length > 0 
+                        ? Object.values(errors)[0] as string 
+                        : 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.');
+                setBudgetMessage({ type: 'error', text: errorMessage });
                 setIsSubmittingBudget(false);
             },
             onFinish: () => {
@@ -483,10 +503,15 @@ export default function HomePage() {
     };
 
     const handleBudgetFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
         setBudgetForm(prev => ({
             ...prev,
-            [e.target.name]: e.target.value
+            [name]: value
         }));
+        // Limpiar mensaje cuando el usuario empiece a escribir
+        if (budgetMessage) {
+            setBudgetMessage(null);
+        }
     };
 
     return (
@@ -576,6 +601,15 @@ export default function HomePage() {
 
                         {/* Modal Body */}
                         <form onSubmit={handleBudgetFormSubmit} className="p-6 space-y-6">
+                            {budgetMessage && (
+                                <div className={`p-4 rounded-lg ${
+                                    budgetMessage.type === 'success' 
+                                        ? 'bg-green-50 border border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-300' 
+                                        : 'bg-red-50 border border-red-200 text-red-800 dark:bg-red-900/20 dark:border-red-800 dark:text-red-300'
+                                }`}>
+                                    {budgetMessage.text}
+                                </div>
+                            )}
                             {/* Personal Information */}
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>

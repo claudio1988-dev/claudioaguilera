@@ -71,14 +71,14 @@ class ContactController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()], 422);
+                return back()->withErrors($validator)->withInput();
             }
 
             Mail::to('claudio.datos@gmail.com')->send(
                 new BudgetFormMail($request->all())
             );
 
-            return response()->json(['success' => true, 'message' => '¡Solicitud de presupuesto enviada exitosamente! Te responderé pronto.']);
+            return back()->with('success', '¡Solicitud de presupuesto enviada exitosamente! Te responderé pronto.');
         } catch (\Illuminate\Contracts\Mail\MailerException $e) {
             Log::error('Error de Mailer al enviar correo de presupuesto: ' . $e->getMessage(), [
                 'trace' => $e->getTraceAsString(),
@@ -87,14 +87,14 @@ class ContactController extends Controller
                     'resend_key' => config('services.resend.key') ? 'configurado' : 'no configurado',
                 ]
             ]);
-            return response()->json(['errors' => ['message' => 'Error de configuración de correo. Por favor, contacta al administrador.']], 500);
+            return back()->withErrors(['message' => 'Error de configuración de correo. Por favor, contacta al administrador.'])->withInput();
         } catch (\Exception $e) {
             Log::error('Error general al enviar correo de presupuesto: ' . $e->getMessage(), [
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
                 'trace' => $e->getTraceAsString(),
             ]);
-            return response()->json(['errors' => ['message' => 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.']], 500);
+            return back()->withErrors(['message' => 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.'])->withInput();
         }
     }
 }
