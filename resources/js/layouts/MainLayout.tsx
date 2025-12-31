@@ -1144,13 +1144,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 <div className="bg-gradient-to-r from-[#01D0FF]/10 to-[#0085EE]/10 rounded-2xl p-6 border border-[#01D0FF]/20">
                                     <h4 className="text-lg font-bold text-white mb-2">¿Quieres ser el próximo caso de éxito?</h4>
                                     <p className="text-[#E0F2FE] mb-4">Únete a más de 30 empresas que han transformado su negocio con mis soluciones</p>
-                                    <Link
-                                        href="#contacto"
+                                    <button
+                                        type="button"
+                                        onClick={scrollToContact}
                                         className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 group"
                                     >
                                         Comienza tu transformación
                                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
