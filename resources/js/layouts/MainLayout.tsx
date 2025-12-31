@@ -899,7 +899,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     <p className="text-gray-700 text-sm leading-relaxed mb-4">
                                         Con más de 10 años desarrollando soluciones tecnológicas, me especializo en entender
                                         las necesidades reales de las PyMEs. Mi trayectoria profesional incluye haber trabajado en Mzzo.com,
-                                        la Vicerrectoría de Ciencias de la Información de la Universidad de Chile, KameERP y Safira Energia (Brasil).
+                                        la <strong className="text-[#0085EE]">Vicerrectoría de Ciencias de la Información de la Universidad de Chile</strong>, <strong className="text-[#0085EE]">KameERP</strong> y Safira Energia (Brasil).
                                     </p>
                                     <div className="bg-gradient-to-br from-[#01D0FF]/10 to-[#0085EE]/10 rounded-lg p-3 border border-[#01D0FF]/20">
                                         <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
