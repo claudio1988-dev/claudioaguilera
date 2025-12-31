@@ -472,7 +472,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         </div>
 
                         {/* Main Content Grid */}
-                        <div className="grid lg:grid-cols-3 gap-8 items-center">
+                        <div className="grid lg:grid-cols-2 gap-8 items-center">
                             {/* Left Column - Text Content */}
                             <div className="lg:col-span-1 space-y-6">
                                 <div>
@@ -504,7 +504,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </div>
                             </div>
 
-                            {/* Center Column - Profile Image */}
+                            {/* Right Column - Profile Image */}
                             <div className="lg:col-span-1 flex justify-center" ref={containerRef} onDragOver={handleDragOver} onDrop={handleDrop}>
                                 <div className="relative">
                                 <div className={`w-80 h-80 mx-auto bg-gradient-to-br from-white/20 to-white/5 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
@@ -608,40 +608,70 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             </div>
                         </div>
 
-                        {/* Right Column - Contact Form */}
+                        {/* Right Column - Client Testimonials */}
                         <div className="lg:col-span-1">
                             <div className={`transition-all duration-1000 delay-1000 ${showProgressBars ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                                 <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                                    <h3 className="text-xl font-bold text-white mb-4 text-center">¿Hablamos de tu proyecto?</h3>
-                                    <form className="space-y-4">
-                                        <div>
-                                            <input
-                                                type="text"
-                                                placeholder="Tu nombre"
-                                                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent"
-                                            />
+                                    <h3 className="text-xl font-bold text-white mb-6 text-center flex items-center justify-center">
+                                        <span className="text-2xl mr-2">💬</span>
+                                        Lo que dicen mis clientes
+                                    </h3>
+                                    
+                                    <div className="space-y-6">
+                                        {/* Testimonial 1 */}
+                                        <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                                            <div className="flex items-start mb-3">
+                                                <div className="relative">
+                                                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#01D0FF]">
+                                                        <img
+                                                            src="/tecnologias/personas/javiera.png"
+                                                            alt="Javiera - Ascolor"
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="ml-3 flex-1">
+                                                    <h4 className="font-bold text-white text-sm">Javiera</h4>
+                                                    <p className="text-xs text-[#E0F2FE]">Ascolor</p>
+                                                    <div className="flex text-yellow-400 mt-1">
+                                                        {'★★★★★'.split('').map((star, i) => (
+                                                            <span key={i} className="text-xs">{star}</span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p className="text-sm text-[#E0F2FE] italic leading-relaxed">
+                                                "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora gestionamos todo de forma profesional y eficiente."
+                                            </p>
                                         </div>
-                                        <div>
-                                            <input
-                                                type="email"
-                                                placeholder="tu@email.com"
-                                                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent"
-                                            />
+
+                                        {/* Testimonial 2 */}
+                                        <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                                            <div className="flex items-start mb-3">
+                                                <div className="relative">
+                                                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#0065E1]">
+                                                        <img
+                                                            src="/tecnologias/personas/esteban.png"
+                                                            alt="Esteban - Omnature"
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="ml-3 flex-1">
+                                                    <h4 className="font-bold text-white text-sm">Esteban Ortega</h4>
+                                                    <p className="text-xs text-[#E0F2FE]">Omnature</p>
+                                                    <div className="flex text-yellow-400 mt-1">
+                                                        {'★★★★★'.split('').map((star, i) => (
+                                                            <span key={i} className="text-xs">{star}</span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p className="text-sm text-[#E0F2FE] italic leading-relaxed">
+                                                "La tienda online que desarrolló Claudio duplicó nuestras ventas. Ahora vendemos 24/7 y tenemos clientes de toda la región."
+                                            </p>
                                         </div>
-                                        <div>
-                                            <textarea
-                                                rows={3}
-                                                placeholder="Cuéntame sobre tu proyecto..."
-                                                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#01D0FF] focus:border-transparent resize-none"
-                                            ></textarea>
-                                        </div>
-                                        <button
-                                            type="submit"
-                                            className="w-full bg-[#01D0FF] text-[#000100] py-2 px-4 rounded-lg font-semibold hover:bg-[#01D0FF]/80 transition-colors"
-                                        >
-                                            Enviar mensaje
-                                        </button>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
