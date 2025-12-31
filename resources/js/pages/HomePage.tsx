@@ -568,9 +568,13 @@ export default function HomePage() {
                 <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-20"></div>
                 <div className="absolute inset-0 rounded-full bg-green-300 animate-ping opacity-10 animation-delay-1000"></div>
 
-                {/* Notification badge */}
-                <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce">
-                    !
+                {/* Avatar badge */}
+                <div className="absolute -top-1 -right-1 rounded-full w-8 h-8 flex items-center justify-center animate-bounce border-2 border-white shadow-lg overflow-hidden">
+                    <img
+                        src="/claudioaguilera.jpg"
+                        alt="Claudio"
+                        className="w-full h-full object-cover rounded-full"
+                    />
                 </div>
 
                 <svg className="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 24 24">
