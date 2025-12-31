@@ -905,9 +905,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     <div className="space-y-3">
                                         {[
                                             { skill: 'Frontend', level: 95 },
-                                            { skill: 'Backend', level: 90 },
-                                            { skill: 'Arquitectura', level: 85 },
-                                            { skill: 'DevOps', level: 80 }
+                                            { skill: 'Backend', level: 95 },
+                                            { skill: 'Arquitectura', level: 95 },
+                                            { skill: 'DevOps', level: 95 }
                                         ].map((item) => (
                                             <div key={item.skill}>
                                                 <div className="flex justify-between text-xs mb-1">
