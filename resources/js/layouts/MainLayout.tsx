@@ -1388,52 +1388,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="grid lg:grid-cols-2 gap-16 items-start">
                             {/* Left Column - Contact Info & Benefits */}
                             <div className="space-y-8">
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                                    <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                                        <span className="text-2xl mr-3">📞</span>
-                                        Información de Contacto
-                                    </h3>
-
-                                    <div className="space-y-6">
-                                        <div className="group flex items-center p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-pointer">
-                                            <div className="w-12 h-12 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-lg">
-                                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <div className="font-bold text-white text-lg">Email</div>
-                                                <div className="text-[#E0F2FE] group-hover:text-[#01D0FF] transition-colors">claudio@claudioaguilera.com</div>
-                                            </div>
-                                        </div>
-
-                                        <div className="group flex items-center p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-pointer">
-                                            <div className="w-12 h-12 bg-gradient-to-r from-[#0085EE] to-[#0065E1] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-lg">
-                                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <div className="font-bold text-white text-lg">Teléfono</div>
-                                                <div className="text-[#E0F2FE] group-hover:text-[#0085EE] transition-colors">+56 9 1234 5678</div>
-                                            </div>
-                                        </div>
-
-                                        <div className="group flex items-center p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-pointer">
-                                            <div className="w-12 h-12 bg-gradient-to-r from-[#0065E1] to-[#01D0FF] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-lg">
-                                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <div className="font-bold text-white text-lg">Ubicación</div>
-                                                <div className="text-[#E0F2FE] group-hover:text-[#0065E1] transition-colors">Santiago, Chile</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 {/* Why work with me */}
                                 <div className="bg-gradient-to-r from-[#01D0FF]/10 to-[#0085EE]/10 backdrop-blur-sm rounded-2xl p-8 border border-[#01D0FF]/20">
                                     <h4 className="text-xl font-bold text-white mb-6 flex items-center">
