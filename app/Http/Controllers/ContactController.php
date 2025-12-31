@@ -12,26 +12,45 @@ class ContactController extends Controller
 {
     public function send(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'nombre' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'empresa' => 'nullable|string|max:255',
-            'servicio' => 'nullable|string|max:255',
-            'mensaje' => 'required|string|max:5000',
-        ]);
-
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
         try {
+            $validator = Validator::make($request->all(), [
+                'nombre' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'empresa' => 'nullable|string|max:255',
+                'servicio' => 'nullable|string|max:255',
+                'mensaje' => 'required|string|max:5000',
+            ]);
+
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+
+            // Verificar que la configuración de correo esté disponible
+            $mailer = config('mail.default');
+            if (!$mailer || $mailer === 'log') {
+                Log::warning('Mailer no configurado correctamente. Usando: ' . $mailer);
+            }
+
             Mail::to('claudio.datos@gmail.com')->send(
                 new ContactFormMail($request->all())
             );
 
             return back()->with('success', '¡Mensaje enviado exitosamente! Te responderé pronto.');
+        } catch (\Illuminate\Contracts\Mail\MailerException $e) {
+            Log::error('Error de Mailer al enviar correo de contacto: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'config' => [
+                    'mailer' => config('mail.default'),
+                    'resend_key' => config('services.resend.key') ? 'configurado' : 'no configurado',
+                ]
+            ]);
+            return back()->withErrors(['message' => 'Error de configuración de correo. Por favor, contacta al administrador.'])->withInput();
         } catch (\Exception $e) {
-            Log::error('Error al enviar correo de contacto: ' . $e->getMessage());
+            Log::error('Error general al enviar correo de contacto: ' . $e->getMessage(), [
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTraceAsString(),
+            ]);
             return back()->withErrors(['message' => 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.'])->withInput();
         }
     }
