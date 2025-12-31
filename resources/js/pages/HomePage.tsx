@@ -537,6 +537,14 @@ export default function HomePage() {
         }
     };
 
+    const scrollToContact = (e: React.MouseEvent<Element>) => {
+        e.preventDefault();
+        const contactoElement = document.getElementById('contacto');
+        if (contactoElement) {
+            contactoElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
         <MainLayout>
 
@@ -584,6 +592,7 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="#contacto"
+                            onClick={scrollToContact}
                             className="inline-flex items-center justify-center px-8 py-4 bg-[#000100] text-[#01D0FF] font-semibold rounded-2xl hover:bg-[#FEFEFF] hover:text-[#000100] transition-colors group shadow-xl/20"
                         >
                             Solicitar presupuesto

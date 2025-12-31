@@ -248,6 +248,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
         return 'Plataformas SaaS (LunaSuite)';
     };
 
+    const scrollToContact = (e: React.MouseEvent<Element>) => {
+        e.preventDefault();
+        const contactoElement = document.getElementById('contacto');
+        if (contactoElement) {
+            contactoElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     const handleDragStart = (e: React.DragEvent, sphereId: string) => {
         setDraggedSphere(sphereId);
         e.dataTransfer.effectAllowed = 'move';
@@ -497,6 +505,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     </Link>
                                     <Link
                                         href="#contacto"
+                                        onClick={scrollToContact}
                                         className="ripple-effect inline-flex items-center justify-center px-6 py-3 border-2 border-[#01D0FF] text-[#01D0FF] font-semibold rounded-xl hover:bg-[#01D0FF] hover:text-[#000100] transition-all duration-300 shadow-xl/20 hover:shadow-2xl hover:scale-105"
                                     >
                                         Solicitar presupuesto
@@ -627,8 +636,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                                             src="/tecnologias/personas/javiera.png"
                                                             alt="Javiera - Ascolor"
                                                             className="w-full h-full object-cover"
-                                                        />
-                                                    </div>
+                                            />
+                                        </div>
                                                 </div>
                                                 <div className="ml-3 flex-1">
                                                     <h4 className="font-bold text-white text-sm">Javiera</h4>
@@ -654,9 +663,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                                             src="/tecnologias/personas/esteban.png"
                                                             alt="Esteban - Omnature"
                                                             className="w-full h-full object-cover"
-                                                        />
-                                                    </div>
-                                                </div>
+                                            />
+                                        </div>
+                                        </div>
                                                 <div className="ml-3 flex-1">
                                                     <h4 className="font-bold text-white text-sm">Esteban Ortega</h4>
                                                     <p className="text-xs text-[#E0F2FE]">Omnature</p>
