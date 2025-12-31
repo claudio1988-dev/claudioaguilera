@@ -740,12 +740,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         {/* Text content - Scrollable */}
                                         <div className="p-8 overflow-y-auto flex-1">
                                             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                                                Mi viaje inspirador a Machu Picchu
+                                                Mi viaje a Machu Picchu
                                             </h3>
                                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-justify">
-                                                En 2018, emprendí un viaje transformador a Machu Picchu que cambió mi perspectiva sobre la vida y el trabajo.
-                                                Caminando por las antiguas ruinas incas, rodeado de la majestuosidad de los Andes, comprendí que esa maravilla
-                                                influyó en mi ganas de construir algo que genere valor.
+                                                En 2018 visité Machu Picchu, una experiencia que me inspiró a crear soluciones tecnológicas que generen valor real para las empresas.
                                             </p>
                                            
                                         </div>
