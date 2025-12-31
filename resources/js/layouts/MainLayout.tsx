@@ -264,6 +264,22 @@ export default function MainLayout({ children }: MainLayoutProps) {
         }
     };
 
+    const scrollToServicios = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const serviciosElement = document.getElementById('servicios');
+        if (serviciosElement) {
+            const offset = 80; // Offset para el header fijo
+            const elementPosition = serviciosElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     const handleDragStart = (e: React.DragEvent, sphereId: string) => {
         setDraggedSphere(sphereId);
         e.dataTransfer.effectAllowed = 'move';
@@ -364,6 +380,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             </a>
                             <a
                                 href="#servicios"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToServicios(e as any);
+                                }}
                                 className="text-[#FEFEFF] hover:text-[#01D0FF] transition-colors cursor-pointer"
                             >
                                 Servicios
@@ -420,7 +440,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         </a>
                         <a
                             href="#servicios"
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setIsMobileMenuOpen(false);
+                                scrollToServicios(e as any);
+                            }}
                             className="block px-3 py-2 text-base font-medium text-[#FEFEFF] hover:text-[#01D0FF] cursor-pointer rounded-md hover:bg-[#01D0FF]/10 transition-colors"
                         >
                             Servicios
@@ -504,13 +528,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </div>
 
                                 <div className={`flex flex-col sm:flex-row gap-3 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                                    <Link
-                                        href="#servicios"
+                                    <button
+                                        type="button"
+                                        onClick={scrollToServicios}
                                         className="ripple-effect inline-flex items-center justify-center px-6 py-3 bg-[#01D0FF] text-[#000100] font-semibold rounded-xl hover:bg-[#01D0FF]/80 transition-all duration-300 group shadow-xl/20 hover:shadow-2xl hover:scale-105"
                                     >
                                         Ver Servicios
                                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
+                                    </button>
                                     <button
                                         type="button"
                                         onClick={scrollToContact}
