@@ -743,7 +743,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                                 Mi viaje a Machu Picchu
                                             </h3>
                                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-justify">
-                                                En 2018 visité Machu Picchu, una experiencia que me inspiró a crear soluciones tecnológicas que generen valor real para las empresas.
+                                                Una experiencia inspiradora.
                                             </p>
                                            
                                         </div>
