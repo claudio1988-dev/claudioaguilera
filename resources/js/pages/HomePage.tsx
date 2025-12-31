@@ -537,11 +537,19 @@ export default function HomePage() {
         }
     };
 
-    const scrollToContact = (e: React.MouseEvent<Element>) => {
+    const scrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        e.stopPropagation();
         const contactoElement = document.getElementById('contacto');
         if (contactoElement) {
-            contactoElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 80; // Offset para el header fijo
+            const elementPosition = contactoElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     };
 
@@ -590,14 +598,14 @@ export default function HomePage() {
                         Desde LunaSuite hasta sistemas personalizados, te ayudo a crecer.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            href="#contacto"
+                        <button
+                            type="button"
                             onClick={scrollToContact}
                             className="inline-flex items-center justify-center px-8 py-4 bg-[#000100] text-[#01D0FF] font-semibold rounded-2xl hover:bg-[#FEFEFF] hover:text-[#000100] transition-colors group shadow-xl/20"
                         >
                             Solicitar presupuesto
                             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        </button>
                         <a
                             href="https://wa.me/56912345678?text=Hola%20Claudio,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios"
                             target="_blank"

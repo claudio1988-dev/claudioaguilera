@@ -248,11 +248,19 @@ export default function MainLayout({ children }: MainLayoutProps) {
         return 'Plataformas SaaS (LunaSuite)';
     };
 
-    const scrollToContact = (e: React.MouseEvent<Element>) => {
+    const scrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        e.stopPropagation();
         const contactoElement = document.getElementById('contacto');
         if (contactoElement) {
-            contactoElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 80; // Offset para el header fijo
+            const elementPosition = contactoElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     };
 
@@ -503,13 +511,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         Ver Servicios
                                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                     </Link>
-                                    <Link
-                                        href="#contacto"
+                                    <button
+                                        type="button"
                                         onClick={scrollToContact}
                                         className="ripple-effect inline-flex items-center justify-center px-6 py-3 border-2 border-[#01D0FF] text-[#01D0FF] font-semibold rounded-xl hover:bg-[#01D0FF] hover:text-[#000100] transition-all duration-300 shadow-xl/20 hover:shadow-2xl hover:scale-105"
                                     >
                                         Solicitar presupuesto
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
 
