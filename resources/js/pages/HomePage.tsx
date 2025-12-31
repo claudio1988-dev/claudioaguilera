@@ -483,7 +483,6 @@ export default function HomePage() {
         router.post('/budget', budgetForm, {
             preserveScroll: true,
             preserveState: true,
-            preserveScroll: true,
             onSuccess: () => {
                 setBudgetMessage({ type: 'success', text: '¡Solicitud de presupuesto enviada exitosamente! Te responderé pronto.' });
                 setTimeout(() => {
