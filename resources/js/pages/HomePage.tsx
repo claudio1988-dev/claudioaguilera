@@ -1,5 +1,5 @@
 import MainLayout from '@/layouts/MainLayout';
-import { Link } from '@inertiajs/react';
+import { Link, router } from '@inertiajs/react';
 import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
@@ -246,6 +246,7 @@ export default function HomePage() {
     const [showTooltip, setShowTooltip] = useState<string | null>(null);
     const [showBudgetModal, setShowBudgetModal] = useState(false);
     const [spheresVisible, setSpheresVisible] = useState(false);
+    const [isSubmittingBudget, setIsSubmittingBudget] = useState(false);
     const [budgetForm, setBudgetForm] = useState({
         name: '',
         email: '',
@@ -452,19 +453,32 @@ export default function HomePage() {
 
     const handleBudgetFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you would typically send the form data to your backend
-        console.log('Budget form submitted:', budgetForm);
-        alert('¡Gracias! Tu solicitud de presupuesto ha sido enviada. Me pondré en contacto contigo pronto.');
-        setShowBudgetModal(false);
-        setBudgetForm({
-            name: '',
-            email: '',
-            company: '',
-            phone: '',
-            projectType: '',
-            budget: '',
-            timeline: '',
-            description: ''
+        setIsSubmittingBudget(true);
+
+        router.post('/budget', budgetForm, {
+            preserveScroll: true,
+            onSuccess: () => {
+                alert('¡Gracias! Tu solicitud de presupuesto ha sido enviada. Me pondré en contacto contigo pronto.');
+                setShowBudgetModal(false);
+                setBudgetForm({
+                    name: '',
+                    email: '',
+                    company: '',
+                    phone: '',
+                    projectType: '',
+                    budget: '',
+                    timeline: '',
+                    description: ''
+                });
+                setIsSubmittingBudget(false);
+            },
+            onError: (errors) => {
+                alert(errors.message || 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.');
+                setIsSubmittingBudget(false);
+            },
+            onFinish: () => {
+                setIsSubmittingBudget(false);
+            }
         });
     };
 
@@ -708,9 +722,10 @@ export default function HomePage() {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                                    disabled={isSubmittingBudget}
+                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                                 >
-                                    Enviar Solicitud
+                                    {isSubmittingBudget ? 'Enviando...' : 'Enviar Solicitud'}
                                 </button>
                             </div>
                         </form>

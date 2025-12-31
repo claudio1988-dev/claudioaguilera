@@ -10,6 +10,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/budget', [ContactController::class, 'sendBudget'])->name('budget.send');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
