@@ -1,2 +1,4 @@
 *
 !.gitignore
+!tecnologias/
+!tecnologias/**

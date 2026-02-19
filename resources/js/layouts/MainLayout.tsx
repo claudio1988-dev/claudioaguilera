@@ -264,6 +264,23 @@ export default function MainLayout({ children }: MainLayoutProps) {
         }
     };
 
+    const quoteService = (e: React.MouseEvent, serviceKey: string) => {
+        e.preventDefault();
+        setContactForm(prev => ({ ...prev, servicio: serviceKey }));
+        
+        const contactoElement = document.getElementById('contacto');
+        if (contactoElement) {
+            const offset = 80; // Offset para el header fijo
+            const elementPosition = contactoElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     const scrollToServicios = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
         e.preventDefault();
         e.stopPropagation();
@@ -1141,12 +1158,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <span className="mr-1">⏱️</span>
                                         <span>2-4 semanas</span>
                                     </div>
-                                    <Link
-                                        href="#contacto"
+                                    <button
+                                        onClick={(e) => quoteService(e, 'erp')}
                                         className="text-sm font-semibold text-[#01D0FF] hover:text-[#0085EE] transition-colors group-hover:underline"
                                     >
                                         Solicitar cotización →
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
 
@@ -1188,12 +1205,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <span className="mr-1">⏱️</span>
                                         <span>3-6 semanas</span>
                                     </div>
-                                    <Link
-                                        href="#contacto"
+                                    <button
+                                        onClick={(e) => quoteService(e, 'ecommerce')}
                                         className="text-sm font-semibold text-[#0065E1] hover:text-[#01D0FF] transition-colors group-hover:underline"
                                     >
                                         Solicitar cotización →
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
 
@@ -1235,12 +1252,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <span className="mr-1">⏱️</span>
                                         <span>1-3 semanas</span>
                                     </div>
-                                    <Link
-                                        href="#contacto"
+                                    <button
+                                        onClick={(e) => quoteService(e, 'web')}
                                         className="text-sm font-semibold text-[#0085EE] hover:text-[#0065E1] transition-colors group-hover:underline"
                                     >
                                         Solicitar cotización →
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1267,35 +1284,35 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     nombre: 'LunaSuite',
                                     url: 'https://www.lunasuite.cl',
                                     descripcion: 'SaaS multi-tenant para gestión empresarial avanzada.',
-                                    imagen: '/tecnologias/lunasuite.png',
+                                    imagen: '/tecnologias/portafolio/lunasuite.jpg',
                                     tags: ['SaaS', 'Cloud']
                                 },
                                 {
                                     nombre: 'Cumbres Arquitectura',
                                     url: 'https://www.cumbresarquitectura.cl',
                                     descripcion: 'Sitio web corporativo de arquitectura y diseño.',
-                                    imagen: '/tecnologias/portafolio/cumbres_arquitectura_mockup_1771540266399.png',
+                                    imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
                                     tags: ['Portfolio', 'Design']
                                 },
                                 {
                                     nombre: 'DNS Servicios',
                                     url: 'https://www.dnsservicios.cl',
                                     descripcion: 'Portal de servicios técnicos y soporte empresarial.',
-                                    imagen: '/tecnologias/portafolio/dns_servicios_mockup_1771540141134.png',
+                                    imagen: '/tecnologias/portafolio/dnsservicios.jpg',
                                     tags: ['Corporate', 'IT']
                                 },
                                 {
                                     nombre: 'Felipe Contreras',
                                     url: 'https://www.felipecontreras.cl',
                                     descripcion: 'Personal brand y consultoría profesional.',
-                                    imagen: '/tecnologias/portafolio/felipe_contreras_mockup_v2_1771540232695.png',
+                                    imagen: '/tecnologias/portafolio/felipecontreras.jpg',
                                     tags: ['Personal Brand', 'UI/UX']
                                 },
                                 {
                                     nombre: 'Arroz Santa Regina',
                                     url: 'https://www.arrozsantaregina.cl',
                                     descripcion: 'Presencia digital para marca de productos gourmet.',
-                                    imagen: '/tecnologias/portafolio/arroz_santa_regina_mockup_1771540297421.png',
+                                    imagen: '/tecnologias/portafolio/arrozsantaregina.jpg',
                                     tags: ['Landing Page', 'Gourmet']
                                 }
                             ].map((project, idx) => (
@@ -1382,9 +1399,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <div className="relative z-10">
                                             <div className="mb-6">
                                                 <img
-                                                    src="/tecnologias/lunasuite.png"
-                                                    alt="LunaSuite Logo"
-                                                    className="w-40 h-40 object-contain mx-auto drop-shadow-2xl"
+                                                    src="/tecnologias/portafolio/lunasuite.jpg"
+                                                    alt="LunaSuite"
+                                                    className="w-full h-48 object-cover rounded-xl shadow-2xl mb-6"
                                                 />
                                             </div>
                                             <h3 className="text-4xl font-bold mb-4 text-center">LunaSuite</h3>
