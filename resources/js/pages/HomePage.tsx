@@ -611,7 +611,7 @@ export default function HomePage() {
                             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                         </button>
                         <a
-                            href="https://wa.me/56912345678?text=Hola%20Claudio,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios"
+                            href="https://wa.me/56954277834?text=Hola%20Claudio,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#000100] text-[#000100] font-semibold rounded-2xl hover:bg-[#000100] hover:text-[#01D0FF] transition-colors shadow-xl/20"

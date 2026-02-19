@@ -747,32 +747,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             </p>
                                         </div>
 
-                                        {/* Testimonial 2 */}
-                                        <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                                            <div className="flex items-start mb-3">
-                                                <div className="relative">
-                                                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#0065E1]">
-                                                        <img
-                                                            src="/tecnologias/personas/esteban.png"
-                                                            alt="Esteban - Omnature"
-                                                            className="w-full h-full object-cover"
-                                            />
-                                        </div>
-                                        </div>
-                                                <div className="ml-3 flex-1">
-                                                    <h4 className="font-bold text-white text-sm">Esteban Ortega</h4>
-                                                    <p className="text-xs text-[#E0F2FE]">Omnature</p>
-                                                    <div className="flex text-yellow-400 mt-1">
-                                                        {'★★★★★'.split('').map((star, i) => (
-                                                            <span key={i} className="text-xs">{star}</span>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p className="text-sm text-[#E0F2FE] italic leading-relaxed">
-                                                "La tienda online que desarrolló Claudio duplicó nuestras ventas. Ahora vendemos 24/7 y tenemos clientes de toda la región."
-                                            </p>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -877,7 +852,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-justify">
                                                 Una experiencia inspiradora.
                                             </p>
-                                           
                                         </div>
                                     </div>
                                 </div>
@@ -1040,9 +1014,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </p>
                             </div>
 
-                            <div className="grid md:grid-cols-2 gap-8">
+                            <div className="flex justify-center">
                                 {/* Testimonial 1 */}
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/10 hover:shadow-2xl transition-all duration-300 group">
+                                <div className="max-w-2xl bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/10 hover:shadow-2xl transition-all duration-300 group">
                                     <div className="flex items-start mb-4">
                                         <div className="relative">
                                             <div className="w-14 h-14 rounded-full overflow-hidden border-3 border-[#01D0FF] shadow-lg group-hover:scale-110 transition-transform">
@@ -1075,7 +1049,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     <div className="relative">
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -top-2 -left-2 opacity-20">"</div>
                                         <p className="text-[#E0F2FE] italic leading-relaxed pl-4">
-                                            "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional y eficiente."
+                                            "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional."
                                         </p>
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -bottom-4 right-0 opacity-20">"</div>
                                     </div>
@@ -1089,53 +1063,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     </div>
                                 </div>
 
-                                {/* Testimonial 2 */}
-                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/10 hover:shadow-2xl transition-all duration-300 group">
-                                    <div className="flex items-start mb-4">
-                                        <div className="relative">
-                                            <div className="w-14 h-14 rounded-full overflow-hidden border-3 border-[#0065E1] shadow-lg group-hover:scale-110 transition-transform">
-                                                <img
-                                                    src="/tecnologias/personas/esteban.png"
-                                                    alt="Esteban Ortega - Omnature"
-                                                    className="w-full h-full object-cover"
-                                                />
-                                            </div>
-                                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#0065E1] rounded-full flex items-center justify-center">
-                                                <span className="text-white text-xs">✓</span>
-                                            </div>
-                                        </div>
-                                        <div className="ml-4 flex-1">
-                                            <div className="flex items-center mb-1">
-                                                <h4 className="font-bold text-white text-lg">Esteban Ortega</h4>
-                                                <div className="ml-2 flex text-yellow-400">
-                                                    {'★★★★★'.split('').map((star, i) => (
-                                                        <span key={i} className="text-sm">{star}</span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            <p className="text-sm text-[#E0F2FE] font-medium">Omnature - Agua Purificada</p>
-                                            <div className="flex items-center mt-1">
-                                                <span className="text-xs text-[#0065E1] font-semibold">Cliente desde 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="relative">
-                                        <div className="text-[#0065E1] text-4xl font-serif absolute -top-2 -left-2 opacity-20">"</div>
-                                        <p className="text-[#E0F2FE] italic leading-relaxed pl-4">
-                                            "La tienda online que desarrolló Claudio duplicó nuestras ventas. Ahora vendemos 24/7 y
-                                            tenemos clientes de toda la región. Su conocimiento del negocio minorista es invaluable."
-                                        </p>
-                                        <div className="text-[#0065E1] text-4xl font-serif absolute -bottom-4 right-0 opacity-20">"</div>
-                                    </div>
-
-                                    <div className="mt-4 flex items-center justify-between">
-                                        <div className="flex items-center text-xs text-[#E0F2FE]">
-                                            <span className="mr-2">🚀</span>
-                                            <span>Resultado: +200% ventas online</span>
-                                        </div>
-                                        <div className="text-xs text-[#0065E1] font-semibold">Ver caso completo →</div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -1155,7 +1082,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </section>
 
                 {/* Servicios Section */}
@@ -1334,7 +1260,82 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             </p>
                         </div>
 
-                        {/* Proyecto destacado: LunaSuite */}
+                        {/* Otros Proyectos */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                            {[
+                                {
+                                    nombre: 'LunaSuite',
+                                    url: 'https://www.lunasuite.cl',
+                                    descripcion: 'SaaS multi-tenant para gestión empresarial avanzada.',
+                                    imagen: '/tecnologias/lunasuite.png',
+                                    tags: ['SaaS', 'Cloud']
+                                },
+                                {
+                                    nombre: 'Cumbres Arquitectura',
+                                    url: 'https://www.cumbresarquitectura.cl',
+                                    descripcion: 'Sitio web corporativo de arquitectura y diseño.',
+                                    imagen: '/tecnologias/portafolio/cumbres_arquitectura_mockup_1771540266399.png',
+                                    tags: ['Portfolio', 'Design']
+                                },
+                                {
+                                    nombre: 'DNS Servicios',
+                                    url: 'https://www.dnsservicios.cl',
+                                    descripcion: 'Portal de servicios técnicos y soporte empresarial.',
+                                    imagen: '/tecnologias/portafolio/dns_servicios_mockup_1771540141134.png',
+                                    tags: ['Corporate', 'IT']
+                                },
+                                {
+                                    nombre: 'Felipe Contreras',
+                                    url: 'https://www.felipecontreras.cl',
+                                    descripcion: 'Personal brand y consultoría profesional.',
+                                    imagen: '/tecnologias/portafolio/felipe_contreras_mockup_v2_1771540232695.png',
+                                    tags: ['Personal Brand', 'UI/UX']
+                                },
+                                {
+                                    nombre: 'Arroz Santa Regina',
+                                    url: 'https://www.arrozsantaregina.cl',
+                                    descripcion: 'Presencia digital para marca de productos gourmet.',
+                                    imagen: '/tecnologias/portafolio/arroz_santa_regina_mockup_1771540297421.png',
+                                    tags: ['Landing Page', 'Gourmet']
+                                }
+                            ].map((project, idx) => (
+                                <div key={idx} className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                    <div className="relative h-48 overflow-hidden">
+                                        <img 
+                                            src={project.imagen} 
+                                            alt={project.nombre}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                            <a 
+                                                href={project.url} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="text-white bg-[#01D0FF] hover:bg-[#0085EE] px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center"
+                                            >
+                                                Ver sitio 
+                                                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="p-6">
+                                        <div className="flex flex-wrap gap-2 mb-3">
+                                            {project.tags.map(tag => (
+                                                <span key={tag} className="text-[10px] uppercase tracking-wider font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.nombre}</h4>
+                                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                            {project.descripcion}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Proyecto destacado (Caso de Éxito) */}
                         <div className="mb-16">
                             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
                                 <div className="md:flex">
@@ -1487,6 +1488,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </div>
                             </div>
                         </div>
+
+
 
                     </div>
                 </section>
