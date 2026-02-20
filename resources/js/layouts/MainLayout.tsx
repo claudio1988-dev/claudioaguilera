@@ -759,7 +759,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p className="text-sm text-[#E0F2FE] italic leading-relaxed">
+                                            <p className="text-sm text-[#E0F2FE] italic leading-relaxed text-justify">
                                                 "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora gestionamos todo de forma profesional y eficiente."
                                             </p>
                                         </div>
@@ -818,7 +818,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                         Sobre mí
                                     </h2>
-                                    <p className="text-lg text-[#E0F2FE] leading-relaxed">
+                                    <p className="text-lg text-[#E0F2FE] leading-relaxed text-justify">
                                         Desarrollador especializado en soluciones tecnológicas para PyMEs.
                                         Entiendo los desafíos únicos de las pequeñas y medianas empresas.
                                     </p>
@@ -887,7 +887,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             Mi experiencia
                                         </h3>
                                     </div>
-                                    <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                                    <p className="text-gray-700 text-sm leading-relaxed mb-4 text-justify">
                                         Con más de 10 años desarrollando soluciones tecnológicas, me especializo en entender
                                         las necesidades reales de las PyMEs. Mi trayectoria profesional incluye haber trabajado en Mzzo.com,
                                         la <strong className="text-[#0085EE]">Vicerrectoría de Ciencias de la Información de la Universidad de Chile</strong>, <strong className="text-[#0085EE]">KameERP</strong> y Safira Energia (Brasil).
@@ -907,7 +907,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             Mi enfoque
                                         </h3>
                                     </div>
-                                    <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                                    <p className="text-gray-700 text-sm leading-relaxed mb-4 text-justify">
                                         Desarrollo soluciones que se adaptan a tu presupuesto,
                                         escalan con tu crecimiento y resuelven problemas concretos.
                                     </p>
@@ -927,7 +927,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             Mi filosofía
                                         </h3>
                                     </div>
-                                    <p className="text-white text-sm leading-relaxed mb-4">
+                                    <p className="text-white text-sm leading-relaxed mb-4 text-justify">
                                         Creo en el poder de la tecnología para transformar negocios. Cada proyecto es una oportunidad
                                         para crear soluciones que no solo funcionen, sino que impulsen el crecimiento sostenible.
                                     </p>
@@ -1065,7 +1065,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                                     <div className="relative">
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -top-2 -left-2 opacity-20">"</div>
-                                        <p className="text-[#E0F2FE] italic leading-relaxed pl-4">
+                                        <p className="text-[#E0F2FE] italic leading-relaxed pl-4 text-justify">
                                             "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional."
                                         </p>
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -bottom-4 right-0 opacity-20">"</div>
@@ -1087,7 +1087,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             <div className="text-center mt-12">
                                 <div className="bg-gradient-to-r from-[#01D0FF]/10 to-[#0085EE]/10 rounded-2xl p-6 border border-[#01D0FF]/20">
                                     <h4 className="text-lg font-bold text-white mb-2">¿Quieres ser el próximo caso de éxito?</h4>
-                                    <p className="text-[#E0F2FE] mb-4">Únete a más de 30 empresas que han transformado su negocio con mis soluciones</p>
+                                    <p className="text-[#E0F2FE] mb-4 text-justify">Únete a más de 30 empresas que han transformado su negocio con mis soluciones</p>
                                     <button
                                         type="button"
                                         onClick={scrollToContact}
@@ -1135,7 +1135,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 <h3 className="text-xl font-bold text-[#000100] mb-3 group-hover:text-[#01D0FF] transition-colors">
                                     Sistemas ERP y CRM
                                 </h3>
-                                <p className="text-[#6B7280] mb-6 leading-relaxed">
+                                <p className="text-[#6B7280] mb-6 leading-relaxed text-justify">
                                     Gestiona clientes, pedidos e inventario en una sola plataforma. Automatiza procesos y reduce errores administrativos.
                                 </p>
 
@@ -1182,7 +1182,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 <h3 className="text-xl font-bold text-[#000100] mb-3 group-hover:text-[#0065E1] transition-colors">
                                     Tiendas E-commerce
                                 </h3>
-                                <p className="text-[#6B7280] mb-6 leading-relaxed">
+                                <p className="text-[#6B7280] mb-6 leading-relaxed text-justify">
                                     Vende 24/7 con una tienda online moderna, segura y fácil de usar. Aumenta tus ingresos con comercio electrónico.
                                 </p>
 
@@ -1229,7 +1229,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 <h3 className="text-xl font-bold text-[#000100] mb-3 group-hover:text-[#0085EE] transition-colors">
                                     Sitios Web Corporativos
                                 </h3>
-                                <p className="text-[#6B7280] mb-6 leading-relaxed">
+                                <p className="text-[#6B7280] mb-6 leading-relaxed text-justify">
                                     Presencia digital profesional que genera confianza y atrae nuevos clientes para tu negocio.
                                 </p>
 
@@ -1344,7 +1344,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             ))}
                                         </div>
                                         <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.nombre}</h4>
-                                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 text-justify">
                                             {project.descripcion}
                                         </p>
                                     </div>
@@ -1432,7 +1432,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <h4 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                                             Caso de Éxito
                                         </h4>
-                                        <p className="text-gray-600 dark:text-gray-300 mb-6">
+                                        <p className="text-gray-600 dark:text-gray-300 mb-6 text-justify">
                                             LunaSuite nació como solución a una necesidad real de Ascolor, empresa de diseño publicitario que necesitaba digitalizar sus procesos de gestión.
                                             A través de este desafío, desarrollé este SaaS multi-tenant con alta tecnología web, desplegado en Digital Ocean,
                                             que transforma la gestión empresarial para PyMEs.
@@ -1479,7 +1479,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             </div>
 
                                             {/* Testimonial content */}
-                                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3 text-sm">
+                                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3 text-sm text-justify">
                                                 "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional y eficiente."
                                             </p>
 
@@ -1576,7 +1576,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     <h3 className="text-2xl font-bold text-white mb-2">
                                         Envíame un mensaje
                                     </h3>
-                                    <p className="text-[#E0F2FE]/80">
+                                    <p className="text-[#E0F2FE]/80 text-justify">
                                         Cuéntame sobre tu proyecto y comencemos a trabajar juntos
                                     </p>
                                 </div>
@@ -1705,7 +1705,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     <div className="grid md:grid-cols-4 gap-8">
                         <div className="md:col-span-2">
                             <h3 className="text-xl font-bold mb-4">Claudio Aguilera</h3>
-                            <p className="text-gray-400 mb-4">
+                            <p className="text-gray-400 mb-4 text-justify">
                                 Desarrollador Full-Stack apasionado por crear soluciones digitales innovadoras
                                 y experiencias de usuario excepcionales.
                             </p>
