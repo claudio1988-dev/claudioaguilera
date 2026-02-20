@@ -1657,12 +1657,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
                         {/* Brand Column */}
                         <div className="space-y-6">
-                            <Link href="/" className="flex items-center -ml-4">
-                                <img
-                                    src="/logoclaudioaguilera.png"
-                                    alt="Claudio Aguilera Logo"
-                                    className="h-16 w-auto object-contain"
-                                />
+                            <Link href="/" className="inline-block group">
+                                <div className="bg-gray-900 px-4 py-2 rounded-xl border border-gray-800 shadow-xl transition-all duration-300 group-hover:bg-[#000100] group-hover:border-[#01D0FF]/30 group-hover:shadow-[#01D0FF]/5">
+                                    <img
+                                        src="/logoclaudioaguilera.png"
+                                        alt="Claudio Aguilera Logo"
+                                        className="h-10 w-auto object-contain"
+                                    />
+                                </div>
                             </Link>
                             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed text-justify max-w-xs">
                                 Desarrollador Full-Stack especializado en transformar negocios a través de soluciones tecnológicas innovadoras y diseño centrado en el usuario.
