@@ -27,7 +27,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [countUpValues, setCountUpValues] = useState({ sales: 0, time: 0, satisfaction: 0 });
     const [darkMode, setDarkMode] = useState(false);
-    const [showImageModal, setShowImageModal] = useState(false);
     const [contactForm, setContactForm] = useState({
         nombre: '',
         email: '',
@@ -813,66 +812,15 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                         <div className="mb-16">
-                            <div className="grid lg:grid-cols-2 gap-8 items-center">
-                                <div>
-                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                                        Sobre mí
-                                    </h2>
-                                    <p className="text-lg text-[#E0F2FE] leading-relaxed text-justify">
-                                        Desarrollador especializado en soluciones tecnológicas para PyMEs.
-                                        Entiendo los desafíos únicos de las pequeñas y medianas empresas.
-                                    </p>
-                                </div>
-                                <div className="flex justify-center lg:justify-end">
-                                    <div
-                                        className="w-64 h-48 bg-cover bg-center bg-no-repeat opacity-60 hover:opacity-80 transition-opacity duration-500 rounded-lg shadow-lg cursor-pointer"
-                                        style={{
-                                            backgroundImage: 'url(/tecnologias/personas/claudio.jpg)',
-                                            filter: 'grayscale(20%) contrast(1.1)'
-                                        }}
-                                        onClick={() => setShowImageModal(true)}
-                                    ></div>
-                                </div>
+                            <div className="max-w-3xl mx-auto text-center">
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                    Sobre mí
+                                </h2>
+                                <p className="text-lg text-[#E0F2FE] leading-relaxed text-center">
+                                    Desarrollador especializado en soluciones tecnológicas para PyMEs.
+                                    Entiendo los desafíos únicos de las pequeñas y medianas empresas.
+                                </p>
                             </div>
-
-                            {/* Image Modal */}
-                            {showImageModal && (
-                                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setShowImageModal(false)}>
-                                    <div className="relative max-w-lg w-full max-h-[95vh] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col" onClick={(e) => e.stopPropagation()}>
-                                        {/* Close button */}
-                                        <button
-                                            onClick={() => setShowImageModal(false)}
-                                            className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors bg-black/50 rounded-full p-2"
-                                        >
-                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-
-                                        {/* Image */}
-                                        <div className="relative h-80 md:h-96 bg-cover bg-center bg-no-repeat flex-shrink-0 overflow-hidden">
-                                            <img
-                                                src="/tecnologias/personas/claudio.jpg"
-                                                alt="Claudio Aguilera - Viaje a Machu Picchu"
-                                                className="w-full h-full object-cover object-center"
-                                                style={{
-                                                    filter: 'grayscale(10%) contrast(1.05)'
-                                                }}
-                                            />
-                                        </div>
-
-                                        {/* Text content - Scrollable */}
-                                        <div className="p-8 overflow-y-auto flex-1">
-                                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                                                Mi viaje a Machu Picchu
-                                            </h3>
-                                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-justify">
-                                                Una experiencia inspiradora.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
                         </div>
 
                         <div className="grid lg:grid-cols-3 gap-8 items-start">
