@@ -1232,7 +1232,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     nombre: 'LunaSuite',
                                     url: 'https://www.lunasuite.cl',
                                     descripcion: 'SaaS multi-tenant para gestión empresarial avanzada.',
-                                    imagen: '/tecnologias/portafolio/lunasuite.jpg',
+                                    imagen: '/tecnologias/portafolio/lunasuite2.jpg',
                                     tags: ['SaaS', 'Cloud']
                                 },
                                 {
@@ -1347,7 +1347,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <div className="relative z-10">
                                             <div className="mb-6">
                                                 <img
-                                                    src="/tecnologias/portafolio/lunasuite.jpg"
+                                                    src="/tecnologias/portafolio/lunasuite2.jpg"
                                                     alt="LunaSuite"
                                                     className="w-full h-48 object-cover rounded-xl shadow-2xl mb-6"
                                                 />
