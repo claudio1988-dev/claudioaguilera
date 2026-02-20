@@ -1648,52 +1648,128 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </main>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-white py-12">
+            <footer className="bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 pt-20 pb-10 relative overflow-hidden">
+                {/* Background decorative elements */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#01D0FF]/20 to-transparent"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-50/50 dark:bg-blue-900/5 rounded-full blur-3xl -z-10"></div>
+
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-4 gap-8">
-                        <div className="md:col-span-2">
-                            <h3 className="text-xl font-bold mb-4">Claudio Aguilera</h3>
-                            <p className="text-gray-400 mb-4 text-justify">
-                                Desarrollador Full-Stack apasionado por crear soluciones digitales innovadoras
-                                y experiencias de usuario excepcionales.
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+                        {/* Brand Column */}
+                        <div className="space-y-6">
+                            <Link href="/" className="flex items-center -ml-4">
+                                <img
+                                    src="/logoclaudioaguilera.png"
+                                    alt="Claudio Aguilera Logo"
+                                    className="h-16 w-auto object-contain"
+                                />
+                            </Link>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed text-justify max-w-xs">
+                                Desarrollador Full-Stack especializado en transformar negocios a través de soluciones tecnológicas innovadoras y diseño centrado en el usuario.
                             </p>
-                            <div className="flex space-x-4">
-                                <a href="https://github.com/claudio1988-dev" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
+                            <div className="flex space-x-3 pt-2">
+                                <a 
+                                    href="https://linkedin.com/in/claudioaguilera" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center text-gray-400 hover:text-[#01D0FF] hover:bg-[#01D0FF]/5 transition-all duration-300 border border-gray-100 dark:border-gray-800"
+                                    aria-label="LinkedIn"
+                                >
+                                    <Linkedin className="w-5 h-5" />
                                 </a>
-                                <a href="https://linkedin.com/in/claudioaguilera" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
+                                <a 
+                                    href="https://github.com/claudio1988-dev" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center text-gray-400 hover:text-white hover:bg-black transition-all duration-300 border border-gray-100 dark:border-gray-800"
+                                    aria-label="GitHub"
+                                >
+                                    <Github className="w-5 h-5" />
                                 </a>
                             </div>
                         </div>
+
+                        {/* Quick Links */}
                         <div>
-                            <h4 className="text-lg font-semibold mb-4">Enlaces rápidos</h4>
-                            <ul className="space-y-2">
-                                <li><a href="#hero" onClick={scrollToHero} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Inicio</a></li>
-                                <li><a href="#sobre-mi" onClick={scrollToSobreMi} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Sobre mí</a></li>
-                                <li><a href="#servicios" onClick={scrollToServicios} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Servicios</a></li>
-                                <li><a href="#portafolio" onClick={scrollToPortafolio} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Portafolio</a></li>
-                                <li><a href="#contacto" onClick={scrollToContactFromLink} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Contacto</a></li>
+                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-8">Navegación</h4>
+                            <ul className="space-y-4">
+                                {[
+                                    { label: 'Inicio', href: '#hero', onClick: scrollToHero },
+                                    { label: 'Sobre mí', href: '#sobre-mi', onClick: scrollToSobreMi },
+                                    { label: 'Servicios', href: '#servicios', onClick: scrollToServicios },
+                                    { label: 'Portafolio', href: '#portafolio', onClick: scrollToPortafolio },
+                                    { label: 'Contacto', href: '#contacto', onClick: scrollToContactFromLink }
+                                ].map((link) => (
+                                    <li key={link.label}>
+                                        <a 
+                                            href={link.href} 
+                                            onClick={link.onClick}
+                                            className="text-gray-500 dark:text-gray-400 hover:text-[#01D0FF] dark:hover:text-[#01D0FF] transition-colors flex items-center group text-sm"
+                                        >
+                                            <span className="w-1.5 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full mr-3 group-hover:bg-[#01D0FF] transition-colors"></span>
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
+
+                        {/* Services/Tech */}
                         <div>
-                            <h4 className="text-lg font-semibold mb-4">Tecnologías</h4>
-                            <ul className="space-y-2">
-                                <li><span className="text-gray-400">React</span></li>
-                                <li><span className="text-gray-400">Laravel</span></li>
-                                <li><span className="text-gray-400">TypeScript</span></li>
-                                <li><span className="text-gray-400">Node.js</span></li>
+                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-8">Especialidades</h4>
+                            <ul className="space-y-4">
+                                {[
+                                    'Sistemas ERP & CRM',
+                                    'E-commerce Pro',
+                                    'Web Corporativas',
+                                    'Arquitectura Cloud',
+                                    'Design Systems'
+                                ].map((item) => (
+                                    <li key={item} className="text-gray-500 dark:text-gray-400 text-sm flex items-center">
+                                        <CheckCircle className="w-4 h-4 mr-3 text-[#01D0FF]" />
+                                        {item}
+                                    </li>
+                                ))}
                             </ul>
+                        </div>
+
+                        {/* Contact Info */}
+                        <div>
+                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-8">Contacto Directo</h4>
+                            <div className="space-y-6">
+                                <div className="flex items-start">
+                                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0">
+                                        <Mail className="w-5 h-5" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-400 uppercase tracking-tighter mb-1 font-semibold">Email</p>
+                                        <a href="mailto:hola@claudioaguilera.cl" className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#01D0FF] transition-colors">
+                                            hola@claudioaguilera.cl
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="flex items-start">
+                                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0">
+                                        <MapPin className="w-5 h-5" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-400 uppercase tracking-tighter mb-1 font-semibold">Ubicación</p>
+                                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                                            Santiago, Chile
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-                        <p className="text-gray-400">
+
+                    <div className="pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p className="text-gray-400 dark:text-gray-500 text-xs text-center md:text-left">
                             © 2024 Claudio Aguilera. Todos los derechos reservados.
                         </p>
+                        <div className="flex items-center gap-6">
+                            <span className="text-[10px] text-gray-300 dark:text-gray-700 uppercase tracking-[0.2em] font-bold">Desplegado con orgullo en Digital Ocean</span>
+                        </div>
                     </div>
                 </div>
             </footer>
