@@ -1,5 +1,5 @@
 import MainLayout from '@/layouts/MainLayout';
-import { Link, router, usePage } from '@inertiajs/react';
+import { Head, Link, router, usePage } from '@inertiajs/react';
 import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
@@ -555,6 +555,7 @@ export default function HomePage() {
 
     return (
         <MainLayout>
+            <Head title="Desarrollador Full-Stack" />
 
             {/* WhatsApp Floating Button with Attention Effects */}
             <a

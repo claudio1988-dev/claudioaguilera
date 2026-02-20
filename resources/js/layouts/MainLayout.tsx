@@ -1743,10 +1743,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0">
                                         <Mail className="w-5 h-5" />
                                     </div>
-                                    <div>
+                                    <div className="flex flex-col">
                                         <p className="text-xs text-gray-400 uppercase tracking-tighter mb-1 font-semibold">Email</p>
-                                        <a href="mailto:hola@claudioaguilera.cl" className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#01D0FF] transition-colors">
-                                            hola@claudioaguilera.cl
+                                        
+                                        <a href="mailto:claudio.datos@gmail.com" className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#01D0FF] transition-colors leading-tight mt-1">
+                                            claudio.datos@gmail.com
                                         </a>
                                     </div>
                                 </div>
@@ -1754,10 +1755,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0">
                                         <MapPin className="w-5 h-5" />
                                     </div>
-                                    <div>
+                                    <div className="flex flex-col">
                                         <p className="text-xs text-gray-400 uppercase tracking-tighter mb-1 font-semibold">Ubicación</p>
-                                        <p className="text-sm text-gray-600 dark:text-gray-300">
-                                            Santiago, Chile
+                                        
+                                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-tight mt-1 border-t border-gray-100 dark:border-gray-800 pt-1">
+                                            San Carlos, Ñuble, Chile
                                         </p>
                                     </div>
                                 </div>

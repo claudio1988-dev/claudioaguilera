@@ -7,7 +7,7 @@ export default function Welcome() {
 
     return (
         <>
-            <Head title="Claudio Aguilera - Portfolio">
+            <Head title="Portfolio">
                 <meta name="description" content="Full-stack developer and web designer specializing in modern web technologies. Explore my projects and get in touch." />
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link
