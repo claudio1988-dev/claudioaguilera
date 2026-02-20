@@ -817,8 +817,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     Sobre mí
                                 </h2>
                                 <p className="text-lg text-[#E0F2FE] leading-relaxed text-center">
-                                    Desarrollador especializado en soluciones tecnológicas para PyMEs.
-                                    Entiendo los desafíos únicos de las pequeñas y medianas empresas.
+                                    Desarrollador especializado en soluciones tecnológicas.
+                                    Entiendo los desafíos únicos de las empresas de todos los tamaños.
                                 </p>
                             </div>
                         </div>
@@ -837,7 +837,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     </div>
                                     <p className="text-gray-700 text-sm leading-relaxed mb-4 text-justify">
                                         Con más de 10 años desarrollando soluciones tecnológicas, me especializo en entender
-                                        las necesidades reales de las PyMEs. Mi trayectoria profesional incluye haber trabajado en Mzzo.com,
+                                        las necesidades reales de mis clientes. Mi trayectoria profesional incluye haber trabajado en Mzzo.com,
                                         la <strong className="text-[#0085EE]">Vicerrectoría de Ciencias de la Información de la Universidad de Chile</strong>, <strong className="text-[#0085EE]">KameERP</strong> y Safira Energia (Brasil).
                                     </p>
                                     <div className="bg-gradient-to-br from-[#01D0FF]/10 to-[#0085EE]/10 rounded-lg p-3 border border-[#01D0FF]/20">
@@ -861,7 +861,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     </p>
                                     <div className="bg-gradient-to-br from-[#0065E1]/10 to-[#01D0FF]/10 rounded-lg p-3 border border-[#0065E1]/20">
                                         <div className="text-2xl font-bold text-[#0065E1] mb-1">30+</div>
-                                        <div className="text-xs text-[#E0F2FE] font-medium">PyMEs satisfechas</div>
+                                        <div className="text-xs text-[#E9F0F2] font-medium">Clientes satisfechos</div>
                                     </div>
                                 </div>
                             </div>
@@ -1035,7 +1035,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             <div className="text-center mt-12">
                                 <div className="bg-gradient-to-r from-[#01D0FF]/10 to-[#0085EE]/10 rounded-2xl p-6 border border-[#01D0FF]/20">
                                     <h4 className="text-lg font-bold text-white mb-2">¿Quieres ser el próximo caso de éxito?</h4>
-                                    <p className="text-[#E0F2FE] mb-4 text-justify">Únete a más de 30 empresas que han transformado su negocio con mis soluciones</p>
+                                    <p className="text-[#E0F2FE] mb-4 text-center">Únete a más de 30 empresas que han transformado su negocio con mis soluciones</p>
                                     <button
                                         type="button"
                                         onClick={scrollToContact}
@@ -1063,7 +1063,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 Servicios para tu Empresa
                             </h2>
                             <p className="text-lg text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-                                Soluciones tecnológicas adaptadas a las necesidades de las PyMEs, con enfoque en resultados y eficiencia.
+                                Soluciones tecnológicas adaptadas a las necesidades de empresas de todos los tamaños, con enfoque en resultados y eficiencia.
                             </p>
                         </div>
 
@@ -1383,7 +1383,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <p className="text-gray-600 dark:text-gray-300 mb-6 text-justify">
                                             LunaSuite nació como solución a una necesidad real de Ascolor, empresa de diseño publicitario que necesitaba digitalizar sus procesos de gestión.
                                             A través de este desafío, desarrollé este SaaS multi-tenant con alta tecnología web, desplegado en Digital Ocean,
-                                            que transforma la gestión empresarial para PyMEs.
+                                            que transforma la gestión empresarial para empresas de todo tamaño.
                                         </p>
                                         <div className="grid grid-cols-2 gap-4 mb-6">
                                             <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg p-3 text-center border border-blue-200 dark:border-blue-700 hover:shadow-md transition-all duration-300 group">
