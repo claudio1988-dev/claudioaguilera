@@ -1289,7 +1289,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 },
                                 {
                                     nombre: 'Cumbres Arquitectura',
-                                    url: 'https://www.cumbresarquitectura.cl',
+                                    url: 'https://www.cumbresarq.com',
                                     descripcion: 'Sitio web corporativo de arquitectura y diseño.',
                                     imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
                                     tags: ['Portfolio', 'Design']
