@@ -152,14 +152,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                 setCountUpValues({
                     sales: Math.floor(200 * easeOutQuart),
-                    time: Math.floor(50 * easeOutQuart),
+                    time: Math.floor(80 * easeOutQuart),
                     satisfaction: Math.floor(95 * easeOutQuart)
                 });
 
                 if (currentStep >= steps) {
                     clearInterval(timer);
                     // Ensure final values are exact
-                    setCountUpValues({ sales: 200, time: 50, satisfaction: 95 });
+                    setCountUpValues({ sales: 200, time: 80, satisfaction: 95 });
                 }
             }, increment);
 
@@ -1387,17 +1387,17 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         </p>
                                         <div className="grid grid-cols-2 gap-4 mb-6">
                                             <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg p-3 text-center border border-blue-200 dark:border-blue-700 hover:shadow-md transition-all duration-300 group">
-                                                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1 group-hover:scale-105 transition-transform">50%</div>
+                                                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1 group-hover:scale-105 transition-transform">80%</div>
                                                 <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Reducción en tiempos de reporte</div>
                                                 <div className="w-full bg-blue-200 dark:bg-blue-700 rounded-full h-1 mt-2">
-                                                    <div className="bg-blue-600 dark:bg-blue-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '50%' }}></div>
+                                                    <div className="bg-blue-600 dark:bg-blue-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '80%' }}></div>
                                                 </div>
                                             </div>
                                             <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-lg p-3 text-center border border-green-200 dark:border-green-700 hover:shadow-md transition-all duration-300 group">
-                                                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1 group-hover:scale-105 transition-transform">30%</div>
+                                                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1 group-hover:scale-105 transition-transform">80%</div>
                                                 <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Aumento en eficiencia administrativa</div>
                                                 <div className="w-full bg-green-200 dark:bg-green-700 rounded-full h-1 mt-2">
-                                                    <div className="bg-green-600 dark:bg-green-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '30%' }}></div>
+                                                    <div className="bg-green-600 dark:bg-green-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '80%' }}></div>
                                                 </div>
                                             </div>
                                         </div>
