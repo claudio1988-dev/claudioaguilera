@@ -1231,37 +1231,44 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 {
                                     nombre: 'LunaSuite',
                                     url: 'https://www.lunasuite.cl',
-                                    descripcion: 'SaaS multi-tenant para gestión empresarial avanzada.',
+                                    descripcion: 'Ecosistema SaaS multi-tenant diseñado para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable.',
                                     imagen: '/tecnologias/portafolio/lunasuite2.jpg',
-                                    tags: ['SaaS', 'Cloud']
-                                },
-                                {
-                                    nombre: 'Cumbres Arquitectura',
-                                    url: 'https://www.cumbresarq.com',
-                                    descripcion: 'Sitio web corporativo de arquitectura y diseño.',
-                                    imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
-                                    tags: ['Portfolio', 'Design']
-                                },
-                                {
-                                    nombre: 'DNS Servicios',
-                                    url: 'https://www.dnsservicios.cl',
-                                    descripcion: 'Portal de servicios técnicos y soporte empresarial.',
-                                    imagen: '/tecnologias/portafolio/dnsservicios.jpg',
-                                    tags: ['Corporate', 'IT']
-                                },
-                                {
-                                    nombre: 'Felipe Contreras',
-                                    url: 'https://www.felipecontreras.cl',
-                                    descripcion: 'Personal brand y consultoría profesional.',
-                                    imagen: '/tecnologias/portafolio/felipecontreras.jpg',
-                                    tags: ['Personal Brand', 'UI/UX']
+                                    tags: ['SaaS', 'Cloud', 'ERP']
                                 },
                                 {
                                     nombre: 'Arroz Santa Regina',
                                     url: 'https://www.arrozsantaregina.cl',
-                                    descripcion: 'Presencia digital para marca de productos gourmet.',
+                                    descripcion: 'E-commerce de alto rendimiento con pasarela de pagos avanzada Getnet y motor de recetas interactivo para captación de clientes.',
                                     imagen: '/tecnologias/portafolio/arrozsantaregina.jpg',
-                                    tags: ['Landing Page', 'Gourmet']
+                                    tags: ['E-commerce', 'UX', 'Fintech']
+                                },
+                                {
+                                    nombre: 'Cumbres Arquitectura',
+                                    url: 'https://www.cumbresarq.com',
+                                    descripcion: 'Exclusiva plataforma visual para estudio de arquitectura. Fusiona diseño minimalista con interactividad avanzada y navegación inmersiva.',
+                                    imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
+                                    tags: ['Design', 'UX/UI', 'Portfolio']
+                                },
+                                {
+                                    nombre: 'DNS Climatización',
+                                    url: 'https://www.dnsservicios.cl',
+                                    descripcion: 'Solución corporativa optimizada para conversión y SEO. Integra canales de soporte digital y catálogos técnicos industriales.',
+                                    imagen: '/tecnologias/portafolio/dnsservicios.jpg',
+                                    tags: ['SEO', 'Corporate', 'Next.js']
+                                },
+                                {
+                                    nombre: 'Felipe Contreras',
+                                    url: 'https://www.felipecontreras.cl',
+                                    descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
+                                    imagen: '/tecnologias/portafolio/felipecontreras.jpg',
+                                    tags: ['HR Tech', 'Consultoría', 'SENCE']
+                                },
+                                {
+                                    nombre: 'Akiyan - Gestión Pesada',
+                                    url: '#',
+                                    descripcion: 'Plataforma especializada para arriendo de maquinaria. Implementa validación de disponibilidad y mantenimiento automatizado.',
+                                    imagen: '/tecnologias/portafolio/akiyan.jpg',
+                                    tags: ['Logística', 'Laravel', 'B2B']
                                 }
                             ].map((project, idx) => (
                                 <div key={idx} className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
@@ -1299,6 +1306,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </div>
                             ))}
                         </div>
+
+
 
                         {/* Proyecto destacado (Caso de Éxito) */}
                         <div className="mb-16">

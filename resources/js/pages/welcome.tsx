@@ -65,53 +65,94 @@ export default function Welcome() {
                             <div id="projects" className="mb-8">
                                 <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
                                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 dark:bg-blue-900">
-                                            <span className="text-2xl">🛒</span>
-                                        </div>
-                                        <h3 className="font-semibold text-lg mb-2">E-Commerce Platform</h3>
-                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                            Full-stack e-commerce solution with React frontend and Laravel backend.
-                                            Features include payment integration, inventory management, and admin dashboard.
-                                        </p>
-                                        <div className="flex flex-wrap gap-1">
-                                            <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">React</span>
-                                            <span className="px-2 py-1 bg-orange-50 text-orange-700 rounded text-xs dark:bg-orange-900 dark:text-orange-300">Laravel</span>
-                                            <span className="px-2 py-1 bg-green-50 text-green-700 rounded text-xs dark:bg-green-900 dark:text-green-300">Stripe</span>
-                                        </div>
-                                    </div>
-                                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                        <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 dark:bg-purple-900">
-                                            <span className="text-2xl">📋</span>
-                                        </div>
-                                        <h3 className="font-semibold text-lg mb-2">Task Management App</h3>
-                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                            Real-time collaborative task management application built with React and Node.js.
-                                            Includes team collaboration features and progress tracking.
-                                        </p>
-                                        <div className="flex flex-wrap gap-1">
-                                            <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">React</span>
-                                            <span className="px-2 py-1 bg-green-50 text-green-700 rounded text-xs dark:bg-green-900 dark:text-green-300">Node.js</span>
-                                            <span className="px-2 py-1 bg-yellow-50 text-yellow-700 rounded text-xs dark:bg-yellow-900 dark:text-yellow-300">Socket.io</span>
-                                        </div>
-                                    </div>
-                                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                        <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 dark:bg-indigo-900">
-                                            <span className="text-2xl">💼</span>
-                                        </div>
-                                        <h3 className="font-semibold text-lg mb-2">Portfolio Website</h3>
-                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                            Modern, responsive portfolio website showcasing projects and skills.
-                                            Built with React and styled with Tailwind CSS.
-                                        </p>
-                                        <div className="flex flex-wrap gap-1">
-                                            <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">React</span>
-                                            <span className="px-2 py-1 bg-cyan-50 text-cyan-700 rounded text-xs dark:bg-cyan-900 dark:text-cyan-300">Tailwind</span>
-                                            <span className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs dark:bg-purple-900 dark:text-purple-300">Vite</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                                         <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 dark:bg-indigo-900">
+                                             <span className="text-2xl">🌙</span>
+                                         </div>
+                                         <h3 className="font-semibold text-lg mb-2">LunaSuite</h3>
+                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                                             Ecosistema SaaS multi-tenant para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable y segura.
+                                         </p>
+                                         <div className="flex flex-wrap gap-1">
+                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">SaaS</span>
+                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">Laravel</span>
+                                             <span className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs dark:bg-purple-900 dark:text-purple-300">Cloud</span>
+                                         </div>
+                                     </div>
+                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                                         <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 dark:bg-green-900">
+                                             <span className="text-2xl">🌾</span>
+                                         </div>
+                                         <h3 className="font-semibold text-lg mb-2">Arroz Santa Regina</h3>
+                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                                             Plataforma E-commerce para productos alimentarios premium. Integra pasarela de pagos Getnet, gestión avanzada de inventario y un sistema dinámico de recetas interactivas.
+                                         </p>
+                                         <div className="flex flex-wrap gap-1">
+                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">React</span>
+                                             <span className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs dark:bg-purple-900 dark:text-purple-300">Getnet</span>
+                                             <span className="px-2 py-1 bg-cyan-50 text-cyan-700 rounded text-xs dark:bg-cyan-900 dark:text-cyan-300">Tailwind</span>
+                                         </div>
+                                     </div>
+                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                                         <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4 dark:bg-amber-900">
+                                             <span className="text-2xl">🏛️</span>
+                                         </div>
+                                         <h3 className="font-semibold text-lg mb-2">Cumbres Arquitectura</h3>
+                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                                             Portfolio institucional premium para estudio de arquitectura. Destaca por su catálogo interactivo 3D, animaciones Ken Burns y una experiencia de usuario inmersiva de alto nivel.
+                                         </p>
+                                         <div className="flex flex-wrap gap-1">
+                                             <span className="px-2 py-1 bg-rose-50 text-rose-700 rounded text-xs dark:bg-rose-900 dark:text-rose-300">TypeScript</span>
+                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">Framer Motion</span>
+                                             <span className="px-2 py-1 bg-gray-50 text-gray-700 rounded text-xs dark:bg-gray-900 dark:text-gray-300">UI/UX</span>
+                                         </div>
+                                     </div>
+                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                                         <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 dark:bg-sky-900">
+                                             <span className="text-2xl">❄️</span>
+                                         </div>
+                                         <h3 className="font-semibold text-lg mb-2">DNS Climatización</h3>
+                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                                             Sitio web corporativo optimizado para SEO local en el rubro HVAC. Incluye integración experta con canales de atención digital y catálogo de soluciones termodinámicas.
+                                         </p>
+                                         <div className="flex flex-wrap gap-1">
+                                             <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded text-xs dark:bg-emerald-900 dark:text-emerald-300">SEO Local</span>
+                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">Next.js</span>
+                                             <span className="px-2 py-1 bg-green-50 text-green-700 rounded text-xs dark:bg-green-900 dark:text-green-300">WhatsApp API</span>
+                                         </div>
+                                     </div>
+                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                                         <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 dark:bg-purple-900">
+                                             <span className="text-2xl">🧠</span>
+                                         </div>
+                                         <h3 className="font-semibold text-lg mb-2">Capacitaciones Felipe Contreras</h3>
+                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                                             Plataforma de servicios de consultoría y capacitación SENCE. Enfocada en el desarrollo organizacional y capital humano para empresas de la Región del Ñuble.
+                                         </p>
+                                         <div className="flex flex-wrap gap-1">
+                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">Consultoría</span>
+                                             <span className="px-2 py-1 bg-violet-50 text-violet-700 rounded text-xs dark:bg-violet-900 dark:text-violet-300">HR Tech</span>
+                                             <span className="px-2 py-1 bg-orange-50 text-orange-700 rounded text-xs dark:bg-orange-900 dark:text-orange-300">SENCE</span>
+                                         </div>
+                                     </div>
+                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                                         <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 dark:bg-blue-900">
+                                             <span className="text-2xl">🚜</span>
+                                         </div>
+                                         <h3 className="font-semibold text-lg mb-2">Akiyan - Gestión de Maquinaria</h3>
+                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                                             Sistema integral para arriendos de maquinaria pesada. Valida disponibilidad en tiempo real, gestiona tarifas dinámicas por período y automatiza la facturación y el mantenimiento preventivo.
+                                         </p>
+                                         <div className="flex flex-wrap gap-1">
+                                             <span className="px-2 py-1 bg-orange-50 text-orange-700 rounded text-xs dark:bg-orange-900 dark:text-orange-300">Laravel</span>
+                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">React</span>
+                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">Inertia.js</span>
+                                         </div>
+                                     </div>
+                                 </div>
+
                             </div>
+
 
                             <div className="mb-8">
                                 <h2 className="text-xl font-semibold mb-4">Skills & Technologies</h2>
