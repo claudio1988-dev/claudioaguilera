@@ -1765,13 +1765,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         </div>
                     </div>
 
-                    <div className="pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-400 dark:text-gray-500 text-xs text-center md:text-left">
+                    <div className="pt-8 border-t border-gray-100 dark:border-gray-800 text-center">
+                        <p className="text-gray-400 dark:text-gray-500 text-xs">
                             © 2024 Claudio Aguilera. Todos los derechos reservados.
                         </p>
-                        <div className="flex items-center gap-6">
-                            <span className="text-[10px] text-gray-300 dark:text-gray-700 uppercase tracking-[0.2em] font-bold">Desplegado con orgullo en Digital Ocean</span>
-                        </div>
                     </div>
                 </div>
             </footer>
