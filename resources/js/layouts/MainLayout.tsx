@@ -1234,6 +1234,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                             {[
                                 {
+                                    nombre: 'Facchile Outdoor',
+                                    url: 'https://www.dev.facchile.cl',
+                                    descripcion: 'SaaS multi-tenant para la industria outdoor. Integra gestión de inventarios, CRM, ventas y logística con arquitectura escalable.',
+                                    imagen: '/tecnologias/portafolio/facchile.jpg',
+                                    tags: ['SaaS', 'B2B', 'TALL Stack']
+                                },
+                                {
                                     nombre: 'LunaSuite',
                                     url: 'https://www.lunasuite.cl',
                                     descripcion: 'Ecosistema SaaS multi-tenant diseñado para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable.',
