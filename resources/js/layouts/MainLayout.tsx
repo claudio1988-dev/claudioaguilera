@@ -1236,9 +1236,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 {
                                     nombre: 'Facchile Outdoor',
                                     url: 'https://www.dev.facchile.cl',
-                                    descripcion: 'SaaS multi-tenant para la industria outdoor. Integra gestión de inventarios, CRM, ventas y logística con arquitectura escalable.',
+                                    descripcion: 'Plataforma E-commerce especializada para la industria outdoor. Ofrece una experiencia de compra optimizada, gestión de catálogo avanzada e integración logística.',
                                     imagen: '/tecnologias/portafolio/facchile.jpg',
-                                    tags: ['SaaS', 'B2B', 'TALL Stack']
+                                    tags: ['E-commerce', 'B2B', 'UX/UI']
                                 },
                                 {
                                     nombre: 'LunaSuite',
