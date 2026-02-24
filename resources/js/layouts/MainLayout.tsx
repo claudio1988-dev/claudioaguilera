@@ -860,8 +860,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         escalan con tu crecimiento y resuelven problemas concretos.
                                     </p>
                                     <div className="bg-gradient-to-br from-[#0065E1]/10 to-[#01D0FF]/10 rounded-lg p-3 border border-[#0065E1]/20">
-                                        <div className="text-2xl font-bold text-[#0065E1] mb-1">30+</div>
-                                        <div className="text-xs text-[#E9F0F2] font-medium">Clientes satisfechos</div>
+                                        <div className="text-2xl font-bold text-black mb-1">30+</div>
+                                        <div className="text-xs text-black font-medium">Clientes satisfechos</div>
                                     </div>
                                 </div>
                             </div>
@@ -1013,9 +1013,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                                     <div className="relative">
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -top-2 -left-2 opacity-20">"</div>
-                                        <p className="text-[#E0F2FE] italic leading-relaxed pl-4 text-justify">
-                                            "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional."
-                                        </p>
+                                        <div className="text-[#E0F2FE] italic leading-relaxed pl-4 text-justify space-y-4">
+                                            <p>
+                                                Claudio transformó completamente nuestra gestión con LunaSuite. Antes de implementar el sistema, en As Color trabajábamos todo con planillas Excel y archivadores repletos de papeles. Teníamos que imprimir cada pedido con dobles copias, una para el taller y otra para el cliente; era un caos logístico.
+                                            </p>
+                                            <p>
+                                                Hoy, el cambio ha sido absoluto. Ahora tengo el control total y en tiempo real de cada pedido, órdenes de trabajo y despachos. Todo está automatizado, incluyendo las <strong className="text-white">notificaciones directas por WhatsApp</strong> al cliente.
+                                            </p>
+                                        </div>
                                         <div className="text-[#01D0FF] text-4xl font-serif absolute -bottom-4 right-0 opacity-20">"</div>
                                     </div>
 
@@ -1436,9 +1441,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             </div>
 
                                             {/* Testimonial content */}
-                                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3 text-sm text-justify">
-                                                "Claudio transformó completamente nuestra gestión con LunaSuite. Ahora utilizamos el sistema para gestionar clientes, cotizaciones, pedidos, órdenes de trabajo y seguimiento de pedidos de forma profesional y eficiente."
-                                            </p>
+                                            <div className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3 text-sm text-justify space-y-3">
+                                                <p>
+                                                    Claudio transformó completamente nuestra gestión con LunaSuite. Antes de implementar el sistema, en As Color trabajábamos todo con planillas Excel y archivadores repletos de papeles. Teníamos que imprimir cada pedido con dobles copias, una para el taller y otra para el cliente; era un caos logístico.
+                                                </p>
+                                                <p>
+                                                    Hoy, el cambio ha sido absoluto. Ahora tengo el control total y en tiempo real de cada pedido, órdenes de trabajo y despachos. Todo está automatizado, incluyendo las <span className="font-bold">notificaciones directas por WhatsApp</span> al cliente.
+                                                </p>
+                                            </div>
 
                                             {/* Star rating */}
                                             <div className="flex items-center justify-center pt-2 border-t border-gray-100 dark:border-gray-700">
