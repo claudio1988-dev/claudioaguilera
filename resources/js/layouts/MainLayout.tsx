@@ -1274,13 +1274,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
                                     imagen: '/tecnologias/portafolio/felipecontreras.jpg',
                                     tags: ['HR Tech', 'Consultoría', 'SENCE']
-                                },
-                                {
-                                    nombre: 'Akiyan - Gestión Pesada',
-                                    url: '#',
-                                    descripcion: 'Plataforma especializada para arriendo de maquinaria. Implementa validación de disponibilidad y mantenimiento automatizado.',
-                                    imagen: '/tecnologias/portafolio/akiyan.jpg',
-                                    tags: ['Logística', 'Laravel', 'B2B']
                                 }
                             ].map((project, idx) => (
                                 <div key={idx} className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
