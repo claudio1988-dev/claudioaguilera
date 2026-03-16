@@ -1234,6 +1234,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                             {[
                                 {
+                                    nombre: 'Malalca Loft',
+                                    url: 'https://www.malalcaloft.cl',
+                                    descripcion: 'Aplicación de reservas con motor iCal para sincronizar Airbnb y Booking.com. Solución integral para la gestión de alojamientos turísticos con actualización en tiempo real.',
+                                    imagen: '/tecnologias/portafolio/malalcaloft.jpg',
+                                    tags: ['Hospitality', 'iCal', 'React']
+                                },
+                                {
                                     nombre: 'Facchile Outdoor',
                                     url: 'https://www.dev.facchile.cl',
                                     descripcion: 'Plataforma E-commerce especializada para la industria outdoor. Ofrece una experiencia de compra optimizada, gestión de catálogo avanzada e integración logística.',

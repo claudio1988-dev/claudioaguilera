@@ -66,6 +66,20 @@ export default function Welcome() {
                                 <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
                                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                                      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                                         <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 dark:bg-rose-900">
+                                             <span className="text-2xl">🏔️</span>
+                                         </div>
+                                         <h3 className="font-semibold text-lg mb-2">Malalca Loft</h3>
+                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                                             Aplicación de reservas con motor iCal para sincronizar Airbnb y Booking.com de forma automática.
+                                         </p>
+                                         <div className="flex flex-wrap gap-1">
+                                             <span className="px-2 py-1 bg-rose-50 text-rose-700 rounded text-xs dark:bg-rose-900 dark:text-rose-300">Hospitality</span>
+                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">iCal</span>
+                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">React</span>
+                                         </div>
+                                     </div>
+                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
                                          <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 dark:bg-indigo-900">
                                              <span className="text-2xl">🌙</span>
                                          </div>
