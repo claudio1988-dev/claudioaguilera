@@ -1,6 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import { type ReactNode, useState, useEffect, useRef, useCallback } from 'react';
-import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star } from 'lucide-react';
+import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star, Home, ShoppingBag, Layers, Globe, Users, Plane, Thermometer, Compass, Quote } from 'lucide-react';
 
 interface MainLayoutProps {
     children?: ReactNode;
@@ -36,6 +36,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+    const [selectedProject, setSelectedProject] = useState<any>(null);
+    const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLElement>(null);
 
@@ -979,62 +981,80 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 </p>
                             </div>
 
-                            <div className="flex justify-center">
-                                {/* Testimonial 1 */}
-                                <div className="max-w-2xl bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/10 hover:shadow-2xl transition-all duration-300 group">
-                                    <div className="flex items-start mb-4">
-                                        <div className="relative">
-                                            <div className="w-14 h-14 rounded-full overflow-hidden border-3 border-[#01D0FF] shadow-lg group-hover:scale-110 transition-transform">
-                                                <img
-                                                    src="/tecnologias/personas/javiera.png"
-                                                    alt="Javiera - Ascolor"
-                                                    className="w-full h-full object-cover"
-                                                />
-                                            </div>
-                                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#01D0FF] rounded-full flex items-center justify-center">
-                                                <span className="text-white text-xs">✓</span>
-                                            </div>
-                                        </div>
-                                        <div className="ml-4 flex-1">
-                                            <div className="flex items-center mb-1">
-                                                <h4 className="font-bold text-white text-lg">Javiera</h4>
-                                                <div className="ml-2 flex text-yellow-400">
-                                                    {'★★★★★'.split('').map((star, i) => (
-                                                        <span key={i} className="text-sm">{star}</span>
-                                                    ))}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {[
+                                    {
+                                        nombre: 'Javiera',
+                                        empresa: 'Ascolor - Diseño Publicitario y Producción en Artes Gráficas',
+                                        desde: '2023',
+                                        imagen: '/tecnologias/personas/javiera.png',
+                                        texto: 'Claudio transformó completamente nuestra gestión con LunaSuite. Antes de implementar el sistema, en As Color trabajábamos todo con planillas Excel y archivadores repletos de papeles. Teníamos que imprimir cada pedido con dobles copias, una para el taller y otra para el cliente; era un caos logístico.\n\nHoy, el cambio ha sido absoluto. Ahora tengo el control total y en tiempo real de cada pedido, órdenes de trabajo y despachos. Todo está automatizado, incluyendo las notificaciones directas por WhatsApp al cliente.',
+                                        proyecto: 'LunaSuite',
+                                        color: '#01D0FF'
+                                    },
+                                    {
+                                        nombre: 'Emilio Araya',
+                                        empresa: 'Malalca Loft - Lodge de Montaña',
+                                        desde: '2024',
+                                        iniciales: 'EA',
+                                        texto: 'Claudio desarrolló una solución excepcional para Malalca Loft. La implementación del motor iCal y la sincronización con Airbnb y Booking han optimizado totalmente nuestra operación. Ahora gestionamos reservas sin errores de overbooking y con una automatización que antes parecía imposible. Un profesional técnico de primer nivel.',
+                                        proyecto: 'Malalca Loft',
+                                        color: '#FF4D4D'
+                                    }
+                                ].map((t, i) => (
+                                    <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/10 hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
+                                        <div className="flex items-start mb-4">
+                                            <div className="relative">
+                                                <div className="w-14 h-14 rounded-full overflow-hidden border-3 shadow-lg group-hover:scale-110 transition-transform flex items-center justify-center bg-gray-800" style={{ borderColor: t.color }}>
+                                                    {t.imagen ? (
+                                                        <img
+                                                            src={t.imagen}
+                                                            alt={t.nombre}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    ) : (
+                                                        <span className="text-white font-bold text-lg">{t.iniciales}</span>
+                                                    )}
+                                                </div>
+                                                <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center" style={{ backgroundColor: t.color }}>
+                                                    <span className="text-white text-[10px]">✓</span>
                                                 </div>
                                             </div>
-                                            <p className="text-sm text-[#E0F2FE] font-medium">Ascolor - Diseño Publicitario y Producción en Artes Gráficas</p>
-                                            <div className="flex items-center mt-1">
-                                                <span className="text-xs text-[#01D0FF] font-semibold">Cliente desde 2023</span>
+                                            <div className="ml-4 flex-1">
+                                                <div className="flex items-center mb-1">
+                                                    <h4 className="font-bold text-white text-lg">{t.nombre}</h4>
+                                                    <div className="ml-2 flex text-yellow-400">
+                                                        {'★★★★★'.split('').map((star, i) => (
+                                                            <span key={i} className="text-sm">{star}</span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                                <p className="text-xs text-[#E0F2FE] font-medium leading-tight">{t.empresa}</p>
+                                                <div className="flex items-center mt-1">
+                                                    <span className="text-[10px] font-semibold" style={{ color: t.color }}>Cliente desde {t.desde}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className="relative">
-                                        <div className="text-[#01D0FF] text-4xl font-serif absolute -top-2 -left-2 opacity-20">"</div>
-                                        <div className="text-[#E0F2FE] italic leading-relaxed pl-4 text-justify space-y-4">
-                                            <p>
-                                                Claudio transformó completamente nuestra gestión con LunaSuite. Antes de implementar el sistema, en As Color trabajábamos todo con planillas Excel y archivadores repletos de papeles. Teníamos que imprimir cada pedido con dobles copias, una para el taller y otra para el cliente; era un caos logístico.
-                                            </p>
-                                            <p>
-                                                Hoy, el cambio ha sido absoluto. Ahora tengo el control total y en tiempo real de cada pedido, órdenes de trabajo y despachos. Todo está automatizado, incluyendo las <strong className="text-white">notificaciones directas por WhatsApp</strong> al cliente.
-                                            </p>
+                                        <div className="relative flex-grow">
+                                            <div className="text-4xl font-serif absolute -top-2 -left-2 opacity-20" style={{ color: t.color }}>"</div>
+                                            <div className="text-[13px] text-[#E0F2FE] italic leading-relaxed pl-4 text-justify space-y-4">
+                                                <p>{t.texto}</p>
+                                            </div>
+                                            <div className="text-4xl font-serif absolute -bottom-4 right-0 opacity-20" style={{ color: t.color }}>"</div>
                                         </div>
-                                        <div className="text-[#01D0FF] text-4xl font-serif absolute -bottom-4 right-0 opacity-20">"</div>
-                                    </div>
 
-                                    <div className="mt-4 flex items-center justify-between">
-                                        <div className="flex items-center text-xs text-[#E0F2FE]">
-                                            <span className="mr-2">🏆</span>
-                                            <span>Proyecto destacado: LunaSuite</span>
+                                        <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                                            <div className="flex items-center text-[10px] text-[#E0F2FE]">
+                                                <span className="mr-2">🏆</span>
+                                                <span>Proyecto destacado: {t.proyecto}</span>
+                                            </div>
+                                            <div className="text-[10px] font-bold transition-colors hover:opacity-80 cursor-pointer" style={{ color: t.color }}>Ver caso completo →</div>
                                         </div>
-                                        <div className="text-xs text-[#01D0FF] font-semibold">Ver caso completo →</div>
                                     </div>
-                                </div>
-
-                                </div>
+                                ))}
                             </div>
+                        </div>
 
                             {/* Call to Action */}
                             <div className="text-center mt-12">
@@ -1230,97 +1250,167 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             </p>
                         </div>
 
-                        {/* Otros Proyectos */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {[
                                 {
                                     nombre: 'Malalca Loft',
-                                    url: 'https://www.malalcaloft.cl',
                                     descripcion: 'Aplicación de reservas con motor iCal para sincronizar Airbnb y Booking.com. Solución integral para la gestión de alojamientos turísticos con actualización en tiempo real.',
+                                    url: 'https://www.malalcaloft.cl',
                                     imagen: '/tecnologias/portafolio/malalcaloft.jpg',
-                                    tags: ['Hospitality', 'iCal', 'React']
-                                },
-                                {
-                                    nombre: 'Facchile Outdoor',
-                                    url: 'https://www.dev.facchile.cl',
-                                    descripcion: 'Plataforma E-commerce especializada para la industria outdoor. Ofrece una experiencia de compra optimizada, gestión de catálogo avanzada e integración logística.',
-                                    imagen: '/tecnologias/portafolio/facchile.jpg',
-                                    tags: ['E-commerce', 'B2B', 'UX/UI']
+                                    tags: ['Hospitality', 'iCal', 'React'],
+                                    icon: <Home className="w-5 h-5" />,
+                                    color: '#FF4D4D',
+                                    lightColor: 'rgba(255, 77, 77, 0.1)',
+                                    testimonial: {
+                                        text: 'Excelente lugar! Tinaja siempre disponible. Muy buena ubicación, perfecto para el descanso...',
+                                        author: 'Emilio Araya',
+                                        location: 'Puerto Montt'
+                                    }
                                 },
                                 {
                                     nombre: 'LunaSuite',
-                                    url: 'https://www.lunasuite.cl',
                                     descripcion: 'Ecosistema SaaS multi-tenant diseñado para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable.',
+                                    url: 'https://www.lunasuite.cl',
                                     imagen: '/tecnologias/portafolio/lunasuite2.jpg',
-                                    tags: ['SaaS', 'Cloud', 'ERP']
+                                    tags: ['SaaS', 'Cloud', 'ERP'],
+                                    icon: <Layers className="w-5 h-5" />,
+                                    color: '#4D79FF',
+                                    lightColor: 'rgba(77, 121, 255, 0.1)'
                                 },
                                 {
                                     nombre: 'Arroz Santa Regina',
-                                    url: 'https://www.arrozsantaregina.cl',
                                     descripcion: 'E-commerce de alto rendimiento con pasarela de pagos avanzada Getnet y motor de recetas interactivo para captación de clientes.',
+                                    url: 'https://www.arrozsantaregina.cl',
                                     imagen: '/tecnologias/portafolio/arrozsantaregina.jpg',
-                                    tags: ['E-commerce', 'UX', 'Fintech']
+                                    tags: ['E-commerce', 'UX', 'Fintech'],
+                                    icon: <ShoppingBag className="w-5 h-5" />,
+                                    color: '#22C55E',
+                                    lightColor: 'rgba(34, 197, 94, 0.1)'
                                 },
                                 {
                                     nombre: 'Cumbres Arquitectura',
-                                    url: 'https://www.cumbresarq.com',
                                     descripcion: 'Exclusiva plataforma visual para estudio de arquitectura. Fusiona diseño minimalista con interactividad avanzada y navegación inmersiva.',
+                                    url: 'https://www.cumbresarq.com',
                                     imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
-                                    tags: ['Design', 'UX/UI', 'Portfolio']
+                                    tags: ['Design', 'UX/UI', 'Portfolio'],
+                                    icon: <Compass className="w-5 h-5" />,
+                                    color: '#F59E0B',
+                                    lightColor: 'rgba(245, 158, 11, 0.1)'
+                                },
+                                {
+                                    nombre: 'Facchile Outdoor',
+                                    descripcion: 'Plataforma E-commerce especializada para la industria outdoor. Ofrece una experiencia de compra optimizada, gestión de catálogo avanzada e integración logística.',
+                                    url: 'https://www.dev.facchile.cl',
+                                    imagen: '/tecnologias/portafolio/facchile.jpg',
+                                    tags: ['E-commerce', 'B2B', 'UX/UI'],
+                                    icon: <Globe className="w-5 h-5" />,
+                                    color: '#0EA5E9',
+                                    lightColor: 'rgba(14, 165, 233, 0.1)'
                                 },
                                 {
                                     nombre: 'DNS Climatización',
-                                    url: 'https://www.dnsservicios.cl',
                                     descripcion: 'Solución corporativa optimizada para conversión y SEO. Integra canales de soporte digital y catálogos técnicos industriales.',
+                                    url: 'https://www.dnsservicios.cl',
                                     imagen: '/tecnologias/portafolio/dnsservicios.jpg',
-                                    tags: ['SEO', 'Corporate', 'Next.js']
+                                    tags: ['SEO', 'Corporate', 'Next.js'],
+                                    icon: <Thermometer className="w-5 h-5" />,
+                                    color: '#6366F1',
+                                    lightColor: 'rgba(99, 102, 241, 0.1)'
                                 },
                                 {
                                     nombre: 'Felipe Contreras',
-                                    url: 'https://www.felipecontreras.cl',
                                     descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
+                                    url: 'https://www.felipecontreras.cl',
                                     imagen: '/tecnologias/portafolio/felipecontreras.jpg',
-                                    tags: ['HR Tech', 'Consultoría', 'SENCE']
+                                    tags: ['HR Tech', 'Consultoría', 'SENCE'],
+                                    icon: <Users className="w-5 h-5" />,
+                                    color: '#8B5CF6',
+                                    lightColor: 'rgba(139, 92, 246, 0.1)'
                                 }
                             ].map((project, idx) => (
-                                <div key={idx} className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <div 
+                                    key={idx}
+                                    onClick={() => {
+                                        setSelectedProject(project);
+                                        setIsProjectModalOpen(true);
+                                    }}
+                                    className="group relative bg-[#F8F9FA] dark:bg-[#1A1A1A] border border-gray-100 dark:border-[#2A2A2A] rounded-2xl shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 cursor-pointer overflow-hidden flex flex-col h-full"
+                                >
+                                    {/* Image Container */}
                                     <div className="relative h-48 overflow-hidden">
                                         <img 
                                             src={project.imagen} 
                                             alt={project.nombre}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                                            <a 
-                                                href={project.url} 
-                                                target="_blank" 
-                                                rel="noopener noreferrer"
-                                                className="text-white bg-[#01D0FF] hover:bg-[#0085EE] px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center"
-                                            >
-                                                Ver sitio 
-                                                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                            </a>
-                                        </div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        
+                                        {/* Corner Accent Overlay */}
+                                        <div 
+                                            className="absolute top-0 right-0 w-24 h-24 -mr-12 -mt-12 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-2xl"
+                                            style={{ backgroundColor: project.color }}
+                                        />
                                     </div>
-                                    <div className="p-6">
-                                        <div className="flex flex-wrap gap-2 mb-3">
-                                            {project.tags.map(tag => (
-                                                <span key={tag} className="text-[10px] uppercase tracking-wider font-bold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">
+
+                                    <div className="p-7 flex flex-col flex-grow relative">
+                                        <div className="flex items-start justify-between mb-6">
+                                            <div 
+                                                className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shadow-lg shadow-black/5"
+                                                style={{ 
+                                                    backgroundColor: project.lightColor,
+                                                    color: project.color,
+                                                    border: `1px solid ${project.color}20` 
+                                                }}
+                                            >
+                                                {project.icon}
+                                            </div>
+                                            <div className="flex items-center space-x-1 opacity-100 dark:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Ver Proyecto</span>
+                                                <ArrowRight className="w-3 h-3 text-gray-400 ml-1" />
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-4">
+                                            <h3 className="font-bold text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-1">
+                                                {project.nombre}
+                                            </h3>
+                                            <div 
+                                                className="h-0.5 w-0 group-hover:w-12 transition-all duration-500 rounded-full"
+                                                style={{ backgroundColor: project.color }}
+                                            />
+                                        </div>
+
+                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-6 text-justify leading-relaxed line-clamp-3">
+                                            {project.descripcion}
+                                        </p>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tags.map((tag: any) => (
+                                                <span 
+                                                    key={tag} 
+                                                    className="px-3 py-1 bg-white dark:bg-[#252525] text-gray-600 dark:text-gray-400 rounded-lg text-[10px] uppercase font-bold tracking-wider border border-gray-100 dark:border-[#333] group-hover:border-transparent transition-colors duration-300"
+                                                >
                                                     {tag}
                                                 </span>
                                             ))}
                                         </div>
-                                        <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.nombre}</h4>
-                                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 text-justify">
-                                            {project.descripcion}
-                                        </p>
+
+                                        {/* Hover Glow Effect */}
+                                        <div 
+                                            className="absolute bottom-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                            style={{ backgroundColor: project.color }}
+                                        />
                                     </div>
                                 </div>
                             ))}
                         </div>
+                    </div>
+                </section>
 
 
 
+                <section className="py-20 bg-white dark:bg-gray-950">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         {/* Proyecto destacado (Caso de Éxito) */}
                         <div className="mb-16">
                             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
@@ -1800,6 +1890,96 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     </div>
                 </div>
             </footer>
+
+            {/* Project Details Modal */}
+            {isProjectModalOpen && selectedProject && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in" onClick={() => setIsProjectModalOpen(false)}>
+                    <div 
+                        className="bg-white dark:bg-gray-900 w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl animate-scale-in"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="relative h-64 sm:h-80 overflow-hidden">
+                            <img 
+                                src={selectedProject.imagen} 
+                                alt={selectedProject.nombre}
+                                className="w-full h-full object-cover"
+                            />
+                            <button 
+                                onClick={() => setIsProjectModalOpen(false)}
+                                className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white p-2 rounded-full transition-colors"
+                            >
+                                <Zap className="w-6 h-6 rotate-45" /> 
+                            </button>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                                <div>
+                                    <h3 className="text-3xl font-bold text-white mb-2">{selectedProject.nombre}</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {selectedProject.tags.map((tag: string) => (
+                                            <span key={tag} className="bg-[#01D0FF]/20 text-[#01D0FF] border border-[#01D0FF]/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="p-8 overflow-y-auto max-h-[calc(90vh-20rem)] sm:max-h-[calc(90vh-25rem)]">
+                            <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Sobre el proyecto</h4>
+                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 text-lg">
+                                {selectedProject.descripcion}
+                            </p>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                <div className="space-y-4">
+                                    <h5 className="font-bold text-gray-900 dark:text-white flex items-center">
+                                        <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
+                                        Características Principales
+                                    </h5>
+                                    <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                                        <li className="flex items-center text-sm"><span className="w-1.5 h-1.5 bg-[#01D0FF] rounded-full mr-2"></span> Diseño Responsivo de alta fidelidad</li>
+                                        <li className="flex items-center text-sm"><span className="w-1.5 h-1.5 bg-[#01D0FF] rounded-full mr-2"></span> Optimización de rendimiento y SEO</li>
+                                        <li className="flex items-center text-sm"><span className="w-1.5 h-1.5 bg-[#01D0FF] rounded-full mr-2"></span> Panel de administración personalizado</li>
+                                    </ul>
+                                </div>
+                                <div className="space-y-4">
+                                    <h5 className="font-bold text-gray-900 dark:text-white flex items-center">
+                                        <Code className="w-5 h-5 text-blue-500 mr-2" />
+                                        Tecnologías Utilizadas
+                                    </h5>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['React', 'Laravel', 'Tailwind CSS', 'TypeScript'].map(tech => (
+                                            <span key={tech} className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-lg text-sm">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <a 
+                                    href={selectedProject.url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="flex-1 bg-[#01D0FF] hover:bg-[#0085EE] text-[#000100] font-bold py-4 rounded-2xl text-center transition-all shadow-lg hover:shadow-[#01D0FF]/25 flex items-center justify-center group"
+                                >
+                                    Visitar Proyecto
+                                    <ExternalLink className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                </a>
+                                <button 
+                                    onClick={(e) => {
+                                        quoteService(e, selectedProject.nombre);
+                                        setIsProjectModalOpen(false);
+                                    }}
+                                    className="flex-1 bg-white dark:bg-gray-800 border-2 border-gray-100 dark:border-gray-700 text-gray-900 dark:text-white font-bold py-4 rounded-2xl text-center transition-all hover:border-[#01D0FF]/50"
+                                >
+                                    Cotizar similar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

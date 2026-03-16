@@ -1,8 +1,11 @@
-import { dashboard, login } from '@/routes';
 import { type SharedData } from '@/types';
+import { useState } from 'react';
 import { Head, Link, usePage } from '@inertiajs/react';
+import { ArrowRight, Code, ExternalLink, Zap, CheckCircle, X, Home, ShoppingBag, Layers, Globe, Users, Compass, Thermometer, Quote } from 'lucide-react';
 
 export default function Welcome() {
+    const [selectedProject, setSelectedProject] = useState<any>(null);
+    const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
     const { auth } = usePage<SharedData>().props;
 
     return (
@@ -64,106 +67,160 @@ export default function Welcome() {
 
                             <div id="projects" className="mb-8">
                                 <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
-                                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                         <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 dark:bg-rose-900">
-                                             <span className="text-2xl">🏔️</span>
-                                         </div>
-                                         <h3 className="font-semibold text-lg mb-2">Malalca Loft</h3>
-                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                             Aplicación de reservas con motor iCal para sincronizar Airbnb y Booking.com de forma automática.
-                                         </p>
-                                         <div className="flex flex-wrap gap-1">
-                                             <span className="px-2 py-1 bg-rose-50 text-rose-700 rounded text-xs dark:bg-rose-900 dark:text-rose-300">Hospitality</span>
-                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">iCal</span>
-                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">React</span>
-                                         </div>
-                                     </div>
-                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                         <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 dark:bg-indigo-900">
-                                             <span className="text-2xl">🌙</span>
-                                         </div>
-                                         <h3 className="font-semibold text-lg mb-2">LunaSuite</h3>
-                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                             Ecosistema SaaS multi-tenant para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable y segura.
-                                         </p>
-                                         <div className="flex flex-wrap gap-1">
-                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">SaaS</span>
-                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">Laravel</span>
-                                             <span className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs dark:bg-purple-900 dark:text-purple-300">Cloud</span>
-                                         </div>
-                                     </div>
-                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                         <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 dark:bg-green-900">
-                                             <span className="text-2xl">🌾</span>
-                                         </div>
-                                         <h3 className="font-semibold text-lg mb-2">Arroz Santa Regina</h3>
-                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                             Plataforma E-commerce para productos alimentarios premium. Integra pasarela de pagos Getnet, gestión avanzada de inventario y un sistema dinámico de recetas interactivas.
-                                         </p>
-                                         <div className="flex flex-wrap gap-1">
-                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">React</span>
-                                             <span className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs dark:bg-purple-900 dark:text-purple-300">Getnet</span>
-                                             <span className="px-2 py-1 bg-cyan-50 text-cyan-700 rounded text-xs dark:bg-cyan-900 dark:text-cyan-300">Tailwind</span>
-                                         </div>
-                                     </div>
-                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                         <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4 dark:bg-amber-900">
-                                             <span className="text-2xl">🏛️</span>
-                                         </div>
-                                         <h3 className="font-semibold text-lg mb-2">Cumbres Arquitectura</h3>
-                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                             Portfolio institucional premium para estudio de arquitectura. Destaca por su catálogo interactivo 3D, animaciones Ken Burns y una experiencia de usuario inmersiva de alto nivel.
-                                         </p>
-                                         <div className="flex flex-wrap gap-1">
-                                             <span className="px-2 py-1 bg-rose-50 text-rose-700 rounded text-xs dark:bg-rose-900 dark:text-rose-300">TypeScript</span>
-                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">Framer Motion</span>
-                                             <span className="px-2 py-1 bg-gray-50 text-gray-700 rounded text-xs dark:bg-gray-900 dark:text-gray-300">UI/UX</span>
-                                         </div>
-                                     </div>
-                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                         <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 dark:bg-sky-900">
-                                             <span className="text-2xl">❄️</span>
-                                         </div>
-                                         <h3 className="font-semibold text-lg mb-2">DNS Climatización</h3>
-                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                             Sitio web corporativo optimizado para SEO local en el rubro HVAC. Incluye integración experta con canales de atención digital y catálogo de soluciones termodinámicas.
-                                         </p>
-                                         <div className="flex flex-wrap gap-1">
-                                             <span className="px-2 py-1 bg-emerald-50 text-emerald-700 rounded text-xs dark:bg-emerald-900 dark:text-emerald-300">SEO Local</span>
-                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">Next.js</span>
-                                             <span className="px-2 py-1 bg-green-50 text-green-700 rounded text-xs dark:bg-green-900 dark:text-green-300">WhatsApp API</span>
-                                         </div>
-                                     </div>
-                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                         <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 dark:bg-purple-900">
-                                             <span className="text-2xl">🧠</span>
-                                         </div>
-                                         <h3 className="font-semibold text-lg mb-2">Capacitaciones Felipe Contreras</h3>
-                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                             Plataforma de servicios de consultoría y capacitación SENCE. Enfocada en el desarrollo organizacional y capital humano para empresas de la Región del Ñuble.
-                                         </p>
-                                         <div className="flex flex-wrap gap-1">
-                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">Consultoría</span>
-                                             <span className="px-2 py-1 bg-violet-50 text-violet-700 rounded text-xs dark:bg-violet-900 dark:text-violet-300">HR Tech</span>
-                                             <span className="px-2 py-1 bg-orange-50 text-orange-700 rounded text-xs dark:bg-orange-900 dark:text-orange-300">SENCE</span>
-                                         </div>
-                                     </div>
-                                     <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700">
-                                         <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 dark:bg-blue-900">
-                                             <span className="text-2xl">🚜</span>
-                                         </div>
-                                         <h3 className="font-semibold text-lg mb-2">Akiyan - Gestión de Maquinaria</h3>
-                                         <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-                                             Sistema integral para arriendos de maquinaria pesada. Valida disponibilidad en tiempo real, gestiona tarifas dinámicas por período y automatiza la facturación y el mantenimiento preventivo.
-                                         </p>
-                                         <div className="flex flex-wrap gap-1">
-                                             <span className="px-2 py-1 bg-orange-50 text-orange-700 rounded text-xs dark:bg-orange-900 dark:text-orange-300">Laravel</span>
-                                             <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs dark:bg-blue-900 dark:text-blue-300">React</span>
-                                             <span className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-xs dark:bg-indigo-900 dark:text-indigo-300">Inertia.js</span>
-                                         </div>
-                                     </div>
-                                 </div>
+                                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                                    {[
+                                        {
+                                            nombre: 'Malalca Loft',
+                                            descripcion: 'Aplicación de reservas con motor iCal para sincronizar Airbnb y Booking.com. Solución integral para la gestión de alojamientos turísticos con actualización en tiempo real.',
+                                            url: 'https://www.malalcaloft.cl',
+                                            imagen: '/tecnologias/portafolio/malalcaloft.jpg',
+                                            tags: ['Hospitality', 'iCal', 'React'],
+                                            icon: <Home className="w-5 h-5" />,
+                                            color: '#FF4D4D',
+                                            lightColor: 'rgba(255, 77, 77, 0.1)',
+                                            testimonial: {
+                                                text: 'Excelente lugar! Tinaja siempre disponible. Muy buena ubicación, perfecto para el descanso...',
+                                                author: 'Emilio Araya',
+                                                location: 'Puerto Montt'
+                                            }
+                                        },
+                                        {
+                                            nombre: 'LunaSuite',
+                                            descripcion: 'Ecosistema SaaS multi-tenant diseñado para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable.',
+                                            url: 'https://www.lunasuite.cl',
+                                            imagen: '/tecnologias/portafolio/lunasuite2.jpg',
+                                            tags: ['SaaS', 'Cloud', 'ERP'],
+                                            icon: <Layers className="w-5 h-5" />,
+                                            color: '#4D79FF',
+                                            lightColor: 'rgba(77, 121, 255, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Arroz Santa Regina',
+                                            descripcion: 'E-commerce de alto rendimiento con pasarela de pagos avanzada Getnet y motor de recetas interactivo para captación de clientes.',
+                                            url: 'https://www.arrozsantaregina.cl',
+                                            imagen: '/tecnologias/portafolio/arrozsantaregina.jpg',
+                                            tags: ['E-commerce', 'UX', 'Fintech'],
+                                            icon: <ShoppingBag className="w-5 h-5" />,
+                                            color: '#22C55E',
+                                            lightColor: 'rgba(34, 197, 94, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Cumbres Arquitectura',
+                                            descripcion: 'Exclusiva plataforma visual para estudio de arquitectura. Fusiona diseño minimalista con interactividad avanzada y navegación inmersiva.',
+                                            url: 'https://www.cumbresarq.com',
+                                            imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
+                                            tags: ['Design', 'UX/UI', 'Portfolio'],
+                                            icon: <Compass className="w-5 h-5" />,
+                                            color: '#F59E0B',
+                                            lightColor: 'rgba(245, 158, 11, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Facchile Outdoor',
+                                            descripcion: 'Plataforma E-commerce especializada para la industria outdoor. Ofrece una experiencia de compra optimizada, gestión de catálogo avanzada e integración logística.',
+                                            url: 'https://www.dev.facchile.cl',
+                                            imagen: '/tecnologias/portafolio/facchile.jpg',
+                                            tags: ['E-commerce', 'B2B', 'UX/UI'],
+                                            icon: <Globe className="w-5 h-5" />,
+                                            color: '#0EA5E9',
+                                            lightColor: 'rgba(14, 165, 233, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'DNS Climatización',
+                                            descripcion: 'Solución corporativa optimizada para conversión y SEO. Integra canales de soporte digital y catálogos técnicos industriales.',
+                                            url: 'https://www.dnsservicios.cl',
+                                            imagen: '/tecnologias/portafolio/dnsservicios.jpg',
+                                            tags: ['SEO', 'Corporate', 'Next.js'],
+                                            icon: <Thermometer className="w-5 h-5" />,
+                                            color: '#6366F1',
+                                            lightColor: 'rgba(99, 102, 241, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Felipe Contreras',
+                                            descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
+                                            url: 'https://www.felipecontreras.cl',
+                                            imagen: '/tecnologias/portafolio/felipecontreras.jpg',
+                                            tags: ['HR Tech', 'Consultoría', 'SENCE'],
+                                            icon: <Users className="w-5 h-5" />,
+                                            color: '#8B5CF6',
+                                            lightColor: 'rgba(139, 92, 246, 0.1)'
+                                        }
+                                    ].map((project, idx) => (
+                                        <div 
+                                            key={idx}
+                                            onClick={() => {
+                                                setSelectedProject(project);
+                                                setIsProjectModalOpen(true);
+                                            }}
+                                            className="group relative bg-white dark:bg-[#1A1A1A] border border-gray-100 dark:border-[#2A2A2A] rounded-2xl shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 cursor-pointer overflow-hidden flex flex-col h-full"
+                                        >
+                                            {/* Image Container */}
+                                            <div className="relative h-48 overflow-hidden">
+                                                <img 
+                                                    src={project.imagen} 
+                                                    alt={project.nombre}
+                                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                                
+                                                {/* Corner Accent Overlay */}
+                                                <div 
+                                                    className="absolute top-0 right-0 w-24 h-24 -mr-12 -mt-12 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-2xl"
+                                                    style={{ backgroundColor: project.color }}
+                                                />
+                                            </div>
+
+                                            <div className="p-7 flex flex-col flex-grow relative">
+                                                <div className="flex items-start justify-between mb-6">
+                                                    <div 
+                                                        className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shadow-lg shadow-black/5"
+                                                        style={{ 
+                                                            backgroundColor: project.lightColor,
+                                                            color: project.color,
+                                                            border: `1px solid ${project.color}20` 
+                                                        }}
+                                                    >
+                                                        {project.icon}
+                                                    </div>
+                                                    <div className="flex items-center space-x-1 opacity-100 dark:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                        <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Ver Proyecto</span>
+                                                        <ArrowRight className="w-3 h-3 text-gray-400 ml-1" />
+                                                    </div>
+                                                </div>
+
+                                            <div className="mb-4">
+                                                <h3 className="font-bold text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-1">
+                                                    {project.nombre}
+                                                </h3>
+                                                <div 
+                                                    className="h-0.5 w-0 group-hover:w-12 transition-all duration-500 rounded-full"
+                                                    style={{ backgroundColor: project.color }}
+                                                />
+                                            </div>
+
+                                            <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-6 text-justify leading-relaxed line-clamp-3">
+                                                {project.descripcion}
+                                            </p>
+
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.tags.map(tag => (
+                                                    <span 
+                                                        key={tag} 
+                                                        className="px-3 py-1 bg-gray-50 dark:bg-[#252525] text-gray-600 dark:text-gray-400 rounded-lg text-[10px] uppercase font-bold tracking-wider border border-gray-100 dark:border-[#333] group-hover:border-transparent transition-colors duration-300"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            {/* Hover Glow Effect */}
+                                            <div 
+                                                className="absolute bottom-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                                style={{ backgroundColor: project.color }}
+                                            />
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
 
                             </div>
 
@@ -902,6 +959,95 @@ export default function Welcome() {
                 </div>
                 <div className="hidden h-14.5 lg:block"></div>
             </div>
+
+            {/* Project Details Modal */}
+            {isProjectModalOpen && selectedProject && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in" onClick={() => setIsProjectModalOpen(false)}>
+                    <div 
+                        className="bg-white dark:bg-gray-900 w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl animate-scale-in"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="relative h-64 sm:h-80 overflow-hidden">
+                            <img 
+                                src={selectedProject.imagen} 
+                                alt={selectedProject.nombre}
+                                className="w-full h-full object-cover"
+                            />
+                            <button 
+                                onClick={() => setIsProjectModalOpen(false)}
+                                className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white p-2 rounded-full transition-colors"
+                            >
+                                <X className="w-6 h-6" /> 
+                            </button>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                                <div>
+                                    <h3 className="text-3xl font-bold text-white mb-2">{selectedProject.nombre}</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {selectedProject.tags.map((tag: string) => (
+                                            <span key={tag} className="bg-[#01D0FF]/20 text-[#01D0FF] border border-[#01D0FF]/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="p-8 overflow-y-auto max-h-[calc(90vh-20rem)] sm:max-h-[calc(90vh-25rem)]">
+                            <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Sobre el proyecto</h4>
+                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 text-lg">
+                                {selectedProject.descripcion}
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <h5 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4 border-b pb-2">Características Clave</h5>
+                                    <ul className="space-y-3">
+                                        <li className="flex items-start text-gray-600 dark:text-gray-400">
+                                            <CheckCircle className="w-5 h-5 text-[#01D0FF] mr-3 flex-shrink-0 mt-0.5" />
+                                            <span>Sincronización en tiempo real</span>
+                                        </li>
+                                        <li className="flex items-start text-gray-600 dark:text-gray-400">
+                                            <CheckCircle className="w-5 h-5 text-[#01D0FF] mr-3 flex-shrink-0 mt-0.5" />
+                                            <span>Interfaz de usuario intuitiva</span>
+                                        </li>
+                                        <li className="flex items-start text-gray-600 dark:text-gray-400">
+                                            <CheckCircle className="w-5 h-5 text-[#01D0FF] mr-3 flex-shrink-0 mt-0.5" />
+                                            <span>Arquitectura escalable</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4 border-b pb-2">Tecnologías</h5>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['React', 'TypeScript', 'Tailwind CSS', 'Laravel', 'Vite'].map(tech => (
+                                            <span key={tech} className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium border border-gray-200 dark:border-gray-700">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <a 
+                                    href={selectedProject.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-8 py-4 bg-[#01D0FF] hover:bg-[#01D0FF]/90 text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#01D0FF]/20 group"
+                                >
+                                    Visitar Proyecto <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                </a>
+                                <button 
+                                    onClick={() => setIsProjectModalOpen(false)}
+                                    className="px-8 py-4 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-2xl font-bold transition-all"
+                                >
+                                    Volver al Portafolio
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
