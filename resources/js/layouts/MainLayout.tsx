@@ -1,4 +1,4 @@
-import { Link, router, usePage } from '@inertiajs/react';
+import { Link, router, usePage, Head } from '@inertiajs/react';
 import { type ReactNode, useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowRight, Code, Cog, Database, Zap, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Sun, Moon, CheckCircle, Star, Home, ShoppingBag, Layers, Globe, Users, Plane, Thermometer, Compass, Quote } from 'lucide-react';
 
@@ -430,6 +430,26 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <Head>
+                <title>Claudio Aguilera | Desarrollador Full-Stack & Experto en SaaS</title>
+                <meta name="description" content="Desarrollador Full-Stack especializado en sistemas ERP/CRM, e-commerce y soluciones SaaS para PyMEs. Transforma tu negocio con tecnología eficiente y escalable." />
+                <meta name="keywords" content="Claudio Aguilera, Desarrollador Full-Stack, ERP, CRM, SaaS, LunaSuite, Laravel, React, TypeScript, eCommerce, Chile, Desarrollo Web, Automatización" />
+                <meta name="author" content="Claudio Aguilera" />
+                
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.claudioaguilera.cl/" />
+                <meta property="og:title" content="Claudio Aguilera | Desarrollador Full-Stack & Experto en SaaS" />
+                <meta property="og:description" content="Soluciones tecnológicas a medida para PyMEs: ERP, CRM y eCommerce de alto impacto." />
+                <meta property="og:image" content="/claudioaguilera.jpg" />
+
+                {/* Twitter */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://www.claudioaguilera.cl/" />
+                <meta property="twitter:title" content="Claudio Aguilera | Desarrollador Full-Stack & Experto en SaaS" />
+                <meta property="twitter:description" content="Soluciones tecnológicas a medida para PyMEs: ERP, CRM y eCommerce de alto impacto." />
+                <meta property="twitter:image" content="/claudioaguilera.jpg" />
+            </Head>
             {/* Navigation */}
             <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#01D0FF]/20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -10,8 +10,12 @@ export default function Welcome() {
 
     return (
         <>
-            <Head title="Portfolio">
-                <meta name="description" content="Full-stack developer and web designer specializing in modern web technologies. Explore my projects and get in touch." />
+            <Head title="Portafolio | Claudio Aguilera - Desarrollador Full-Stack">
+                <meta name="description" content="Portafolio de Claudio Aguilera, Desarrollador Full-Stack y Diseñador Web. Especialista en React, Laravel y Cloud Computing. Mira mis proyectos destacados como LunaSuite y Malalca Loft." />
+                <meta name="keywords" content="Portafolio, Claudio Aguilera, Full-Stack Developer, Web Design, React, Laravel, Node.js, Cloud Computing, Case Studies, Proyectos" />
+                <meta property="og:title" content="Portafolio | Claudio Aguilera - Desarrollador Full-Stack" />
+                <meta property="og:description" content="Explora mis proyectos y descubre cómo puedo ayudar a tu negocio a crecer con tecnología de vanguardia." />
+                <meta property="og:image" content="/claudioaguilera.jpg" />
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link
                     href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
