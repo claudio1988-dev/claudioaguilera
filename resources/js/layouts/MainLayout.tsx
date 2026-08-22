@@ -1310,7 +1310,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 {
                                     nombre: 'Cabañas de Catillo',
                                     descripcion: 'Sitio web para reservas y muestra de cabañas turísticas. Desarrollado para brindar una experiencia de usuario amigable y resaltar los atractivos de la zona.',
-                                    url: 'https://www.cabanasdecatillo.cl',
+                                    url: 'https://www.xn--cabaasdecatillo-1qb.cl/',
                                     imagen: '/tecnologias/portafolio/cabanasdecatillo.jpg',
                                     tags: ['Hospitality', 'Turismo', 'Web'],
                                     icon: <Home className="w-5 h-5" />,
