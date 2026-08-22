@@ -1348,14 +1348,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     lightColor: 'rgba(245, 158, 11, 0.1)'
                                 },
                                 {
-                                    nombre: 'Felipe Contreras',
-                                    descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
-                                    url: 'https://www.felipecontreras.cl',
-                                    imagen: '/tecnologias/portafolio/felipecontreras.jpg',
-                                    tags: ['HR Tech', 'Consultoría', 'SENCE'],
-                                    icon: <Users className="w-5 h-5" />,
-                                    color: '#8B5CF6',
-                                    lightColor: 'rgba(139, 92, 246, 0.1)'
+                                    nombre: 'Geotop',
+                                    descripcion: 'Plataforma corporativa para servicios de topografía y geomensura. Presentación de servicios especializados con un diseño técnico y profesional.',
+                                    url: 'https://www.geotop.cl',
+                                    imagen: '/tecnologias/portafolio/geotop.jpg',
+                                    tags: ['Topografía', 'Corporate', 'Servicios'],
+                                    icon: <MapPin className="w-5 h-5" />,
+                                    color: '#EAB308',
+                                    lightColor: 'rgba(234, 179, 8, 0.1)'
                                 },
                                 {
                                     nombre: 'Facchile Outdoor',
@@ -1378,14 +1378,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     lightColor: 'rgba(59, 130, 246, 0.1)'
                                 },
                                 {
-                                    nombre: 'Geotop',
-                                    descripcion: 'Plataforma corporativa para servicios de topografía y geomensura. Presentación de servicios especializados con un diseño técnico y profesional.',
-                                    url: 'https://www.geotop.cl',
-                                    imagen: '/tecnologias/portafolio/geotop.jpg',
-                                    tags: ['Topografía', 'Corporate', 'Servicios'],
-                                    icon: <MapPin className="w-5 h-5" />,
-                                    color: '#EAB308',
-                                    lightColor: 'rgba(234, 179, 8, 0.1)'
+                                    nombre: 'Felipe Contreras',
+                                    descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
+                                    url: 'https://www.felipecontreras.cl',
+                                    imagen: '/tecnologias/portafolio/felipecontreras.jpg',
+                                    tags: ['HR Tech', 'Consultoría', 'SENCE'],
+                                    icon: <Users className="w-5 h-5" />,
+                                    color: '#8B5CF6',
+                                    lightColor: 'rgba(139, 92, 246, 0.1)'
                                 },
                                 {
                                     nombre: 'DNS Climatización',
