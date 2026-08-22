@@ -1102,7 +1102,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="absolute bottom-10 left-10 w-32 h-32 bg-[#0085EE] rounded-full blur-3xl"></div>
                     </div>
 
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold text-[#000100] mb-4">
                                 Servicios para tu Empresa
@@ -1112,7 +1112,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
                             {/* Servicio 1 - ERP/CRM */}
                             <div className="group bg-white rounded-2xl p-8 shadow-xl border border-[#01D0FF]/10 hover:shadow-2xl hover:border-[#01D0FF]/30 transition-all duration-300 hover:-translate-y-2">
                                 <div className="flex items-center justify-between mb-6">
@@ -1260,7 +1260,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                 {/* Portafolio Section */}
                 <section id="portafolio" className="py-20 bg-gray-50 dark:bg-gray-900">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                                 Portafolio de Proyectos
@@ -1270,7 +1270,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                             {[
                                 {
                                     nombre: 'LunaSuite',
