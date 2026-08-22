@@ -74,6 +74,16 @@ export default function Welcome() {
                                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                                     {[
                                         {
+                                            nombre: 'LunaSuite',
+                                            descripcion: 'Ecosistema SaaS multi-tenant diseñado para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable.',
+                                            url: 'https://www.lunasuite.cl',
+                                            imagen: '/tecnologias/portafolio/lunasuite2.jpg',
+                                            tags: ['SaaS', 'Cloud', 'ERP'],
+                                            icon: <Layers className="w-5 h-5" />,
+                                            color: '#4D79FF',
+                                            lightColor: 'rgba(77, 121, 255, 0.1)'
+                                        },
+                                        {
                                             nombre: 'Malalca Loft',
                                             descripcion: 'Aplicación de reservas con motor iCal para sincronizar Airbnb y Booking.com. Solución integral para la gestión de alojamientos turísticos con actualización en tiempo real.',
                                             url: 'https://www.malalcaloft.cl',
@@ -89,16 +99,6 @@ export default function Welcome() {
                                             }
                                         },
                                         {
-                                            nombre: 'LunaSuite',
-                                            descripcion: 'Ecosistema SaaS multi-tenant diseñado para la digitalización integral de PyMES. Gestiona CRM, ventas e inventarios con arquitectura escalable.',
-                                            url: 'https://www.lunasuite.cl',
-                                            imagen: '/tecnologias/portafolio/lunasuite2.jpg',
-                                            tags: ['SaaS', 'Cloud', 'ERP'],
-                                            icon: <Layers className="w-5 h-5" />,
-                                            color: '#4D79FF',
-                                            lightColor: 'rgba(77, 121, 255, 0.1)'
-                                        },
-                                        {
                                             nombre: 'Arroz Santa Regina',
                                             descripcion: 'E-commerce de alto rendimiento con pasarela de pagos avanzada Getnet y motor de recetas interactivo para captación de clientes.',
                                             url: 'https://www.arrozsantaregina.cl',
@@ -107,56 +107,6 @@ export default function Welcome() {
                                             icon: <ShoppingBag className="w-5 h-5" />,
                                             color: '#22C55E',
                                             lightColor: 'rgba(34, 197, 94, 0.1)'
-                                        },
-                                        {
-                                            nombre: 'Cumbres Arquitectura',
-                                            descripcion: 'Exclusiva plataforma visual para estudio de arquitectura. Fusiona diseño minimalista con interactividad avanzada y navegación inmersiva.',
-                                            url: 'https://www.cumbresarq.com',
-                                            imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
-                                            tags: ['Design', 'UX/UI', 'Portfolio'],
-                                            icon: <Compass className="w-5 h-5" />,
-                                            color: '#F59E0B',
-                                            lightColor: 'rgba(245, 158, 11, 0.1)'
-                                        },
-                                        {
-                                            nombre: 'Facchile Outdoor',
-                                            descripcion: 'Plataforma E-commerce especializada para la industria outdoor. Ofrece una experiencia de compra optimizada, gestión de catálogo avanzada e integración logística.',
-                                            url: 'https://www.dev.facchile.cl',
-                                            imagen: '/tecnologias/portafolio/facchile.jpg',
-                                            tags: ['E-commerce', 'B2B', 'UX/UI'],
-                                            icon: <Globe className="w-5 h-5" />,
-                                            color: '#0EA5E9',
-                                            lightColor: 'rgba(14, 165, 233, 0.1)'
-                                        },
-                                        {
-                                            nombre: 'DNS Climatización',
-                                            descripcion: 'Solución corporativa optimizada para conversión y SEO. Integra canales de soporte digital y catálogos técnicos industriales.',
-                                            url: 'https://www.dnsservicios.cl',
-                                            imagen: '/tecnologias/portafolio/dnsservicios.jpg',
-                                            tags: ['SEO', 'Corporate', 'Next.js'],
-                                            icon: <Thermometer className="w-5 h-5" />,
-                                            color: '#6366F1',
-                                            lightColor: 'rgba(99, 102, 241, 0.1)'
-                                        },
-                                        {
-                                            nombre: 'Felipe Contreras',
-                                            descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
-                                            url: 'https://www.felipecontreras.cl',
-                                            imagen: '/tecnologias/portafolio/felipecontreras.jpg',
-                                            tags: ['HR Tech', 'Consultoría', 'SENCE'],
-                                            icon: <Users className="w-5 h-5" />,
-                                            color: '#8B5CF6',
-                                            lightColor: 'rgba(139, 92, 246, 0.1)'
-                                        },
-                                        {
-                                            nombre: 'TuSueño.cl',
-                                            descripcion: 'Plataforma innovadora de sorteos mediante stickers digitales coleccionables en Chile. Implementa un sistema de transparencia total, integración de pagos Flow y automatización de marketing.',
-                                            url: 'https://www.tusueno.cl',
-                                            imagen: '/tecnologias/portafolio/tusueno.jpg',
-                                            tags: ['TALL Stack', 'Fintech', 'Sorteos'],
-                                            icon: <Ticket className="w-5 h-5" />,
-                                            color: '#FF750F',
-                                            lightColor: 'rgba(255, 117, 15, 0.1)'
                                         },
                                         {
                                             nombre: 'Cabañas de Catillo',
@@ -179,6 +129,46 @@ export default function Welcome() {
                                             lightColor: 'rgba(245, 158, 11, 0.1)'
                                         },
                                         {
+                                            nombre: 'DNS Climatización',
+                                            descripcion: 'Solución corporativa optimizada para conversión y SEO. Integra canales de soporte digital y catálogos técnicos industriales.',
+                                            url: 'https://www.dnsservicios.cl',
+                                            imagen: '/tecnologias/portafolio/dnsservicios.jpg',
+                                            tags: ['SEO', 'Corporate', 'Next.js'],
+                                            icon: <Thermometer className="w-5 h-5" />,
+                                            color: '#6366F1',
+                                            lightColor: 'rgba(99, 102, 241, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Cumbres Arquitectura',
+                                            descripcion: 'Exclusiva plataforma visual para estudio de arquitectura. Fusiona diseño minimalista con interactividad avanzada y navegación inmersiva.',
+                                            url: 'https://www.cumbresarq.com',
+                                            imagen: '/tecnologias/portafolio/cumbresarquitectura.jpg',
+                                            tags: ['Design', 'UX/UI', 'Portfolio'],
+                                            icon: <Compass className="w-5 h-5" />,
+                                            color: '#F59E0B',
+                                            lightColor: 'rgba(245, 158, 11, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Felipe Contreras',
+                                            descripcion: 'Plataforma de marca personal para consultoría organizacional. Facilita la gestión de capacitaciones SENCE con diseño orientado a conversión.',
+                                            url: 'https://www.felipecontreras.cl',
+                                            imagen: '/tecnologias/portafolio/felipecontreras.jpg',
+                                            tags: ['HR Tech', 'Consultoría', 'SENCE'],
+                                            icon: <Users className="w-5 h-5" />,
+                                            color: '#8B5CF6',
+                                            lightColor: 'rgba(139, 92, 246, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Facchile Outdoor',
+                                            descripcion: 'Plataforma E-commerce especializada para la industria outdoor. Ofrece una experiencia de compra optimizada, gestión de catálogo avanzada e integración logística.',
+                                            url: 'https://www.dev.facchile.cl',
+                                            imagen: '/tecnologias/portafolio/facchile.jpg',
+                                            tags: ['E-commerce', 'B2B', 'UX/UI'],
+                                            icon: <Globe className="w-5 h-5" />,
+                                            color: '#0EA5E9',
+                                            lightColor: 'rgba(14, 165, 233, 0.1)'
+                                        },
+                                        {
                                             nombre: 'RPM Electro',
                                             descripcion: 'Sitio corporativo y catálogo para soluciones electromecánicas y servicios de mantenimiento. Interfaz optimizada y orientada a la conversión.',
                                             url: 'https://www.rpmelectro.cl',
@@ -187,6 +177,16 @@ export default function Welcome() {
                                             icon: <Zap className="w-5 h-5" />,
                                             color: '#3B82F6',
                                             lightColor: 'rgba(59, 130, 246, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'TuSueño.cl',
+                                            descripcion: 'Plataforma innovadora de sorteos mediante stickers digitales coleccionables en Chile. Implementa un sistema de transparencia total, integración de pagos Flow y automatización de marketing.',
+                                            url: 'https://www.tusueno.cl',
+                                            imagen: '/tecnologias/portafolio/tusueno.jpg',
+                                            tags: ['TALL Stack', 'Fintech', 'Sorteos'],
+                                            icon: <Ticket className="w-5 h-5" />,
+                                            color: '#FF750F',
+                                            lightColor: 'rgba(255, 117, 15, 0.1)'
                                         }
                                     ].map((project, idx) => (
                                         <div 
