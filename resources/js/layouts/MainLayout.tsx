@@ -1404,70 +1404,65 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         setSelectedProject(project);
                                         setIsProjectModalOpen(true);
                                     }}
-                                    className="group relative bg-[#F8F9FA] dark:bg-[#1A1A1A] border border-gray-100 dark:border-[#2A2A2A] rounded-2xl shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 cursor-pointer overflow-hidden flex flex-col h-full"
+                                    className="group relative bg-white dark:bg-[#0A0A0A] border border-gray-100 dark:border-white/5 rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col h-full transform hover:-translate-y-2 overflow-hidden"
                                 >
+                                    {/* Glow Effect behind the card that fades in */}
+                                    <div 
+                                        className="absolute inset-0 opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-700 blur-2xl"
+                                        style={{ backgroundColor: project.color }}
+                                    />
+
                                     {/* Image Container */}
-                                    <div className="relative h-48 overflow-hidden">
+                                    <div className="relative h-64 overflow-hidden rounded-t-[2rem]">
                                         <img 
                                             src={project.imagen} 
                                             alt={project.nombre}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
                                         
-                                        {/* Corner Accent Overlay */}
+                                        {/* Floating Icon overlapping image and content */}
                                         <div 
-                                            className="absolute top-0 right-0 w-24 h-24 -mr-12 -mt-12 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-2xl"
-                                            style={{ backgroundColor: project.color }}
-                                        />
+                                            className="absolute bottom-4 right-4 w-14 h-14 rounded-2xl flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 shadow-xl backdrop-blur-md border border-white/20"
+                                            style={{ 
+                                                backgroundColor: `${project.color}DD`,
+                                                color: '#fff'
+                                            }}
+                                        >
+                                            {project.icon}
+                                        </div>
                                     </div>
 
-                                    <div className="p-7 flex flex-col flex-grow relative">
-                                        <div className="flex items-start justify-between mb-6">
-                                            <div 
-                                                className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shadow-lg shadow-black/5"
-                                                style={{ 
-                                                    backgroundColor: project.lightColor,
-                                                    color: project.color,
-                                                    border: `1px solid ${project.color}20` 
-                                                }}
-                                            >
-                                                {project.icon}
-                                            </div>
-                                            <div className="flex items-center space-x-1 opacity-100 dark:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                                <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Ver Proyecto</span>
-                                                <ArrowRight className="w-3 h-3 text-gray-400 ml-1" />
-                                            </div>
-                                        </div>
-
-                                        <div className="mb-4">
-                                            <h3 className="font-bold text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-1">
+                                    <div className="p-8 flex flex-col flex-grow relative z-10 bg-white dark:bg-[#0A0A0A] transition-colors duration-500 rounded-b-[2rem]">
+                                        
+                                        <div className="flex items-center justify-between mb-4">
+                                            <h3 className="font-bold text-2xl text-gray-900 dark:text-white transition-all duration-300">
                                                 {project.nombre}
                                             </h3>
-                                            <div 
-                                                className="h-0.5 w-0 group-hover:w-12 transition-all duration-500 rounded-full"
-                                                style={{ backgroundColor: project.color }}
-                                            />
+                                            
+                                            <div className="w-8 h-8 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center transform -rotate-45 group-hover:rotate-0 group-hover:bg-gray-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all duration-500">
+                                                <ArrowRight className="w-4 h-4" />
+                                            </div>
                                         </div>
 
-                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A] mb-6 text-justify leading-relaxed line-clamp-3">
+                                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-8 flex-grow line-clamp-3">
                                             {project.descripcion}
                                         </p>
 
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="flex flex-wrap gap-2 mt-auto pt-6 border-t border-gray-100 dark:border-white/5">
                                             {project.tags.map((tag: any) => (
                                                 <span 
                                                     key={tag} 
-                                                    className="px-3 py-1 bg-white dark:bg-[#252525] text-gray-600 dark:text-gray-400 rounded-lg text-[10px] uppercase font-bold tracking-wider border border-gray-100 dark:border-[#333] group-hover:border-transparent transition-colors duration-300"
+                                                    className="px-4 py-1.5 bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-300 rounded-full text-[11px] font-semibold tracking-wide border border-gray-100 dark:border-transparent group-hover:border-gray-200 dark:group-hover:border-white/10 transition-colors duration-300"
                                                 >
                                                     {tag}
                                                 </span>
                                             ))}
                                         </div>
-
-                                        {/* Hover Glow Effect */}
+                                        
+                                        {/* Dynamic bottom accent line */}
                                         <div 
-                                            className="absolute bottom-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                            className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-700 ease-out"
                                             style={{ backgroundColor: project.color }}
                                         />
                                     </div>
