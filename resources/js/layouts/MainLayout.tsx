@@ -1351,7 +1351,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     nombre: 'TuSueño.cl',
                                     descripcion: 'Plataforma innovadora de sorteos mediante stickers digitales coleccionables en Chile. Implementa un sistema de transparencia total, integración de pagos Flow y automatización de marketing.',
                                     url: 'https://www.tusueno.cl',
-                                    imagen: '/tecnologias/portafolio/tusueno.jpg',
+                                    imagen: '/tecnologias/portafolio/tusueno-oficial.jpg',
                                     tags: ['TALL Stack', 'Fintech', 'Sorteos'],
                                     icon: <Code className="w-5 h-5" />,
                                     color: '#FF750F',
