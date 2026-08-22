@@ -1346,6 +1346,66 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     icon: <Users className="w-5 h-5" />,
                                     color: '#8B5CF6',
                                     lightColor: 'rgba(139, 92, 246, 0.1)'
+                                },
+                                {
+                                    nombre: 'TuSueño.cl',
+                                    descripcion: 'Plataforma innovadora de sorteos mediante stickers digitales coleccionables en Chile. Implementa un sistema de transparencia total, integración de pagos Flow y automatización de marketing.',
+                                    url: 'https://www.tusueno.cl',
+                                    imagen: '/tecnologias/portafolio/tusueno.jpg',
+                                    tags: ['TALL Stack', 'Fintech', 'Sorteos'],
+                                    icon: <Code className="w-5 h-5" />,
+                                    color: '#FF750F',
+                                    lightColor: 'rgba(255, 117, 15, 0.1)'
+                                },
+                                {
+                                    nombre: 'Cabañas de Catillo',
+                                    descripcion: 'Sitio web para reservas y muestra de cabañas turísticas. Desarrollado para brindar una experiencia de usuario amigable y resaltar los atractivos de la zona.',
+                                    url: 'https://www.cabanasdecatillo.cl',
+                                    imagen: '/tecnologias/portafolio/cabanasdecatillo.jpg',
+                                    tags: ['Hospitality', 'Turismo', 'Web'],
+                                    icon: <Home className="w-5 h-5" />,
+                                    color: '#10B981',
+                                    lightColor: 'rgba(16, 185, 129, 0.1)'
+                                },
+                                {
+                                    nombre: 'Arau Electricidad',
+                                    descripcion: 'Completa plataforma e-commerce especializada en materiales eléctricos e iluminación. Cuenta con catálogo dinámico, carrito de compras avanzado y pasarela de pagos integrada para B2C y B2B.',
+                                    url: 'https://www.arauelectricidad.cl',
+                                    imagen: '/tecnologias/portafolio/arauelectricidad.jpg',
+                                    tags: ['E-commerce', 'Retail', 'B2B'],
+                                    icon: <ShoppingBag className="w-5 h-5" />,
+                                    color: '#F59E0B',
+                                    lightColor: 'rgba(245, 158, 11, 0.1)'
+                                },
+                                {
+                                    nombre: 'RPM Electro',
+                                    descripcion: 'Sitio corporativo y catálogo para soluciones electromecánicas y servicios de mantenimiento. Interfaz optimizada y orientada a la conversión.',
+                                    url: 'https://www.rpmelectro.cl',
+                                    imagen: '/tecnologias/portafolio/rpmelectro.jpg',
+                                    tags: ['Corporate', 'Catálogo', 'Servicios'],
+                                    icon: <Zap className="w-5 h-5" />,
+                                    color: '#3B82F6',
+                                    lightColor: 'rgba(59, 130, 246, 0.1)'
+                                },
+                                {
+                                    nombre: 'Geotop',
+                                    descripcion: 'Plataforma corporativa para servicios de topografía y geomensura. Presentación de servicios especializados con un diseño técnico y profesional.',
+                                    url: 'https://www.geotop.cl',
+                                    imagen: '/tecnologias/portafolio/geotop.jpg',
+                                    tags: ['Topografía', 'Corporate', 'Servicios'],
+                                    icon: <MapPin className="w-5 h-5" />,
+                                    color: '#EAB308',
+                                    lightColor: 'rgba(234, 179, 8, 0.1)'
+                                },
+                                {
+                                    nombre: 'Servicios Austral',
+                                    descripcion: 'Sitio corporativo enfocado en la presentación de servicios integrales. Diseño adaptativo y optimizado para una navegación rápida y orientada a la conversión.',
+                                    url: 'https://www.serviciosaustral.com',
+                                    imagen: '/tecnologias/portafolio/serviciosaustral.jpg',
+                                    tags: ['Servicios', 'Corporate', 'Web'],
+                                    icon: <Cog className="w-5 h-5" />,
+                                    color: '#EF4444',
+                                    lightColor: 'rgba(239, 68, 68, 0.1)'
                                 }
                             ].map((project, idx) => (
                                 <div 
