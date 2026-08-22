@@ -1,7 +1,7 @@
 import { type SharedData } from '@/types';
 import { useState } from 'react';
 import { Head, Link, usePage } from '@inertiajs/react';
-import { ArrowRight, Code, ExternalLink, Zap, CheckCircle, X, Home, ShoppingBag, Layers, Globe, Users, Compass, Thermometer, Quote } from 'lucide-react';
+import { ArrowRight, Code, ExternalLink, Zap, CheckCircle, X, Home, ShoppingBag, Layers, Globe, Users, Compass, Thermometer, Quote, Ticket } from 'lucide-react';
 
 export default function Welcome() {
     const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -147,6 +147,46 @@ export default function Welcome() {
                                             icon: <Users className="w-5 h-5" />,
                                             color: '#8B5CF6',
                                             lightColor: 'rgba(139, 92, 246, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'TuSueño.cl',
+                                            descripcion: 'Plataforma innovadora de sorteos mediante stickers digitales coleccionables en Chile. Implementa un sistema de transparencia total, integración de pagos Flow y automatización de marketing.',
+                                            url: 'https://www.tusueno.cl',
+                                            imagen: '/tecnologias/portafolio/tusueno.jpg',
+                                            tags: ['TALL Stack', 'Fintech', 'Sorteos'],
+                                            icon: <Ticket className="w-5 h-5" />,
+                                            color: '#FF750F',
+                                            lightColor: 'rgba(255, 117, 15, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Cabañas de Catillo',
+                                            descripcion: 'Sitio web para reservas y muestra de cabañas turísticas. Desarrollado para brindar una experiencia de usuario amigable y resaltar los atractivos de la zona.',
+                                            url: 'https://www.cabañasdecatillo.cl',
+                                            imagen: '/tecnologias/portafolio/cabanasdecatillo.jpg',
+                                            tags: ['Hospitality', 'Turismo', 'Web'],
+                                            icon: <Home className="w-5 h-5" />,
+                                            color: '#10B981',
+                                            lightColor: 'rgba(16, 185, 129, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'Arau Electricidad',
+                                            descripcion: 'Plataforma corporativa para servicios de electricidad e ingeniería. Diseño moderno enfocado en la presentación de proyectos industriales y corporativos.',
+                                            url: 'https://www.arauelectricidad.cl',
+                                            imagen: '/tecnologias/portafolio/arauelectricidad.jpg',
+                                            tags: ['Corporate', 'Servicios', 'Ingeniería'],
+                                            icon: <Zap className="w-5 h-5" />,
+                                            color: '#F59E0B',
+                                            lightColor: 'rgba(245, 158, 11, 0.1)'
+                                        },
+                                        {
+                                            nombre: 'RPM Electro',
+                                            descripcion: 'Sitio corporativo y catálogo para soluciones electromecánicas y servicios de mantenimiento. Interfaz optimizada y orientada a la conversión.',
+                                            url: 'https://www.rpmelectro.cl',
+                                            imagen: '/tecnologias/portafolio/rpmelectro.jpg',
+                                            tags: ['Corporate', 'Catálogo', 'Servicios'],
+                                            icon: <Zap className="w-5 h-5" />,
+                                            color: '#3B82F6',
+                                            lightColor: 'rgba(59, 130, 246, 0.1)'
                                         }
                                     ].map((project, idx) => (
                                         <div 
