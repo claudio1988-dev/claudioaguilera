@@ -1328,14 +1328,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     lightColor: 'rgba(245, 158, 11, 0.1)'
                                 },
                                 {
-                                    nombre: 'DNS Climatización',
-                                    descripcion: 'Solución corporativa optimizada para conversión y SEO. Integra canales de soporte digital y catálogos técnicos industriales.',
-                                    url: 'https://www.dnsservicios.cl',
-                                    imagen: '/tecnologias/portafolio/dnsservicios.jpg',
-                                    tags: ['SEO', 'Corporate', 'Next.js'],
-                                    icon: <Thermometer className="w-5 h-5" />,
-                                    color: '#6366F1',
-                                    lightColor: 'rgba(99, 102, 241, 0.1)'
+                                    nombre: 'Servicios Austral',
+                                    descripcion: 'Sitio corporativo enfocado en la presentación de servicios integrales. Diseño adaptativo y optimizado para una navegación rápida y orientada a la conversión.',
+                                    url: 'https://www.serviciosaustral.com',
+                                    imagen: '/tecnologias/portafolio/serviciosaustral.jpg',
+                                    tags: ['Servicios', 'Corporate', 'Web'],
+                                    icon: <Cog className="w-5 h-5" />,
+                                    color: '#EF4444',
+                                    lightColor: 'rgba(239, 68, 68, 0.1)'
                                 },
                                 {
                                     nombre: 'Cumbres Arquitectura',
@@ -1388,14 +1388,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     lightColor: 'rgba(234, 179, 8, 0.1)'
                                 },
                                 {
-                                    nombre: 'Servicios Austral',
-                                    descripcion: 'Sitio corporativo enfocado en la presentación de servicios integrales. Diseño adaptativo y optimizado para una navegación rápida y orientada a la conversión.',
-                                    url: 'https://www.serviciosaustral.com',
-                                    imagen: '/tecnologias/portafolio/serviciosaustral.jpg',
-                                    tags: ['Servicios', 'Corporate', 'Web'],
-                                    icon: <Cog className="w-5 h-5" />,
-                                    color: '#EF4444',
-                                    lightColor: 'rgba(239, 68, 68, 0.1)'
+                                    nombre: 'DNS Climatización',
+                                    descripcion: 'Solución corporativa optimizada para conversión y SEO. Integra canales de soporte digital y catálogos técnicos industriales.',
+                                    url: 'https://www.dnsservicios.cl',
+                                    imagen: '/tecnologias/portafolio/dnsservicios.jpg',
+                                    tags: ['SEO', 'Corporate', 'Next.js'],
+                                    icon: <Thermometer className="w-5 h-5" />,
+                                    color: '#6366F1',
+                                    lightColor: 'rgba(99, 102, 241, 0.1)'
                                 }
                             ].map((project, idx) => (
                                 <div 
