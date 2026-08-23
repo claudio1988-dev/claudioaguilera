@@ -429,7 +429,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="dark min-h-screen bg-gray-50 dark:bg-gray-900">
             <Head>
                 <title>Claudio Aguilera | Desarrollador Full-Stack & Experto en SaaS</title>
                 <meta name="description" content="Desarrollador Full-Stack especializado en sistemas ERP/CRM, e-commerce y soluciones SaaS para PyMEs. Transforma tu negocio con tecnología eficiente y escalable." />
