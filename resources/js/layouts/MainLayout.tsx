@@ -575,7 +575,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <img 
                             src="/portfolio_dark_background_1787438020005.jpg" 
                             alt="Premium Technology Background" 
-                            className="w-full h-full object-cover opacity-60"
+                            className="w-full h-full object-cover opacity-40"
                         />
                         {/* Overlay to ensure text readability */}
                         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]"></div>
@@ -862,42 +862,42 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="grid lg:grid-cols-3 gap-8 items-start">
                             {/* Left Column - Experience */}
                             <div className="space-y-6">
-                                <div className="bg-white rounded-2xl p-6 shadow-xl border border-[#01D0FF]/10 hover:shadow-2xl transition-all duration-300 group">
+                                <div className="bg-[#111111]/80 backdrop-blur-md rounded-2xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 hover:border-[#01D0FF]/40 hover:shadow-[0_0_30px_rgba(1,208,255,0.15)] transition-all duration-300 group">
                                     <div className="flex items-center mb-4">
                                         <div className="w-10 h-10 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-lg flex items-center justify-center mr-3 shadow-lg group-hover:scale-110 transition-transform">
                                             <span className="text-white text-lg">🚀</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-900">
+                                        <h3 className="text-xl font-bold text-white group-hover:text-[#01D0FF] transition-colors">
                                             Mi experiencia
                                         </h3>
                                     </div>
-                                    <p className="text-gray-700 text-sm leading-relaxed mb-4 text-justify">
+                                    <p className="text-gray-300 text-sm leading-relaxed mb-4 text-justify font-light">
                                         Con más de 10 años desarrollando soluciones tecnológicas, me especializo en entender
                                         las necesidades reales de mis clientes. Mi trayectoria profesional incluye haber trabajado en Mzzo.com,
-                                        la <strong className="text-[#0085EE]">Vicerrectoría de Ciencias de la Información de la Universidad de Chile</strong>, <strong className="text-[#0085EE]">KameERP</strong> y Safira Energia (Brasil).
+                                        la <strong className="text-white">Vicerrectoría de Ciencias de la Información de la Universidad de Chile</strong>, <strong className="text-[#01D0FF]">KameERP</strong> y Safira Energia (Brasil).
                                     </p>
-                                    <div className="bg-gradient-to-br from-[#01D0FF]/10 to-[#0085EE]/10 rounded-lg p-3 border border-[#01D0FF]/20">
-                                        <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
-                                        <div className="text-xs text-gray-900 font-medium">Años de experiencia</div>
+                                    <div className="bg-gradient-to-br from-[#01D0FF]/10 to-[#0085EE]/10 rounded-lg p-3 border border-[#01D0FF]/30">
+                                        <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#01D0FF] to-[#0085EE] mb-1">10+</div>
+                                        <div className="text-xs text-gray-400 font-medium">Años de experiencia</div>
                                     </div>
                                 </div>
 
-                                <div className="bg-white rounded-2xl p-6 shadow-xl border border-[#01D0FF]/10 hover:shadow-2xl transition-all duration-300 group">
+                                <div className="bg-[#111111]/80 backdrop-blur-md rounded-2xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 hover:border-[#0085EE]/40 hover:shadow-[0_0_30px_rgba(0,133,238,0.15)] transition-all duration-300 group">
                                     <div className="flex items-center mb-4">
                                         <div className="w-10 h-10 bg-gradient-to-r from-[#0065E1] to-[#01D0FF] rounded-lg flex items-center justify-center mr-3 shadow-lg group-hover:scale-110 transition-transform">
                                             <span className="text-white text-lg">🎯</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-900">
+                                        <h3 className="text-xl font-bold text-white group-hover:text-[#01D0FF] transition-colors">
                                             Mi enfoque
                                         </h3>
                                     </div>
-                                    <p className="text-gray-700 text-sm leading-relaxed mb-4 text-justify">
+                                    <p className="text-gray-300 text-sm leading-relaxed mb-4 text-justify font-light">
                                         Desarrollo soluciones que se adaptan a tu presupuesto,
                                         escalan con tu crecimiento y resuelven problemas concretos.
                                     </p>
-                                    <div className="bg-gradient-to-br from-[#0065E1]/10 to-[#01D0FF]/10 rounded-lg p-3 border border-[#0065E1]/20">
-                                        <div className="text-2xl font-bold text-black mb-1">30+</div>
-                                        <div className="text-xs text-black font-medium">Clientes satisfechos</div>
+                                    <div className="bg-gradient-to-br from-[#0065E1]/10 to-[#01D0FF]/10 rounded-lg p-3 border border-[#0065E1]/30">
+                                        <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0085EE] to-[#01D0FF] mb-1">30+</div>
+                                        <div className="text-xs text-gray-400 font-medium">Clientes satisfechos</div>
                                     </div>
                                 </div>
                             </div>
@@ -921,8 +921,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     </div>
                                 </div>
 
-                                <div className="bg-white rounded-2xl p-6 shadow-xl border border-[#01D0FF]/10">
-                                    <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                                <div className="bg-[#111111]/80 backdrop-blur-md rounded-2xl p-6 shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 group hover:border-[#01D0FF]/40 hover:shadow-[0_0_30px_rgba(1,208,255,0.15)] transition-all duration-300">
+                                    <h4 className="text-lg font-bold text-white mb-4 flex items-center group-hover:text-[#01D0FF] transition-colors">
                                         <span className="text-xl mr-2">🎯</span>
                                         Valores que me guían
                                     </h4>
@@ -935,7 +935,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         ].map((value, index) => (
                                             <div key={index} className="flex items-center text-sm">
                                                 <span className="mr-3 text-lg">{value.icon}</span>
-                                                <span className="text-gray-700">{value.text}</span>
+                                                <span className="text-gray-300 font-light">{value.text}</span>
                                             </div>
                                         ))}
                                     </div>
