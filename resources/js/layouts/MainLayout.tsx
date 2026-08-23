@@ -450,29 +450,29 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 <meta property="twitter:description" content="Soluciones tecnológicas a medida para PyMEs: ERP, CRM y eCommerce de alto impacto." />
                 <meta property="twitter:image" content="/claudioaguilera.jpg" />
             </Head>
-            {/* Navigation */}
-            <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#01D0FF]/20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
+            {/* Floating Navigation Pill */}
+            <nav className="fixed top-4 left-0 right-0 z-50 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 transition-all duration-500">
+                <div className="bg-[#050505]/70 backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-6 relative">
+                    <div className="flex justify-between items-center h-16">
                         <div className="flex items-center">
                             <Link href="/" className="flex items-center">
                                 <img
                                     src="/logoclaudioaguilera.png"
                                     alt="Claudio Aguilera Logo"
-                                    className="h-16 w-64 object-contain"
+                                    className="h-10 w-auto object-contain hover:scale-105 transition-transform duration-300"
                                 />
                             </Link>
                         </div>
                         <div className="hidden md:flex items-center space-x-8">
                             <a
                                 href="#hero"
-                                className="text-[#FEFEFF] hover:text-[#01D0FF] transition-colors cursor-pointer"
+                                className="text-sm font-medium text-white/70 hover:text-[#01D0FF] hover:drop-shadow-[0_0_10px_rgba(1,208,255,0.5)] transition-all duration-300"
                             >
                                 Inicio
                             </a>
                             <a
                                 href="#sobre-mi"
-                                className="text-[#FEFEFF] hover:text-[#01D0FF] transition-colors cursor-pointer"
+                                className="text-sm font-medium text-white/70 hover:text-[#01D0FF] hover:drop-shadow-[0_0_10px_rgba(1,208,255,0.5)] transition-all duration-300"
                             >
                                 Sobre mí
                             </a>
@@ -482,19 +482,19 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     e.preventDefault();
                                     scrollToServicios(e as any);
                                 }}
-                                className="text-[#FEFEFF] hover:text-[#01D0FF] transition-colors cursor-pointer"
+                                className="text-sm font-medium text-white/70 hover:text-[#01D0FF] hover:drop-shadow-[0_0_10px_rgba(1,208,255,0.5)] transition-all duration-300"
                             >
                                 Servicios
                             </a>
                             <a
                                 href="#portafolio"
-                                className="text-[#FEFEFF] hover:text-[#01D0FF] transition-colors cursor-pointer"
+                                className="text-sm font-medium text-white/70 hover:text-[#01D0FF] hover:drop-shadow-[0_0_10px_rgba(1,208,255,0.5)] transition-all duration-300"
                             >
                                 Portafolio
                             </a>
                             <a
                                 href="#contacto"
-                                className="bg-[#01D0FF] text-[#000100] px-4 py-2 rounded-md hover:bg-[#01D0FF]/80 transition-colors cursor-pointer font-semibold"
+                                className="bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-[0_0_15px_rgba(1,208,255,0.3)] hover:shadow-[0_0_25px_rgba(1,208,255,0.5)] hover:scale-105 transition-all duration-300"
                             >
                                 Contacto
                             </a>
@@ -504,11 +504,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             <button
                                 type="button"
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="text-[#e5e5e5] hover:text-[#fca311] focus:outline-none focus:text-[#fca311] transition-colors"
+                                className="text-white/70 hover:text-[#01D0FF] focus:outline-none transition-colors p-2"
                                 aria-label="Toggle menu"
                                 aria-expanded={isMobileMenuOpen}
                             >
-                                <svg className={`h-6 w-6 fill-current transition-transform duration-200 ${isMobileMenuOpen ? 'rotate-90' : ''}`} viewBox="0 0 24 24">
+                                <svg className={`h-6 w-6 fill-current transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90 text-[#01D0FF]' : ''}`} viewBox="0 0 24 24">
                                     {isMobileMenuOpen ? (
                                         <path fillRule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 0 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
                                     ) : (
@@ -519,20 +519,21 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         </div>
                     </div>
                 </div>
-                {/* Mobile menu - collapsible */}
-                <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="px-4 pt-2 pb-3 space-y-1 bg-gray-900/95 backdrop-blur-md border-t border-[#01D0FF]/10">
+                
+                {/* Mobile menu - collapsible floating pill */}
+                <div className={`md:hidden absolute top-full left-4 right-4 mt-2 rounded-[2rem] overflow-hidden transition-all duration-300 ease-in-out bg-[#050505]/80 backdrop-blur-2xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] ${isMobileMenuOpen ? 'max-h-96 opacity-100 border-opacity-100 visible' : 'max-h-0 opacity-0 border-opacity-0 invisible'}`}>
+                    <div className="px-6 py-6 space-y-2 flex flex-col">
                         <a
                             href="#hero"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-3 py-2 text-base font-medium text-[#FEFEFF] hover:text-[#01D0FF] cursor-pointer rounded-md hover:bg-[#01D0FF]/10 transition-colors"
+                            className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-[#01D0FF] hover:bg-white/5 rounded-xl transition-colors"
                         >
                             Inicio
                         </a>
                         <a
                             href="#sobre-mi"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-3 py-2 text-base font-medium text-[#FEFEFF] hover:text-[#01D0FF] cursor-pointer rounded-md hover:bg-[#01D0FF]/10 transition-colors"
+                            className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-[#01D0FF] hover:bg-white/5 rounded-xl transition-colors"
                         >
                             Sobre mí
                         </a>
@@ -543,21 +544,21 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 setIsMobileMenuOpen(false);
                                 scrollToServicios(e as any);
                             }}
-                            className="block px-3 py-2 text-base font-medium text-[#FEFEFF] hover:text-[#01D0FF] cursor-pointer rounded-md hover:bg-[#01D0FF]/10 transition-colors"
+                            className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-[#01D0FF] hover:bg-white/5 rounded-xl transition-colors"
                         >
                             Servicios
                         </a>
                         <a
                             href="#portafolio"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-3 py-2 text-base font-medium text-[#FEFEFF] hover:text-[#01D0FF] cursor-pointer rounded-md hover:bg-[#01D0FF]/10 transition-colors"
+                            className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-[#01D0FF] hover:bg-white/5 rounded-xl transition-colors"
                         >
                             Portafolio
                         </a>
                         <a
                             href="#contacto"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-3 py-2 text-base font-medium bg-[#01D0FF] text-[#000100] rounded-md cursor-pointer font-semibold hover:bg-[#01D0FF]/80 transition-colors"
+                            className="block px-4 py-3 text-sm font-bold text-center bg-gradient-to-r from-[#01D0FF] to-[#0085EE] text-white rounded-xl mt-4 shadow-[0_0_15px_rgba(1,208,255,0.3)] hover:shadow-[0_0_25px_rgba(1,208,255,0.5)] transition-all"
                         >
                             Contacto
                         </a>
@@ -566,7 +567,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </nav>
 
             {/* Main Content */}
-            <main className="flex-1 pt-16">
+            <main className="flex-1 pt-0">
                 {/* Hero Section - Space Module */}
                 <section id="hero" ref={heroRef} className="relative overflow-hidden bg-[#0a0a0a] text-white min-h-[80vh] flex items-center justify-center">
                     
@@ -1075,7 +1076,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0085EE]/30 dark:bg-[#0085EE]/20 rounded-full blur-[120px]"></div>
                     </div>
 
-                    <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-20">
                             <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E0F2FE] to-[#01D0FF]">
                                 Servicios para tu Empresa
@@ -1247,7 +1248,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                 {/* Portafolio Section */}
                 <section id="portafolio" className="py-24 bg-[#F8FAFC] dark:bg-[#0a0a0a] transition-colors duration-500">
-                    <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-20">
                             <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E0F2FE] to-[#01D0FF]">
                                 Portafolio de Proyectos
