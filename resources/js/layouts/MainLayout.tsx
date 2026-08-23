@@ -568,12 +568,22 @@ export default function MainLayout({ children }: MainLayoutProps) {
             {/* Main Content */}
             <main className="flex-1 pt-16">
                 {/* Hero Section - Space Module */}
-                <section id="hero" ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-[#000100] via-[#0065E1] to-[#0085EE] text-white min-h-[80vh] flex items-center justify-center">
+                <section id="hero" ref={heroRef} className="relative overflow-hidden bg-[#0a0a0a] text-white min-h-[80vh] flex items-center justify-center">
+                    
+                    {/* Abstract Premium Background Image */}
+                    <div className="absolute inset-0">
+                        <img 
+                            src="/portfolio_dark_background_1787438020005.jpg" 
+                            alt="Premium Technology Background" 
+                            className="w-full h-full object-cover opacity-60"
+                        />
+                        {/* Overlay to ensure text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/30"></div>
+                    </div>
+
                     {/* Aurora effect on edges */}
-                    <div className="aurora-effect"></div>
-    
-                    {/* Space background effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#000100]/50 via-[#0065E1]/30 to-[#0085EE]/50"></div>
+                    <div className="aurora-effect opacity-50"></div>
 
                     {/* Stars effect */}
                     <div className="absolute inset-0">
@@ -614,30 +624,34 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             {/* Left Column - Text Content */}
                             <div className="lg:col-span-1 space-y-6">
                                 <div>
-                                    <h1 className="text-3xl md:text-5xl font-extrabold mb-3 tracking-tight text-white">
-                                        {typewriterText}<span className="animate-pulse">|</span>
+                                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md shadow-xl animate-fade-in">
+                                        <span className="text-xl">✨</span>
+                                        <span className="text-sm font-medium text-gray-300 tracking-wide uppercase">Innovación & Diseño Elite</span>
+                                    </div>
+                                    <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E0F2FE] to-[#01D0FF] drop-shadow-sm">
+                                        {typewriterText}<span className="animate-pulse text-[#01D0FF]">|</span>
                                     </h1>
-                                    <h2 className="text-lg md:text-xl font-light mb-4 text-slate-300 opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
+                                    <h2 className="text-xl md:text-2xl font-light mb-6 text-[#01D0FF] opacity-0 animate-fade-in drop-shadow-sm" style={{ animationDelay: '1s' }}>
                                         Desarrollo Full-Stack para PyMEs
                                     </h2>
-                                    <p className={`text-base md:text-lg text-slate-400 leading-relaxed transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ minHeight: '1.25em', display: 'block' }}>
+                                    <p className={`text-lg md:text-xl text-slate-300 font-light leading-relaxed transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ minHeight: '1.25em', display: 'block' }}>
                                         {taglines[taglineIndex]}
                                     </p>
                                 </div>
 
-                                <div className={`flex flex-col sm:flex-row gap-3 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                                <div className={`flex flex-col sm:flex-row gap-4 mt-8 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                                     <button
                                         type="button"
                                         onClick={scrollToServicios}
-                                        className="ripple-effect inline-flex items-center justify-center px-6 py-3 bg-[#01D0FF] text-[#000100] font-semibold rounded-xl hover:bg-[#01D0FF]/80 transition-all duration-300 group shadow-xl/20 hover:shadow-2xl hover:scale-105"
+                                        className="ripple-effect inline-flex items-center justify-center px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-[#01D0FF] hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(1,208,255,0.6)] hover:-translate-y-1 group"
                                     >
                                         Ver Servicios
-                                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                     <button
                                         type="button"
                                         onClick={scrollToContact}
-                                        className="ripple-effect inline-flex items-center justify-center px-6 py-3 border-2 border-[#01D0FF] text-[#01D0FF] font-semibold rounded-xl hover:bg-[#01D0FF] hover:text-[#000100] transition-all duration-300 shadow-xl/20 hover:shadow-2xl hover:scale-105"
+                                        className="ripple-effect inline-flex items-center justify-center px-8 py-4 border-2 border-white/20 text-white font-bold rounded-2xl hover:border-[#01D0FF] hover:bg-[#01D0FF]/10 backdrop-blur-md transition-all duration-500 shadow-lg hover:shadow-[0_0_20px_rgba(1,208,255,0.3)] hover:-translate-y-1"
                                     >
                                         Solicitar presupuesto
                                     </button>
@@ -1095,177 +1109,191 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 </section>
 
                 {/* Servicios Section */}
-                <section id="servicios" className="py-20 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] relative overflow-hidden">
+                <section id="servicios" className="py-24 bg-white dark:bg-[#050505] relative overflow-hidden transition-colors duration-500">
                     {/* Background decorative elements */}
-                    <div className="absolute inset-0 opacity-3">
-                        <div className="absolute top-10 right-10 w-40 h-40 bg-[#01D0FF] rounded-full blur-3xl"></div>
-                        <div className="absolute bottom-10 left-10 w-32 h-32 bg-[#0085EE] rounded-full blur-3xl"></div>
+                    <div className="absolute inset-0 opacity-20 dark:opacity-30 pointer-events-none">
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#01D0FF]/30 dark:bg-[#01D0FF]/20 rounded-full blur-[120px]"></div>
+                        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0085EE]/30 dark:bg-[#0085EE]/20 rounded-full blur-[120px]"></div>
                     </div>
 
-                    <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#000100] mb-4">
+                    <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                        <div className="text-center mb-20">
+                            <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#01D0FF] to-[#0065E1] mb-6 drop-shadow-sm">
                                 Servicios para tu Empresa
                             </h2>
-                            <p className="text-lg text-[#6B7280] max-w-3xl mx-auto leading-relaxed">
-                                Soluciones tecnológicas adaptadas a las necesidades de empresas de todos los tamaños, con enfoque en resultados y eficiencia.
+                            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
+                                Soluciones tecnológicas premium adaptadas a las necesidades de tu empresa. Diseño excepcional, rendimiento superior.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12 mb-20">
                             {/* Servicio 1 - ERP/CRM */}
-                            <div className="group bg-white rounded-2xl p-8 shadow-xl border border-[#01D0FF]/10 hover:shadow-2xl hover:border-[#01D0FF]/30 transition-all duration-300 hover:-translate-y-2">
-                                <div className="flex items-center justify-between mb-6">
-                                    <div className="w-16 h-16 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                        <span className="text-2xl">📊</span>
-                                    </div>
-                                    <div className="text-right">
-                                        <div className="text-xs text-[#6B7280] font-medium">Consultar precio</div>
-                                        <div className="text-sm font-semibold text-[#01D0FF]">Personalizado</div>
-                                    </div>
-                                </div>
-
-                                <h3 className="text-xl font-bold text-[#000100] mb-3 group-hover:text-[#01D0FF] transition-colors">
-                                    Sistemas ERP y CRM
-                                </h3>
-                                <p className="text-[#6B7280] mb-6 leading-relaxed text-justify">
-                                    Gestiona clientes, pedidos e inventario en una sola plataforma. Automatiza procesos y reduce errores administrativos.
-                                </p>
-
-                                <div className="space-y-3 mb-6">
-                                    {[
-                                        { icon: '📦', text: 'Control de inventarios en tiempo real' },
-                                        { icon: '👥', text: 'Gestión de clientes y ventas' },
-                                        { icon: '📈', text: 'Reportes automáticos' },
-                                        { icon: '🔗', text: 'Integración con otras herramientas' }
-                                    ].map((feature, index) => (
-                                        <div key={index} className="flex items-center text-sm">
-                                            <span className="mr-3 text-lg">{feature.icon}</span>
-                                            <span className="text-[#374151]">{feature.text}</span>
+                            <div className="group relative bg-white/70 dark:bg-[#0a0a0a]/60 backdrop-blur-2xl rounded-[2rem] p-10 border border-gray-200 dark:border-white/10 hover:border-[#01D0FF]/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_40px_-15px_rgba(1,208,255,0.3)] dark:hover:shadow-[0_20px_40px_-15px_rgba(1,208,255,0.15)] overflow-hidden">
+                                <div className="absolute -inset-px bg-gradient-to-br from-[#01D0FF]/20 to-[#0085EE]/20 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                                <div className="relative z-10">
+                                    <div className="flex items-center justify-between mb-8">
+                                        <div className="w-16 h-16 bg-gradient-to-br from-[#01D0FF] to-[#0085EE] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 group-hover:rotate-6">
+                                            <span className="text-3xl text-white">📊</span>
                                         </div>
-                                    ))}
-                                </div>
-
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center text-xs text-[#6B7280]">
-                                        <span className="mr-1">⏱️</span>
-                                        <span>2-4 semanas</span>
+                                        <div className="text-right">
+                                            <div className="text-[10px] text-gray-500 dark:text-gray-400 font-bold tracking-widest uppercase mb-1">Inversión</div>
+                                            <div className="text-sm font-extrabold text-[#01D0FF]">A Medida</div>
+                                        </div>
                                     </div>
-                                    <button
-                                        onClick={(e) => quoteService(e, 'erp')}
-                                        className="text-sm font-semibold text-[#01D0FF] hover:text-[#0085EE] transition-colors group-hover:underline"
-                                    >
-                                        Solicitar cotización →
-                                    </button>
+
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#01D0FF] transition-colors duration-300">
+                                        Sistemas ERP y CRM
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light">
+                                        Centraliza tu operativa. Gestiona clientes, automatiza procesos y toma decisiones basadas en datos reales.
+                                    </p>
+
+                                    <div className="space-y-4 mb-10">
+                                        {[
+                                            { icon: '📦', text: 'Inventarios en tiempo real' },
+                                            { icon: '👥', text: 'Gestión avanzada de clientes' },
+                                            { icon: '📈', text: 'Reportes y analítica visual' },
+                                            { icon: '🔗', text: 'Integración multiplataforma' }
+                                        ].map((feature, index) => (
+                                            <div key={index} className="flex items-center">
+                                                <div className="w-8 h-8 rounded-full bg-[#01D0FF]/10 dark:bg-[#01D0FF]/20 flex items-center justify-center mr-4 shrink-0 group-hover:bg-[#01D0FF]/20 transition-colors">
+                                                    <span className="text-sm">{feature.icon}</span>
+                                                </div>
+                                                <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">{feature.text}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-white/10 mt-auto">
+                                        <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 font-medium">
+                                            <span className="mr-2 text-base">⏱️</span>
+                                            <span>2-4 semanas</span>
+                                        </div>
+                                        <button
+                                            onClick={(e) => quoteService(e, 'erp')}
+                                            className="inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-[#01D0FF] border-2 border-[#01D0FF]/30 hover:border-[#01D0FF] rounded-xl text-sm font-bold hover:bg-[#01D0FF] hover:text-white transition-all duration-300 group/btn"
+                                        >
+                                            Cotizar <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Servicio 2 - E-commerce */}
-                            <div className="group bg-white rounded-2xl p-8 shadow-xl border border-[#01D0FF]/10 hover:shadow-2xl hover:border-[#01D0FF]/30 transition-all duration-300 hover:-translate-y-2">
-                                <div className="flex items-center justify-between mb-6">
-                                    <div className="w-16 h-16 bg-gradient-to-r from-[#0065E1] to-[#01D0FF] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                        <span className="text-2xl">🛍️</span>
-                                    </div>
-                                    <div className="text-right">
-                                        <div className="text-xs text-[#6B7280] font-medium">Consultar precio</div>
-                                        <div className="text-sm font-semibold text-[#0065E1]">Personalizado</div>
-                                    </div>
-                                </div>
-
-                                <h3 className="text-xl font-bold text-[#000100] mb-3 group-hover:text-[#0065E1] transition-colors">
-                                    Tiendas E-commerce
-                                </h3>
-                                <p className="text-[#6B7280] mb-6 leading-relaxed text-justify">
-                                    Vende 24/7 con una tienda online moderna, segura y fácil de usar. Aumenta tus ingresos con comercio electrónico.
-                                </p>
-
-                                <div className="space-y-3 mb-6">
-                                    {[
-                                        { icon: '🛒', text: 'Catálogo de productos intuitivo' },
-                                        { icon: '💳', text: 'Pasarelas de pago seguras' },
-                                        { icon: '🚚', text: 'Gestión de envíos integrada' },
-                                        { icon: '⚙️', text: 'Panel de administración completo' }
-                                    ].map((feature, index) => (
-                                        <div key={index} className="flex items-center text-sm">
-                                            <span className="mr-3 text-lg">{feature.icon}</span>
-                                            <span className="text-[#374151]">{feature.text}</span>
+                            <div className="group relative bg-white/70 dark:bg-[#0a0a0a]/60 backdrop-blur-2xl rounded-[2rem] p-10 border border-gray-200 dark:border-white/10 hover:border-[#0065E1]/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_40px_-15px_rgba(0,101,225,0.3)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,101,225,0.15)] overflow-hidden">
+                                <div className="absolute -inset-px bg-gradient-to-br from-[#0065E1]/20 to-[#01D0FF]/20 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                                <div className="relative z-10">
+                                    <div className="flex items-center justify-between mb-8">
+                                        <div className="w-16 h-16 bg-gradient-to-br from-[#0065E1] to-[#01D0FF] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 group-hover:-rotate-6">
+                                            <span className="text-3xl text-white">🛍️</span>
                                         </div>
-                                    ))}
-                                </div>
-
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center text-xs text-[#6B7280]">
-                                        <span className="mr-1">⏱️</span>
-                                        <span>3-6 semanas</span>
+                                        <div className="text-right">
+                                            <div className="text-[10px] text-gray-500 dark:text-gray-400 font-bold tracking-widest uppercase mb-1">Inversión</div>
+                                            <div className="text-sm font-extrabold text-[#0065E1]">A Medida</div>
+                                        </div>
                                     </div>
-                                    <button
-                                        onClick={(e) => quoteService(e, 'ecommerce')}
-                                        className="text-sm font-semibold text-[#0065E1] hover:text-[#01D0FF] transition-colors group-hover:underline"
-                                    >
-                                        Solicitar cotización →
-                                    </button>
+
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#0065E1] transition-colors duration-300">
+                                        Tiendas E-commerce
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light">
+                                        Eleva tus ventas al siguiente nivel con plataformas escalables, ultrarrápidas y optimizadas para conversión.
+                                    </p>
+
+                                    <div className="space-y-4 mb-10">
+                                        {[
+                                            { icon: '🛒', text: 'Catálogo de alto rendimiento' },
+                                            { icon: '💳', text: 'Pasarelas de pago seguras' },
+                                            { icon: '🚚', text: 'Logística integrada' },
+                                            { icon: '⚙️', text: 'Panel de control intuitivo' }
+                                        ].map((feature, index) => (
+                                            <div key={index} className="flex items-center">
+                                                <div className="w-8 h-8 rounded-full bg-[#0065E1]/10 dark:bg-[#0065E1]/20 flex items-center justify-center mr-4 shrink-0 group-hover:bg-[#0065E1]/20 transition-colors">
+                                                    <span className="text-sm">{feature.icon}</span>
+                                                </div>
+                                                <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">{feature.text}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-white/10 mt-auto">
+                                        <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 font-medium">
+                                            <span className="mr-2 text-base">⏱️</span>
+                                            <span>3-6 semanas</span>
+                                        </div>
+                                        <button
+                                            onClick={(e) => quoteService(e, 'ecommerce')}
+                                            className="inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-[#0065E1] border-2 border-[#0065E1]/30 hover:border-[#0065E1] rounded-xl text-sm font-bold hover:bg-[#0065E1] hover:text-white transition-all duration-300 group/btn"
+                                        >
+                                            Cotizar <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Servicio 3 - Sitios Web */}
-                            <div className="group bg-white rounded-2xl p-8 shadow-xl border border-[#01D0FF]/10 hover:shadow-2xl hover:border-[#01D0FF]/30 transition-all duration-300 hover:-translate-y-2">
-                                <div className="flex items-center justify-between mb-6">
-                                    <div className="w-16 h-16 bg-gradient-to-r from-[#0085EE] to-[#0065E1] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                        <span className="text-2xl">🌐</span>
-                                    </div>
-                                    <div className="text-right">
-                                        <div className="text-xs text-[#6B7280] font-medium">Consultar precio</div>
-                                        <div className="text-sm font-semibold text-[#0085EE]">Personalizado</div>
-                                    </div>
-                                </div>
-
-                                <h3 className="text-xl font-bold text-[#000100] mb-3 group-hover:text-[#0085EE] transition-colors">
-                                    Sitios Web Corporativos
-                                </h3>
-                                <p className="text-[#6B7280] mb-6 leading-relaxed text-justify">
-                                    Presencia digital profesional que genera confianza y atrae nuevos clientes para tu negocio.
-                                </p>
-
-                                <div className="space-y-3 mb-6">
-                                    {[
-                                        { icon: '📱', text: 'Diseño responsive y moderno' },
-                                        { icon: '🔍', text: 'Optimización SEO' },
-                                        { icon: '📝', text: 'Formularios de contacto' },
-                                        { icon: '📱', text: 'Integración con redes sociales' }
-                                    ].map((feature, index) => (
-                                        <div key={index} className="flex items-center text-sm">
-                                            <span className="mr-3 text-lg">{feature.icon}</span>
-                                            <span className="text-[#374151]">{feature.text}</span>
+                            <div className="group relative bg-white/70 dark:bg-[#0a0a0a]/60 backdrop-blur-2xl rounded-[2rem] p-10 border border-gray-200 dark:border-white/10 hover:border-[#0085EE]/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_40px_-15px_rgba(0,133,238,0.3)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,133,238,0.15)] overflow-hidden">
+                                <div className="absolute -inset-px bg-gradient-to-br from-[#0085EE]/20 to-[#0065E1]/20 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                                <div className="relative z-10">
+                                    <div className="flex items-center justify-between mb-8">
+                                        <div className="w-16 h-16 bg-gradient-to-br from-[#0085EE] to-[#0065E1] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 group-hover:rotate-12">
+                                            <span className="text-3xl text-white">🌐</span>
                                         </div>
-                                    ))}
-                                </div>
-
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center text-xs text-[#6B7280]">
-                                        <span className="mr-1">⏱️</span>
-                                        <span>1-3 semanas</span>
+                                        <div className="text-right">
+                                            <div className="text-[10px] text-gray-500 dark:text-gray-400 font-bold tracking-widest uppercase mb-1">Inversión</div>
+                                            <div className="text-sm font-extrabold text-[#0085EE]">A Medida</div>
+                                        </div>
                                     </div>
-                                    <button
-                                        onClick={(e) => quoteService(e, 'web')}
-                                        className="text-sm font-semibold text-[#0085EE] hover:text-[#0065E1] transition-colors group-hover:underline"
-                                    >
-                                        Solicitar cotización →
-                                    </button>
+
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#0085EE] transition-colors duration-300">
+                                        Sitios Web Corporativos
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light">
+                                        Presencia digital premium. Diseños deslumbrantes y responsivos que posicionan tu marca en el mercado.
+                                    </p>
+
+                                    <div className="space-y-4 mb-10">
+                                        {[
+                                            { icon: '📱', text: 'Mobile-first & Ultra-responsive' },
+                                            { icon: '🔍', text: 'Optimización SEO técnica' },
+                                            { icon: '⚡', text: 'Velocidad de carga extrema' },
+                                            { icon: '🎨', text: 'Diseño UX/UI inmersivo' }
+                                        ].map((feature, index) => (
+                                            <div key={index} className="flex items-center">
+                                                <div className="w-8 h-8 rounded-full bg-[#0085EE]/10 dark:bg-[#0085EE]/20 flex items-center justify-center mr-4 shrink-0 group-hover:bg-[#0085EE]/20 transition-colors">
+                                                    <span className="text-sm">{feature.icon}</span>
+                                                </div>
+                                                <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">{feature.text}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-white/10 mt-auto">
+                                        <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 font-medium">
+                                            <span className="mr-2 text-base">⏱️</span>
+                                            <span>1-3 semanas</span>
+                                        </div>
+                                        <button
+                                            onClick={(e) => quoteService(e, 'web')}
+                                            className="inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-[#0085EE] border-2 border-[#0085EE]/30 hover:border-[#0085EE] rounded-xl text-sm font-bold hover:bg-[#0085EE] hover:text-white transition-all duration-300 group/btn"
+                                        >
+                                            Cotizar <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </section>
 
                 {/* Portafolio Section */}
-                <section id="portafolio" className="py-20 bg-gray-50 dark:bg-gray-900">
+                <section id="portafolio" className="py-24 bg-[#F8FAFC] dark:bg-[#0a0a0a] transition-colors duration-500">
                     <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                        <div className="text-center mb-20">
+                            <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0085EE] to-[#01D0FF] mb-6 drop-shadow-sm">
                                 Portafolio de Proyectos
                             </h2>
-                            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
                                 Casos de éxito que demuestran cómo mis soluciones tecnológicas han impulsado el crecimiento de empresas como la tuya.
                             </p>
                         </div>
@@ -1474,13 +1502,16 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
 
 
-                <section className="py-20 bg-white dark:bg-gray-950">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <section className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+                    <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#01D0FF]/10 rounded-full blur-[120px] pointer-events-none"></div>
+                    <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-[#0085EE]/10 rounded-full blur-[100px] pointer-events-none"></div>
+                    
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         {/* Proyecto destacado (Caso de Éxito) */}
                         <div className="mb-16">
-                            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                            <div className="bg-[#111111]/80 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden">
                                 <div className="md:flex">
-                                    <div className="md:w-1/2 bg-gradient-to-br from-[#000100] via-[#0065E1] to-[#0085EE] p-8 text-white relative overflow-hidden min-h-[500px] flex flex-col justify-center">
+                                    <div className="md:w-1/2 bg-gradient-to-br from-[#000100] via-[#004A99] to-[#0085EE] p-10 text-white relative overflow-hidden min-h-[500px] flex flex-col justify-center">
                                         {/* Aurora effect on edges */}
                                         <div className="aurora-effect"></div>
 
@@ -1547,76 +1578,76 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                                 </div>
                                                 <div className="flex items-center">
                                                     <div className="w-3 h-3 bg-[#01D0FF] rounded-full mr-4 shadow-lg shadow-[#01D0FF]/50"></div>
-                                                    <span className="text-white font-medium">Interfaz intuitiva y moderna</span>
+                                                    <span className="text-white font-medium">Facturación electrónica integrada</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="md:w-1/2 p-8">
-                                        <h4 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                                            Caso de Éxito
+                                    <div className="md:w-1/2 p-10 bg-[#0a0a0a]/50">
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#01D0FF]/10 border border-[#01D0FF]/20 mb-4">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-[#01D0FF] animate-pulse"></span>
+                                            <span className="text-xs font-bold text-[#01D0FF] uppercase tracking-wider">Caso de Éxito Destacado</span>
+                                        </div>
+                                        <h4 className="text-3xl font-bold text-white mb-6">
+                                            Transformación Digital Total
                                         </h4>
-                                        <p className="text-gray-600 dark:text-gray-300 mb-6 text-justify">
+                                        <p className="text-gray-400 mb-8 text-justify leading-relaxed font-light">
                                             LunaSuite nació como solución a una necesidad real de Ascolor, empresa de diseño publicitario que necesitaba digitalizar sus procesos de gestión.
-                                            A través de este desafío, desarrollé este SaaS multi-tenant con alta tecnología web, desplegado en Digital Ocean,
-                                            que transforma la gestión empresarial para empresas de todo tamaño.
+                                            A través de este desafío, desarrollé este ecosistema SaaS multi-tenant con arquitectura cloud,
+                                            que actualmente automatiza la operación completa de la compañía.
                                         </p>
-                                        <div className="grid grid-cols-2 gap-4 mb-6">
-                                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg p-3 text-center border border-blue-200 dark:border-blue-700 hover:shadow-md transition-all duration-300 group">
-                                                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1 group-hover:scale-105 transition-transform">80%</div>
-                                                <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Reducción en tiempos de reporte</div>
-                                                <div className="w-full bg-blue-200 dark:bg-blue-700 rounded-full h-1 mt-2">
-                                                    <div className="bg-blue-600 dark:bg-blue-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '80%' }}></div>
-                                                </div>
+                                        <div className="grid grid-cols-2 gap-4 mb-8">
+                                            <div className="bg-[#111]/80 rounded-2xl p-4 text-center border border-[#01D0FF]/20 hover:border-[#01D0FF]/50 hover:shadow-[0_0_20px_rgba(1,208,255,0.15)] transition-all duration-300 group backdrop-blur-sm">
+                                                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#01D0FF] to-[#0085EE] mb-2 group-hover:scale-105 transition-transform">80%</div>
+                                                <div className="text-xs text-gray-400 font-medium">Reducción en tiempos de reporte</div>
                                             </div>
-                                            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-lg p-3 text-center border border-green-200 dark:border-green-700 hover:shadow-md transition-all duration-300 group">
-                                                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1 group-hover:scale-105 transition-transform">80%</div>
-                                                <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Aumento en eficiencia administrativa</div>
-                                                <div className="w-full bg-green-200 dark:bg-green-700 rounded-full h-1 mt-2">
-                                                    <div className="bg-green-600 dark:bg-green-400 h-1 rounded-full transition-all duration-1000 ease-out" style={{ width: '80%' }}></div>
-                                                </div>
+                                            <div className="bg-[#111]/80 rounded-2xl p-4 text-center border border-[#0085EE]/20 hover:border-[#0085EE]/50 hover:shadow-[0_0_20px_rgba(0,133,238,0.15)] transition-all duration-300 group backdrop-blur-sm">
+                                                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0085EE] to-[#004A99] mb-2 group-hover:scale-105 transition-transform">100%</div>
+                                                <div className="text-xs text-gray-400 font-medium">Trazabilidad de producción</div>
                                             </div>
                                         </div>
-                                        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 relative overflow-hidden hover:shadow-xl transition-all duration-300">
+                                        
+                                        {/* Premium Testimonial Card */}
+                                        <div className="bg-white/5 rounded-2xl shadow-2xl border border-white/10 p-6 relative overflow-hidden hover:border-white/20 transition-all duration-500 backdrop-blur-xl group">
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#01D0FF]/10 rounded-full blur-[40px] group-hover:bg-[#01D0FF]/20 transition-colors duration-500"></div>
+                                            
                                             {/* Header with profile and company */}
-                                            <div className="flex items-center justify-between mb-4">
+                                            <div className="flex items-center justify-between mb-6 relative z-10">
                                                 <div className="flex items-center">
                                                     <img
                                                         src="/tecnologias/personas/javiera.png"
                                                         alt="Javiera Fuentes - Ascolor"
-                                                        className="w-12 h-12 rounded-full object-cover mr-3 border-2 border-blue-300 shadow-sm"
+                                                        className="w-14 h-14 rounded-full object-cover mr-4 border-2 border-[#01D0FF]/50 shadow-[0_0_15px_rgba(1,208,255,0.3)]"
                                                     />
                                                     <div>
-                                                        <p className="font-semibold text-gray-900 dark:text-white text-sm">Javiera Fuentes</p>
-                                                        <p className="text-xs text-gray-600 dark:text-gray-400">Ascolor - Diseño Publicitario</p>
-                                                        <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">Cliente desde 2023</p>
+                                                        <p className="font-bold text-white text-base">Javiera Fuentes</p>
+                                                        <p className="text-xs text-gray-400">Ascolor - Diseño Publicitario</p>
                                                     </div>
                                                 </div>
-                                                <div className="flex items-center space-x-2">
-                                                    <span className="text-xs bg-gradient-to-r from-blue-500 to-purple-600 text-white px-2 py-1 rounded-full font-medium">LunaSuite</span>
+                                                <div className="hidden sm:flex items-center space-x-2">
                                                     <img
                                                         src="/tecnologias/ascolor.png"
                                                         alt="Ascolor Logo"
-                                                        className="w-10 h-10 object-contain"
+                                                        className="w-12 h-12 object-contain brightness-0 invert opacity-50"
                                                     />
                                                 </div>
                                             </div>
 
                                             {/* Testimonial content */}
-                                            <div className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3 text-sm text-justify space-y-3">
+                                            <div className="text-gray-200 leading-relaxed mb-6 text-base text-justify space-y-4 relative z-10 font-serif italic border-l-4 border-[#01D0FF]/50 pl-4 py-2">
                                                 <p>
-                                                    Claudio transformó completamente nuestra gestión con LunaSuite. Antes de implementar el sistema, en As Color trabajábamos todo con planillas Excel y archivadores repletos de papeles. Teníamos que imprimir cada pedido con dobles copias, una para el taller y otra para el cliente; era un caos logístico.
+                                                    "Claudio transformó completamente nuestra gestión con LunaSuite. Antes de implementar el sistema, en As Color trabajábamos todo con planillas Excel y archivadores repletos de papeles. Era un caos logístico."
                                                 </p>
                                                 <p>
-                                                    Hoy, el cambio ha sido absoluto. Ahora tengo el control total y en tiempo real de cada pedido, órdenes de trabajo y despachos. Todo está automatizado, incluyendo las <span className="font-bold">notificaciones directas por WhatsApp</span> al cliente.
+                                                    "Hoy, el cambio ha sido absoluto. Tengo el control total y en tiempo real de cada pedido y despacho. Todo está automatizado, incluyendo las <span className="font-semibold text-white">notificaciones directas por WhatsApp</span> al cliente."
                                                 </p>
                                             </div>
 
                                             {/* Star rating */}
-                                            <div className="flex items-center justify-center pt-2 border-t border-gray-100 dark:border-gray-700">
-                                                <div className="flex text-yellow-400">
+                                            <div className="flex items-center pt-4 border-t border-white/10 relative z-10">
+                                                <div className="flex text-yellow-400 gap-1">
                                                     {'★★★★★'.split('').map((star, i) => (
-                                                        <span key={i} className="text-lg">{star}</span>
+                                                        <span key={i} className="text-lg filter drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]">{star}</span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -1829,12 +1860,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </main>
 
             {/* Footer */}
-            <footer className="bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 pt-20 pb-10 relative overflow-hidden">
+            <footer className="bg-[#050505] border-t border-[#01D0FF]/20 pt-20 pb-10 relative overflow-hidden">
                 {/* Background decorative elements */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#01D0FF]/20 to-transparent"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-50/50 dark:bg-blue-900/5 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#01D0FF]/40 to-transparent shadow-[0_0_20px_rgba(1,208,255,0.5)]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0085EE]/10 rounded-full blur-[100px] -z-10"></div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
                         {/* Brand Column */}
                         <div className="space-y-6">
@@ -1847,7 +1879,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     />
                                 </div>
                             </Link>
-                            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed text-justify max-w-xs">
+                            <p className="text-gray-400 text-sm leading-relaxed text-justify max-w-xs font-light">
                                 Desarrollador Full-Stack especializado en transformar negocios a través de soluciones tecnológicas innovadoras y diseño centrado en el usuario.
                             </p>
                             <div className="flex space-x-3 pt-2">
@@ -1855,7 +1887,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     href="https://linkedin.com/in/claudioaguilera" 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
-                                    className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center text-gray-400 hover:text-[#01D0FF] hover:bg-[#01D0FF]/5 transition-all duration-300 border border-gray-100 dark:border-gray-800"
+                                    className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-[#01D0FF] hover:bg-[#01D0FF]/10 transition-all duration-300 border border-white/10 hover:border-[#01D0FF]/50 hover:shadow-[0_0_15px_rgba(1,208,255,0.3)]"
                                     aria-label="LinkedIn"
                                 >
                                     <Linkedin className="w-5 h-5" />
@@ -1864,7 +1896,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     href="https://github.com/claudio1988-dev" 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
-                                    className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center text-gray-400 hover:text-white hover:bg-black transition-all duration-300 border border-gray-100 dark:border-gray-800"
+                                    className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                                     aria-label="GitHub"
                                 >
                                     <Github className="w-5 h-5" />
@@ -1874,7 +1906,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                         {/* Quick Links */}
                         <div>
-                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-8">Navegación</h4>
+                            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-8">Navegación</h4>
                             <ul className="space-y-4">
                                 {[
                                     { label: 'Inicio', href: '#hero', onClick: scrollToHero },
@@ -1887,9 +1919,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <a 
                                             href={link.href} 
                                             onClick={link.onClick}
-                                            className="text-gray-500 dark:text-gray-400 hover:text-[#01D0FF] dark:hover:text-[#01D0FF] transition-colors flex items-center group text-sm"
+                                            className="text-gray-400 hover:text-[#01D0FF] transition-colors flex items-center group text-sm"
                                         >
-                                            <span className="w-1.5 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full mr-3 group-hover:bg-[#01D0FF] transition-colors"></span>
+                                            <span className="w-1.5 h-1.5 bg-gray-700 rounded-full mr-3 group-hover:bg-[#01D0FF] group-hover:shadow-[0_0_8px_rgba(1,208,255,0.8)] transition-all"></span>
                                             {link.label}
                                         </a>
                                     </li>
@@ -1899,7 +1931,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                         {/* Services/Tech */}
                         <div>
-                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-8">Especialidades</h4>
+                            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-8">Especialidades</h4>
                             <ul className="space-y-4">
                                 {[
                                     'Sistemas ERP & CRM',
@@ -1908,8 +1940,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                     'Arquitectura Cloud',
                                     'Design Systems'
                                 ].map((item) => (
-                                    <li key={item} className="text-gray-500 dark:text-gray-400 text-sm flex items-center">
-                                        <CheckCircle className="w-4 h-4 mr-3 text-[#01D0FF]" />
+                                    <li key={item} className="text-gray-400 text-sm flex items-center group">
+                                        <CheckCircle className="w-4 h-4 mr-3 text-[#01D0FF] group-hover:shadow-[0_0_8px_rgba(1,208,255,0.8)] rounded-full transition-shadow" />
                                         {item}
                                     </li>
                                 ))}
@@ -1918,28 +1950,28 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                         {/* Contact Info */}
                         <div>
-                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-8">Contacto Directo</h4>
+                            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-8">Contacto Directo</h4>
                             <div className="space-y-6">
-                                <div className="flex items-start">
-                                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0">
+                                <div className="flex items-start group">
+                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0 group-hover:bg-[#01D0FF]/10 group-hover:shadow-[0_0_15px_rgba(1,208,255,0.3)] transition-all border border-white/5 group-hover:border-[#01D0FF]/30">
                                         <Mail className="w-5 h-5" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="text-xs text-gray-400 uppercase tracking-tighter mb-1 font-semibold">Email</p>
+                                        <p className="text-xs text-gray-500 uppercase tracking-tighter mb-1 font-semibold">Email</p>
                                         
-                                        <a href="mailto:claudio.datos@gmail.com" className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#01D0FF] transition-colors leading-tight mt-1">
+                                        <a href="mailto:claudio.datos@gmail.com" className="text-sm text-gray-300 hover:text-[#01D0FF] transition-colors leading-tight mt-1">
                                             claudio.datos@gmail.com
                                         </a>
                                     </div>
                                 </div>
-                                <div className="flex items-start">
-                                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0">
+                                <div className="flex items-start group">
+                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#01D0FF] mr-4 flex-shrink-0 group-hover:bg-[#01D0FF]/10 group-hover:shadow-[0_0_15px_rgba(1,208,255,0.3)] transition-all border border-white/5 group-hover:border-[#01D0FF]/30">
                                         <MapPin className="w-5 h-5" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="text-xs text-gray-400 uppercase tracking-tighter mb-1 font-semibold">Ubicación</p>
+                                        <p className="text-xs text-gray-500 uppercase tracking-tighter mb-1 font-semibold">Ubicación</p>
                                         
-                                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-tight mt-1 border-t border-gray-100 dark:border-gray-800 pt-1">
+                                        <p className="text-sm text-gray-300 leading-tight mt-1 border-t border-white/10 pt-1">
                                             San Carlos, Ñuble, Chile
                                         </p>
                                     </div>
@@ -1948,8 +1980,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         </div>
                     </div>
 
-                    <div className="pt-8 border-t border-gray-100 dark:border-gray-800 text-center">
-                        <p className="text-gray-400 dark:text-gray-500 text-xs">
+                    <div className="pt-8 border-t border-white/10 text-center">
+                        <p className="text-gray-500 text-xs">
                             © 2024 Claudio Aguilera. Todos los derechos reservados.
                         </p>
                     </div>
