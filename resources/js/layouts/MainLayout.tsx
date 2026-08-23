@@ -808,10 +808,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                         <div className="mb-16">
                             <div className="max-w-3xl mx-auto text-center">
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E0F2FE] to-[#01D0FF]">
                                     Sobre mí
                                 </h2>
-                                <p className="text-lg text-[#E0F2FE] leading-relaxed text-center">
+                                <p className="text-lg text-[#E0F2FE]/80 max-w-2xl mx-auto leading-relaxed font-light text-center">
                                     Desarrollador especializado en soluciones tecnológicas.
                                     Entiendo los desafíos únicos de las empresas de todos los tamaños.
                                 </p>
@@ -826,7 +826,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <div className="w-10 h-10 bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-lg flex items-center justify-center mr-3 shadow-lg group-hover:scale-110 transition-transform">
                                             <span className="text-white text-lg">🚀</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-[#01D0FF] transition-colors">
+                                        <h3 className="text-2xl font-bold text-white group-hover:text-[#01D0FF] transition-colors">
                                             Mi experiencia
                                         </h3>
                                     </div>
@@ -846,7 +846,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         <div className="w-10 h-10 bg-gradient-to-r from-[#0065E1] to-[#01D0FF] rounded-lg flex items-center justify-center mr-3 shadow-lg group-hover:scale-110 transition-transform">
                                             <span className="text-white text-lg">🎯</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-[#01D0FF] transition-colors">
+                                        <h3 className="text-2xl font-bold text-white group-hover:text-[#01D0FF] transition-colors">
                                             Mi enfoque
                                         </h3>
                                     </div>
@@ -866,7 +866,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                 <div className="bg-gradient-to-r from-[#01D0FF] to-[#0085EE] rounded-2xl p-6 text-white shadow-xl">
                                     <div className="flex items-center mb-4">
                                         <span className="text-2xl mr-3">💡</span>
-                                        <h3 className="text-xl font-bold text-white">
+                                        <h3 className="text-2xl font-bold text-white">
                                             Mi filosofía
                                         </h3>
                                     </div>
@@ -1077,10 +1077,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
                     <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-20">
-                            <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#01D0FF] to-[#0065E1] mb-6 drop-shadow-sm">
+                            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E0F2FE] to-[#01D0FF]">
                                 Servicios para tu Empresa
                             </h2>
-                            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
+                            <p className="text-lg text-[#E0F2FE]/80 max-w-2xl mx-auto leading-relaxed font-light text-center">
                                 Soluciones tecnológicas premium adaptadas a las necesidades de tu empresa. Diseño excepcional, rendimiento superior.
                             </p>
                         </div>
@@ -1100,10 +1100,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#01D0FF] transition-colors duration-300">
+                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#01D0FF] transition-colors duration-300">
                                         Sistemas ERP y CRM
                                     </h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light">
+                                    <p className="text-base text-gray-300 mb-8 leading-relaxed font-light text-justify">
                                         Centraliza tu operativa. Gestiona clientes, automatiza procesos y toma decisiones basadas en datos reales.
                                     </p>
 
@@ -1152,10 +1152,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#0065E1] transition-colors duration-300">
+                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#0065E1] transition-colors duration-300">
                                         Tiendas E-commerce
                                     </h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light">
+                                    <p className="text-base text-gray-300 mb-8 leading-relaxed font-light text-justify">
                                         Eleva tus ventas al siguiente nivel con plataformas escalables, ultrarrápidas y optimizadas para conversión.
                                     </p>
 
@@ -1204,10 +1204,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#0085EE] transition-colors duration-300">
+                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#0085EE] transition-colors duration-300">
                                         Sitios Web Corporativos
                                     </h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light">
+                                    <p className="text-base text-gray-300 mb-8 leading-relaxed font-light text-justify">
                                         Presencia digital premium. Diseños deslumbrantes y responsivos que posicionan tu marca en el mercado.
                                     </p>
 
@@ -1249,10 +1249,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 <section id="portafolio" className="py-24 bg-[#F8FAFC] dark:bg-[#0a0a0a] transition-colors duration-500">
                     <div className="max-w-[95vw] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-20">
-                            <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0085EE] to-[#01D0FF] mb-6 drop-shadow-sm">
+                            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E0F2FE] to-[#01D0FF]">
                                 Portafolio de Proyectos
                             </h2>
-                            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
+                            <p className="text-lg text-[#E0F2FE]/80 max-w-2xl mx-auto leading-relaxed font-light text-center">
                                 Casos de éxito que demuestran cómo mis soluciones tecnológicas han impulsado el crecimiento de empresas como la tuya.
                             </p>
                         </div>
@@ -1432,7 +1432,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                                             </div>
                                         </div>
 
-                                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-8 flex-grow line-clamp-3">
+                                        <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-8 flex-grow line-clamp-3 font-light text-justify">
                                             {project.descripcion}
                                         </p>
 
